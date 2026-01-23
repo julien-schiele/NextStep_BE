@@ -1,0 +1,20 @@
+# Django LTS
+Django>=5.2,<6.0
+
+# REST API
+djangorestframework>=3.15,<4.0
+
+# Auth JWT
+djangorestframework-simplejwt
+
+# PostgreSQL driver
+psycopg[binary]>=3.1,<4.0
+
+# CORS (utile pour frontend Next.js)
+django-cors-headers>=4.1,<5.0
+
+# Environnement
+python-dotenv>=1.0,<2.0
+
+# Optional: utils pour dev
+ipython>=8.14,<9.0
