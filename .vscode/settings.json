@@ -1,0 +1,11 @@
+{
+  "python.pythonPath": "/usr/local/bin/python",
+  "python.languageServer": "Pylance",
+  "python.analysis.extraPaths": [
+    "/app",
+    "/usr/local/lib/python3.11/site-packages"
+  ],
+  "python.analysis.autoImportCompletions": true,
+  "python.analysis.typeCheckingMode": "basic",
+  "python.analysis.indexing": true
+}
