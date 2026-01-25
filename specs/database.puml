@@ -1,0 +1,195 @@
+@startuml
+hide circle
+skinparam linetype ortho
+skinparam shadowing true
+skinparam classFontSize 12
+
+' =========================
+' ABSTRACT BASE MODELS (discreet)
+' =========================
+abstract class AbstractBaseUUID #D6EAF8 {
+  +id : UUID
+}
+
+abstract class AbstractTimeStamped #EBF5FB {
+  created_at : timestamptz <<UTC>>
+  updated_at : timestamptz <<UTC>>
+}
+
+abstract class AbstractBaseUser #FEF5E7 {
+  password : varchar
+  last_login : timestamptz <<UTC>>
+}
+
+' =========================
+' BUSINESS TABLES BY APP
+' =========================
+
+' Auth App
+entity User #F9E79F {
+  +id : UUID
+  created_at : timestamptz <<UTC>>
+  updated_at : timestamptz <<UTC>>
+  password : varchar
+  last_login : timestamptz <<UTC>>
+
+  email : varchar
+  first_name : varchar
+  last_name : varchar
+  is_active : boolean
+  is_staff : boolean
+  date_joined : timestamptz <<UTC>>
+}
+
+' Program App
+entity Exercise #5DADE2 {
+  +id : UUID
+  created_at : timestamptz <<UTC>>
+  updated_at : timestamptz <<UTC>>
+
+  slug : varchar <<unique>>
+  image : ImageField
+  gif : FileField
+  video : URLField
+}
+
+entity Program #3498DB {
+  +id : UUID
+  created_at : timestamptz <<UTC>>
+  updated_at : timestamptz <<UTC>>
+
+  slug : varchar <<unique>>
+  type : enum("fitness","climbing")
+  level : varchar
+  duration_days : int
+  is_public : boolean
+  content : jsonb
+}
+
+' Tracking App
+entity UserProgram #58D68D {
+  +id : UUID
+
+  user_id : UUID
+  program_id : UUID
+  start_date : date
+  status : enum("active","completed","abandoned")
+}
+
+entity UserSessionProgress #58D68D {
+  +id : UUID
+  created_at : timestamptz <<UTC>>
+  updated_at : timestamptz <<UTC>>
+
+  user_program_id : UUID
+  program_day : int
+  session_date : date
+  completed_at : timestamptz <<UTC>>
+  completed : boolean <<calculated>>
+  attempt_number : int
+  rating : enum("too_easy","ok","too_hard")
+  comment : text
+}
+
+entity UserProgramFeedback #58D68D {
+  +id : UUID
+  created_at : timestamptz <<UTC>>
+  updated_at : timestamptz <<UTC>>
+
+  user_program_id : UUID
+  usefulness : enum("not_useful","useful","very_useful")
+  would_repeat : boolean
+  comment : text
+}
+
+' Translation Tables (secondary)
+entity ExerciseTranslation #F2F4F4 {
+  +id : UUID
+  created_at : timestamptz <<UTC>>
+  updated_at : timestamptz <<UTC>>
+
+  exercise_id : UUID
+  language_code : varchar
+  name : varchar
+  description : text
+}
+
+entity ProgramTranslation #F2F4F4 {
+  +id : UUID
+  created_at : timestamptz <<UTC>>
+  updated_at : timestamptz <<UTC>>
+
+  program_id : UUID
+  language_code : varchar
+  name : varchar
+  description : text
+}
+
+' =========================
+' BUSINESS RELATIONS
+' =========================
+' Auth → Tracking
+skinparam classArrowColor #7D6608
+skinparam classArrowFontColor #7D6608
+skinparam classArrowThickness 2
+User ||--o{ UserProgram
+
+' Program → Tracking
+skinparam classArrowColor #1F618D
+skinparam classArrowFontColor #1F618D
+skinparam classArrowThickness 2
+Program ||--o{ UserProgram
+
+' Tracking internal
+skinparam classArrowColor #27AE60
+skinparam classArrowFontColor #27AE60
+skinparam classArrowThickness 2
+UserProgram ||--o{ UserSessionProgress
+UserProgram ||--|| UserProgramFeedback
+
+' Translation tables (thin, pastel)
+skinparam classArrowColor #AF7AC5
+skinparam classArrowFontColor #AF7AC5
+skinparam classArrowThickness 1
+Program ||--o{ ProgramTranslation : translations
+Exercise ||--o{ ExerciseTranslation : translations
+
+' =========================
+' INHERITANCE (abstract → table)
+' =========================
+skinparam classArrowThickness 1
+
+skinparam classArrowColor #D6EAF8
+skinparam classArrowFontColor #1B4F72
+User --|> AbstractBaseUUID : UUID
+Exercise --|> AbstractBaseUUID : UUID
+Program --|> AbstractBaseUUID : UUID
+UserProgram --|> AbstractBaseUUID : UUID
+UserSessionProgress --|> AbstractBaseUUID : UUID
+UserProgramFeedback --|> AbstractBaseUUID : UUID
+
+skinparam classArrowColor #EBF5FB
+skinparam classArrowFontColor #2874A6
+User --|> AbstractTimeStamped : created_at / updated_at
+Exercise --|> AbstractTimeStamped : created_at / updated_at
+Program --|> AbstractTimeStamped : created_at / updated_at
+UserProgram --|> AbstractTimeStamped : created_at / updated_at
+UserSessionProgress --|> AbstractTimeStamped : created_at / updated_at
+UserProgramFeedback --|> AbstractTimeStamped : created_at / updated_at
+
+skinparam classArrowColor #FEF5E7
+skinparam classArrowFontColor #B9770E
+User --|> AbstractBaseUser : password / last_login
+
+' =========================
+' LEGEND (colors explained clearly)
+' =========================
+legend right
+| 🟨 | Auth App |
+| 🟦 | Program App |
+| 🟩 | Tracking App |
+| Grey | Translation Tables |
+| Pastel | Abstract Base Models |
+endlegend
+
+@enduml
