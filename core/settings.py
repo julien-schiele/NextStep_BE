@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-50d$42+k_!c2euv$wk3nzj*f6%5eu(_q)o86)7i@%(vr&z#92r
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '0.0.0.0']
 
 
 # Application definition
@@ -43,11 +43,14 @@ INSTALLED_APPS = [
     'parler',
     'apps.users',
     'apps.programs.apps.ProgramsConfig',    # ot laod app AND signals
+    'apps.tracking'
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'apps.utils.middleware.AcceptLanguageHeaderMiddleware',
+    'django.middleware.locale.LocaleMiddleware',    # for fallback (optional)
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',

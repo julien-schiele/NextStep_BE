@@ -25,8 +25,8 @@ class Exercise(AbstractBaseUUID, AbstractTimeStamped, TranslatableModel):
         help_text="Slugified version of the English name, auto-generated",
     )
     PRACTICE_ZONE_CHOICES = [
-        ("everywhere", "Everywhere"),
-        ("climbing_gym", "Climbing Gym"),
+        ("everywhere", _("Everywhere")),
+        ("climbing_gym", _("Climbing Gym")),
     ]
     practice_zone = models.CharField(
         max_length=20, choices=PRACTICE_ZONE_CHOICES, default="everywhere"

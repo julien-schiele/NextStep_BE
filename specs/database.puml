@@ -86,7 +86,7 @@ entity UserSessionProgress #58D68D {
   updated_at : timestamptz <<UTC>>
 
   user_program_id : UUID
-  program_day : int
+  program_session : int
   cycle_count : int
   session_date : date
   completed_at : timestamptz <<UTC>>
@@ -103,7 +103,7 @@ note right of UserSessionProgress
   - fields:
     * user_program
     * cycle_count
-    * program_day
+    * program_session
 end note
 
 entity UserProgramFeedback #58D68D {
