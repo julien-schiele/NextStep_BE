@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'drf_yasg',
     'parler',
     'apps.users',
+    'apps.programs.apps.ProgramsConfig',    # ot laod app AND signals
 ]
 
 MIDDLEWARE = [
@@ -148,5 +149,23 @@ SWAGGER_SETTINGS = {
             "in": "header",
             "description": "JWT Authorization header using the Bearer scheme. Example: 'Bearer <token>'"
         }
+    }
+}
+
+LANGUAGES = [
+    ('en', 'English'),
+    ('fr', 'Français'),
+    ('es', 'Español'),
+]
+
+PARLER_LANGUAGES = {
+    None: (
+        {'code': 'en'},
+        {'code': 'fr'},
+        {'code': 'es'},
+    ),
+    'default': {
+        'fallbacks': ['en'],  # si une traduction manque, prendre l'anglais
+        'hide_untranslated': False,
     }
 }

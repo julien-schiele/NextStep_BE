@@ -1,0 +1,22 @@
+@startuml
+start
+:User selects a Day;
+
+repeat
+  :Display next Block;
+  note right
+    Block = same zone
+    (fitness OR wall)
+  end note
+
+  repeat
+    :Display sequence exercises;
+    :User completes exercises;
+  repeat while (sequence remaining?)
+
+repeat while (block remaining?)
+
+:Mark Day completed;
+stop
+@enduml
+∑

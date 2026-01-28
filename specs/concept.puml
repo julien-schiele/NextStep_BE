@@ -1,0 +1,45 @@
+@startuml
+skinparam style strictuml
+skinparam linetype ortho
+
+actor User
+
+rectangle "NextStep App" {
+    rectangle Program {
+        note right
+            Concept central
+            - fitness
+            - climbing
+            - challenge
+        end note
+    }
+
+    rectangle ProgramContent {
+        note right
+            JSON blueprint
+            sessions
+            cycles
+            progression
+        end note
+    }
+
+    rectangle UserProgram {
+        note right
+            Program choisi
+            par un user
+        end note
+    }
+
+    rectangle UserSessionProgress {
+        note right
+            Tracking minimal
+            day + cycle
+        end note
+    }
+}
+
+User --> Program : browse / select
+Program --> ProgramContent : defines
+User --> UserProgram : start
+UserProgram --> UserSessionProgress : track progress
+@enduml

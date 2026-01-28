@@ -1,0 +1,382 @@
+[
+    {
+        "practice_zone": "everywhere",
+        "translations": {
+            "en": {
+                "name": "Push-Up",
+                "description": "Classic push-up to strengthen chest, shoulders, and triceps"
+            },
+            "fr": {
+                "name": "Pompes",
+                "description": "Pompes classiques pour renforcer la poitrine, les épaules et les triceps"
+            },
+            "es": {
+                "name": "Flexiones",
+                "description": "Flexiones clásicas para fortalecer pecho, hombros y tríceps"
+            }
+        },
+        "resolution": "repetition",
+        "image": "exercises/images/push_up.png"
+    },
+    {
+        "practice_zone": "everywhere",
+        "translations": {
+            "en": {
+                "name": "Squat",
+                "description": "Bodyweight squat to strengthen legs and glutes"
+            },
+            "fr": {
+                "name": "Squat",
+                "description": "Squat au poids du corps pour renforcer les jambes et les fessiers"
+            },
+            "es": {
+                "name": "Sentadilla",
+                "description": "Sentadilla con peso corporal para fortalecer piernas y glúteos"
+            }
+        },
+        "resolution": "repetition",
+        "image": "exercises/images/squat.png"
+    },
+    {
+        "practice_zone": "everywhere",
+        "translations": {
+            "en": {
+                "name": "Plank",
+                "description": "Hold a plank to strengthen your core"
+            },
+            "fr": {
+                "name": "Planche",
+                "description": "Tenir la planche pour renforcer le tronc"
+            },
+            "es": {
+                "name": "Plancha",
+                "description": "Mantener la plancha para fortalecer el core"
+            }
+        },
+        "resolution": "duration",
+        "image": "exercises/images/plank.png"
+    },
+    {
+        "practice_zone": "everywhere",
+        "translations": {
+            "en": {
+                "name": "Mountain Climber",
+                "description": "High-intensity exercise for core and cardio"
+            },
+            "fr": {
+                "name": "Grimpeur",
+                "description": "Exercice cardio et gainage à haute intensité"
+            },
+            "es": {
+                "name": "Escalador",
+                "description": "Ejercicio de alta intensidad para core y cardio"
+            }
+        },
+        "resolution": "repetition",
+        "image": "exercises/images/mountain_climber.png"
+    },
+    {
+        "practice_zone": "everywhere",
+        "translations": {
+            "en": {
+                "name": "Glute Bridge",
+                "description": "Strengthen glutes and lower back with this bodyweight exercise"
+            },
+            "fr": {
+                "name": "Pont fessier",
+                "description": "Renforcez les fessiers et le bas du dos au poids du corps"
+            },
+            "es": {
+                "name": "Puente de glúteos",
+                "description": "Fortalece glúteos y espalda baja con este ejercicio de peso corporal"
+            }
+        },
+        "resolution": "repetition",
+        "image": "exercises/images/glute_bridge.png"
+    },
+    {
+        "practice_zone": "climbing_gym",
+        "translations": {
+            "en": {
+                "name": "Easy Traverse",
+                "description": "Simple climbing traverse to warm up and practice movement across the wall."
+            },
+            "fr": {
+                "name": "Traversée Facile",
+                "description": "Traversée simple pour s'échauffer et pratiquer les mouvements sur le mur."
+            },
+            "es": {
+                "name": "Travesía Fácil",
+                "description": "Travesía sencilla para calentar y practicar movimientos en la pared."
+            }
+        },
+        "resolution": "repetition",
+        "image": "exercises/images/easy_traverse.png"
+    },
+    {
+        "practice_zone": "everywhere",
+        "translations": {
+            "en": {
+                "name": "Mobility",
+                "description": "Mobility exercises to improve flexibility and range of motion for climbing."
+            },
+            "fr": {
+                "name": "Mobilité",
+                "description": "Exercices de mobilité pour améliorer la flexibilité et l'amplitude de mouvement pour l'escalade."
+            },
+            "es": {
+                "name": "Movilidad",
+                "description": "Ejercicios de movilidad para mejorar la flexibilidad y rango de movimiento para escalar."
+            }
+        },
+        "resolution": "repetition",
+        "image": "exercises/images/mobility.png"
+    },
+    {
+        "practice_zone": "climbing_wall",
+        "translations": {
+            "en": {
+                "name": "Limit Boulder",
+                "description": "Short, intense bouldering problem to train strength and technique."
+            },
+            "fr": {
+                "name": "Bloc Limite",
+                "description": "Bloc court et intense pour travailler la force et la technique."
+            },
+            "es": {
+                "name": "Bloque Límite",
+                "description": "Problema de boulder corto e intenso para entrenar fuerza y técnica."
+            }
+        },
+        "resolution": "repetition",
+        "image": "exercises/images/limit_boulder.png"
+    },
+    {
+        "practice_zone": "climbing_wall",
+        "translations": {
+            "en": {
+                "name": "Hollow Body",
+                "description": "Hollow body hold to develop core tension for better climbing control."
+            },
+            "fr": {
+                "name": "Hollow Body",
+                "description": "Maintien hollow body pour développer la tension du tronc et mieux contrôler ses mouvements en escalade."
+            },
+            "es": {
+                "name": "Hollow Body",
+                "description": "Mantener hollow body para desarrollar tensión en el core y mejorar el control al escalar."
+            }
+        },
+        "resolution": "duration",
+        "image": "exercises/images/hollow_body.png"
+    },
+    {
+        "practice_zone": "climbing_wall",
+        "translations": {
+            "en": {
+                "name": "Lock-Off",
+                "description": "Practice holding positions with one arm bent to strengthen pulling muscles."
+            },
+            "fr": {
+                "name": "Lock-Off",
+                "description": "Exercer la tenue de positions avec un bras plié pour renforcer les muscles de traction."
+            },
+            "es": {
+                "name": "Lock-Off",
+                "description": "Practicar mantener posiciones con un brazo doblado para fortalecer los músculos de tracción."
+            }
+        },
+        "resolution": "duration",
+        "image": "exercises/images/lock_off.png"
+    },
+    {
+        "practice_zone": "climbing_wall",
+        "translations": {
+            "en": {
+                "name": "Dyno",
+                "description": "Explosive jump to reach distant holds, training power and coordination."
+            },
+            "fr": {
+                "name": "Dyno",
+                "description": "Saut explosif pour atteindre des prises éloignées, entraînant puissance et coordination."
+            },
+            "es": {
+                "name": "Dyno",
+                "description": "Salto explosivo para alcanzar presas lejanas, entrenando fuerza y coordinación."
+            }
+        },
+        "resolution": "repetition",
+        "image": "exercises/images/dyno.png"
+    },
+    {
+        "practice_zone": "climbing_wall",
+        "translations": {
+            "en": {
+                "name": "Mantle",
+                "description": "Move to push over a ledge or topout a boulder problem."
+            },
+            "fr": {
+                "name": "Mantle",
+                "description": "Mouvement pour se pousser au-dessus d'une prise ou terminer un bloc."
+            },
+            "es": {
+                "name": "Mantle",
+                "description": "Movimiento para empujar sobre un saliente o finalizar un problema de boulder."
+            }
+        },
+        "resolution": "repetition",
+        "image": "exercises/images/mantle.png"
+    },
+    {
+        "practice_zone": "climbing_wall",
+        "translations": {
+            "en": {
+                "name": "Heel Hook",
+                "description": "Technique using heel to secure holds and reduce arm load."
+            },
+            "fr": {
+                "name": "Heel Hook",
+                "description": "Technique utilisant le talon pour sécuriser les prises et soulager les bras."
+            },
+            "es": {
+                "name": "Heel Hook",
+                "description": "Técnica usando el talón para asegurar presas y reducir carga en brazos."
+            }
+        },
+        "resolution": "duration",
+        "image": "exercises/images/heel_hook.png"
+    },
+    {
+        "practice_zone": "climbing_gym",
+        "translations": {
+            "en": {
+                "name": "Basic Boulder",
+                "description": "Simple bouldering problems focused on basic movement, balance, and confidence on the wall."
+            },
+            "fr": {
+                "name": "Bloc basique",
+                "description": "Blocs simples axés sur les mouvements de base, l’équilibre et la prise de confiance sur le mur."
+            },
+            "es": {
+                "name": "Bloque básico",
+                "description": "Bloques sencillos centrados en movimientos básicos, equilibrio y confianza en el muro."
+            }
+        },
+        "resolution": "repetitions",
+        "image": "exercises/images/basic_boulder.png"
+    },
+    {
+        "practice_zone": "climbing_gym",
+        "translations": {
+            "en": {
+                "name": "Technical Boulder",
+                "description": "Bouldering problems emphasizing precise footwork, body positioning, and efficient movement."
+            },
+            "fr": {
+                "name": "Bloc technique",
+                "description": "Blocs axés sur la précision des pieds, le placement du corps et l’efficacité du mouvement."
+            },
+            "es": {
+                "name": "Bloque técnico",
+                "description": "Bloques enfocados en la precisión de pies, colocación del cuerpo y eficiencia del movimiento."
+            }
+        },
+        "resolution": "repetitions",
+        "image": "exercises/images/technical_boulder.png"
+    },
+    {
+        "practice_zone": "everywhere",
+        "translations": {
+            "en": {
+                "name": "Pull-Up",
+                "description": "Upper-body strength exercise focusing on back, arms, and grip, essential for climbing performance."
+            },
+            "fr": {
+                "name": "Traction",
+                "description": "Exercice de renforcement du haut du corps sollicitant le dos, les bras et la prise, essentiel pour l’escalade."
+            },
+            "es": {
+                "name": "Dominadas",
+                "description": "Ejercicio de fuerza del tren superior que trabaja espalda, brazos y agarre, clave para la escalada."
+            }
+        },
+        "resolution": "repetitions",
+        "image": "exercises/images/pull_up.png"
+    },
+    {
+        "practice_zone": "climbing_gym",
+        "translations": {
+            "en": {
+                "name": "Project Boulder",
+                "description": "Working repeatedly on a challenging boulder to improve problem-solving, confidence, and peak performance."
+            },
+            "fr": {
+                "name": "Bloc à projet",
+                "description": "Travail répété sur un bloc difficile afin de développer la lecture, la confiance et la performance maximale."
+            },
+            "es": {
+                "name": "Bloque de proyecto",
+                "description": "Trabajo repetido en un bloque exigente para mejorar la lectura, la confianza y el rendimiento máximo."
+            }
+        },
+        "resolution": "attempts",
+        "image": "exercises/images/project_boulder.png"
+    },
+    {
+        "practice_zone": "climbing_gym",
+        "translations": {
+            "en": {
+                "name": "Easy Hangboard",
+                "description": "Beginner-friendly hangboard session focusing on controlled grips and proper body positioning."
+            },
+            "fr": {
+                "name": "Hangboard facile",
+                "description": "Séance de poutre accessible axée sur le contrôle des prises et le bon placement du corps."
+            },
+            "es": {
+                "name": "Tabla multipresa fácil",
+                "description": "Sesión de tabla multipresa para principiantes centrada en el control de agarres y la posición corporal."
+            }
+        },
+        "resolution": "duration",
+        "image": "exercises/images/easy_hangboard.png"
+    },
+    {
+        "practice_zone": "climbing_gym",
+        "translations": {
+            "en": {
+                "name": "Long Circuit",
+                "description": "Continuous climbing circuit designed to build endurance, pacing, and movement efficiency."
+            },
+            "fr": {
+                "name": "Circuit long",
+                "description": "Circuit d’escalade en continu visant à développer l’endurance, la gestion de l’effort et l’efficacité gestuelle."
+            },
+            "es": {
+                "name": "Circuito largo",
+                "description": "Circuito de escalada continuo diseñado para desarrollar resistencia, control del ritmo y eficiencia de movimiento."
+            }
+        },
+        "resolution": "duration",
+        "image": "exercises/images/long_circuit.png"
+    },
+    {
+        "practice_zone": "climbing_gym",
+        "translations": {
+            "en": {
+                "name": "Power-Endurance Circuit",
+                "description": "High-intensity climbing circuit designed to develop power endurance and resistance to forearm pump."
+            },
+            "fr": {
+                "name": "Circuit puissance-endurance",
+                "description": "Circuit d’escalade à haute intensité visant à développer la puissance-endurance et la résistance à l’avant-bras."
+            },
+            "es": {
+                "name": "Circuito de potencia-resistencia",
+                "description": "Circuito de escalada de alta intensidad diseñado para desarrollar la potencia-resistencia y la tolerancia a la fatiga en antebrazos."
+            }
+        },
+        "resolution": "duration",
+        "image": "exercises/images/power_endurance_circuit.png"
+    }
+]

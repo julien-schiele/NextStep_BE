@@ -9,7 +9,7 @@ urlpatterns = [
 
     # User CRUD
     path("users/", UserListView.as_view(), name="user-list"),
-    path('api/users/<uuid:id>/', UserDetailView.as_view(), name='user-detail'),
+    path('users/<uuid:id>/', UserDetailView.as_view(), name='user-detail'),
     path("users/create/", UserCreateView.as_view(), name="user-create"),
     
     # Others

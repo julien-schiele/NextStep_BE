@@ -1,0 +1,22 @@
+@startuml
+skinparam componentStyle rectangle
+
+component "Backend" {
+    component ProgramContent
+    component CycleRules
+    component ProgressionLogic
+}
+
+component "Frontend" {
+    component ProgramView
+    component DayList
+    component SessionScreen
+}
+
+ProgramContent --> CycleRules
+CycleRules --> ProgressionLogic
+ProgressionLogic --> ProgramView
+ProgramView --> DayList
+DayList --> SessionScreen
+
+@enduml

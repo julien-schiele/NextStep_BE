@@ -48,6 +48,8 @@ entity Exercise #5DADE2 {
   updated_at : timestamptz <<UTC>>
 
   slug : varchar <<unique>>
+  practice_zone: enum("everywhere", "climbing_gym")
+  resolution: enum("repetition","duration")
   image : ImageField
   gif : FileField
   video : URLField
@@ -59,11 +61,13 @@ entity Program #3498DB {
   updated_at : timestamptz <<UTC>>
 
   slug : varchar <<unique>>
-  type : enum("fitness","climbing")
-  level : varchar
+  focus : enum("general_fitness","climbing_performance")
+  level : enum("beginner","intermediate","advanced")
   duration_days : int
   is_public : boolean
   content : jsonb
+  focus_axes : jsonb
+  cycle_rhythm : jsonb
 }
 
 ' Tracking App
@@ -83,13 +87,24 @@ entity UserSessionProgress #58D68D {
 
   user_program_id : UUID
   program_day : int
+  cycle_count : int
   session_date : date
   completed_at : timestamptz <<UTC>>
   completed : boolean <<calculated>>
   attempt_number : int
+  session
   rating : enum("too_easy","ok","too_hard")
   comment : text
 }
+
+note right of UserSessionProgress
+  Meta constraint:
+  - unique_day_per_cycle
+  - fields:
+    * user_program
+    * cycle_count
+    * program_day
+end note
 
 entity UserProgramFeedback #58D68D {
   +id : UUID
@@ -104,10 +119,6 @@ entity UserProgramFeedback #58D68D {
 
 ' Translation Tables (secondary)
 entity ExerciseTranslation #F2F4F4 {
-  +id : UUID
-  created_at : timestamptz <<UTC>>
-  updated_at : timestamptz <<UTC>>
-
   exercise_id : UUID
   language_code : varchar
   name : varchar
@@ -115,14 +126,12 @@ entity ExerciseTranslation #F2F4F4 {
 }
 
 entity ProgramTranslation #F2F4F4 {
-  +id : UUID
-  created_at : timestamptz <<UTC>>
-  updated_at : timestamptz <<UTC>>
-
   program_id : UUID
   language_code : varchar
   name : varchar
   description : text
+  realistic_if : text
+  not_realistic_if : text
 }
 
 ' =========================
