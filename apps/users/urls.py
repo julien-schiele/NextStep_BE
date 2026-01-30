@@ -8,6 +8,7 @@ urlpatterns = [
     path("token/refresh/", TokenRefreshView.as_view(), name="token_refresh"),
 
     # User CRUD
+    # TODO: The 2 below are not useful from a UX perspective, and may raises GDPR/security questions.
     path("users/", UserListView.as_view(), name="user-list"),
     path('users/<uuid:id>/', UserDetailView.as_view(), name='user-detail'),
     path("users/create/", UserCreateView.as_view(), name="user-create"),

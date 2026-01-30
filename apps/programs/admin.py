@@ -8,12 +8,10 @@ from apps.programs.models import Exercise, Program
 @admin.register(Exercise)
 class ExerciseAdmin(TranslatableAdmin):
 
-    # Liste affichée dans l'admin
     list_display = ("name", "resolution", "slug")
     list_filter = ("resolution",)
     search_fields = ("translations__name",)
 
-    # Organisation des champs dans le formulaire
     fieldsets = (
         (None, {"fields": ("slug", "resolution")}),
         (
@@ -68,4 +66,4 @@ class ProgramAdmin(TranslatableAdmin):
         ),
     )
 
-    readonly_fields = ("slug", "duration_days")  # Affiche mais non modifiable
+    readonly_fields = ("slug", "duration_days")
