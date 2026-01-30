@@ -1,0 +1,175 @@
+# Programs translations
+# Copyright (C) 2026 Your Name
+# This file is distributed under the same license as the PACKAGE package.
+# Your Name <julien.schiele@gmail.com>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROGRAMS 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-30 19:31+0000\n"
+"PO-Revision-Date: 2026-01-30 19:31+0000\n"
+"Last-Translator: Your Name <you@example.com>\n"
+"Language-Team: French <fr@li.org>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: apps/programs/choices.py:6
+msgid "Repetition"
+msgstr "Répétition"
+
+#: apps/programs/choices.py:7
+msgid "Duration"
+msgstr "Durée"
+
+#: apps/programs/choices.py:11
+msgid "Everywhere"
+msgstr "Partout"
+
+#: apps/programs/choices.py:12
+msgid "Climbing Gym"
+msgstr "Salle d'escalade"
+
+#: apps/programs/choices.py:16
+msgid "General fitness"
+msgstr "Fitness général"
+
+#: apps/programs/choices.py:17
+msgid "Climbing performance"
+msgstr "Performance en escalade"
+
+#: apps/programs/choices.py:21
+msgid "Beginner"
+msgstr "Débutant"
+
+#: apps/programs/choices.py:22
+msgid "Intermediate"
+msgstr "Intermédiaire"
+
+#: apps/programs/choices.py:23
+msgid "Advanced"
+msgstr "Avancé"
+
+#: apps/programs/choices.py:28
+msgid "Technical bouldering"
+msgstr "Bloc technique"
+
+#: apps/programs/choices.py:29
+msgid "Project bouldering"
+msgstr "Bloc projet"
+
+#: apps/programs/choices.py:30
+msgid "Route technique"
+msgstr "Technique de voie"
+
+#: apps/programs/choices.py:31
+msgid "Movement quality"
+msgstr "Qualité du mouvement"
+
+#: apps/programs/choices.py:32
+msgid "Coordination"
+msgstr "Coordination"
+
+#: apps/programs/choices.py:33
+msgid "Footwork"
+msgstr "Travail des pieds"
+
+#: apps/programs/choices.py:36
+msgid "Power"
+msgstr "Puissance"
+
+#: apps/programs/choices.py:37
+msgid "Max strength"
+msgstr "Force maximale"
+
+#: apps/programs/choices.py:38
+msgid "Power endurance"
+msgstr "Endurance / puissance"
+
+#: apps/programs/choices.py:39
+msgid "Endurance / continuity"
+msgstr "Endurance / continuité"
+
+#: apps/programs/choices.py:40
+msgid "Climbing volume"
+msgstr "Volume d'escalade"
+
+#: apps/programs/choices.py:43
+msgid "Finger strength"
+msgstr "Force des doigts"
+
+#: apps/programs/choices.py:44
+msgid "Upper body strength"
+msgstr "Force du haut du corps"
+
+#: apps/programs/choices.py:45
+msgid "Core tension"
+msgstr "Tension du tronc"
+
+#: apps/programs/choices.py:46
+msgid "Lock-off strength"
+msgstr "Force de verrouillage"
+
+#: apps/programs/choices.py:47
+msgid "Pulling strength"
+msgstr "Force de traction"
+
+#: apps/programs/choices.py:50
+msgid "General strength"
+msgstr "Force générale"
+
+#: apps/programs/choices.py:51
+msgid "Mobility"
+msgstr "Mobilité"
+
+#: apps/programs/choices.py:52
+msgid "Stability"
+msgstr "Stabilité"
+
+#: apps/programs/choices.py:53
+msgid "Balance"
+msgstr "Équilibre"
+
+#: apps/programs/choices.py:54
+msgid "Conditioning"
+msgstr "Condition physique"
+
+#: apps/programs/choices.py:57
+msgid "Active recovery"
+msgstr "Récupération active"
+
+#: apps/programs/choices.py:58
+msgid "Injury prevention"
+msgstr "Prévention des blessures"
+
+#: apps/programs/choices.py:59
+msgid "Antagonist training"
+msgstr "Travail des antagonistes"
+
+#: apps/programs/choices.py:62
+msgid "Progressive overload"
+msgstr "Surcharge progressive"
+
+#: apps/programs/choices.py:63
+msgid "Deload / recovery"
+msgstr "Décharge / récupération"
+
+#: apps/programs/choices.py:64
+msgid "Movement efficiency"
+msgstr "Efficacité du mouvement"
+
+#: apps/programs/models.py:17
+msgid "Does this exercise count by repetitions or seconds?"
+msgstr "Cet exercice se compte-t-il en répétitions ou en secondes ?"
+
+#: apps/programs/models.py:29 apps/programs/models.py:86
+msgid "Name"
+msgstr "Nom"
+
+#: apps/programs/models.py:30 apps/programs/models.py:87
+msgid "Description"
+msgstr "Description"
