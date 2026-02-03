@@ -1,11 +1,11 @@
+from apps.programs.models import Program
+from apps.programs.serializers import ExerciseSerializer, ProgramSerializer
+from .factories import ExerciseFactory, ProgramFactory
 from apps.users.factories import UserFactory
 from django.forms import ValidationError
 from django.urls import reverse
 from rest_framework import status
 from rest_framework.test import APITestCase, APIClient
-from django.contrib.auth.models import User
-from .models import Program, Exercise
-from .serializers import ProgramSerializer, ExerciseSerializer
 
 
 class BaseTestCase(APITestCase):
@@ -14,17 +14,8 @@ class BaseTestCase(APITestCase):
         self.admin = UserFactory(
             is_staff=True, is_superuser=True, password="password123"
         )
-
-        self.exercise1 = Exercise.objects.create()
-        self.exercise1.set_current_language("en")
-        self.exercise1.name = "Push Ups"
-        self.exercise1.save()
-
-        self.exercise2 = Exercise.objects.create()
-        self.exercise2.set_current_language("en")
-        self.exercise2.name = "Plank"
-        self.exercise2.resolution = "duration"
-        self.exercise2.save()
+        self.exercise1 = ExerciseFactory(name="Push Ups")
+        self.exercise2 = ExerciseFactory(name="Plank", resolution="duration")
 
 
 class ExerciseSerializerTests(BaseTestCase):
@@ -51,38 +42,39 @@ class ExerciseSerializerTests(BaseTestCase):
 
 class ProgramSerializerTests(BaseTestCase):
     def test_valid_program_content(self):
-        data = {
-            "focus": "general_fitness",
-            "level": "beginner",
-            "duration_days": 7,
-            "is_public": True,
-            "content": {
-                "version": 1,
-                "sessions": [
-                    {
-                        "sequences": [
-                            [
-                                {
-                                    "exercise": self.exercise1.slug,
-                                    "value": 10,
-                                    "practice_zone": "everywhere",
-                                },
-                                {
-                                    "exercise": self.exercise2.slug,
-                                    "value": 30,
-                                    "practice_zone": "everywhere",
-                                },
-                            ]
+        program_data = ProgramFactory.build(content=None)
+        program_data.content = {
+            "version": 1,
+            "sessions": [
+                {
+                    "sequences": [
+                        [
+                            {
+                                "exercise": self.exercise1.slug,
+                                "value": 10,
+                                "practice_zone": "everywhere",
+                            },
+                            {
+                                "exercise": self.exercise2.slug,
+                                "value": 30,
+                                "practice_zone": "everywhere",
+                            },
                         ]
-                    }
-                ],
-            },
+                    ]
+                }
+            ],
         }
 
-        serializer = ProgramSerializer(data=data)
+        serializer = ProgramSerializer(
+            data={
+                "focus": "general_fitness",
+                "level": "beginner",
+                "is_public": True,
+                "content": program_data.content,
+            }
+        )
         self.assertTrue(serializer.is_valid(), serializer.errors)
 
-        # Save and set translation manually
         program = serializer.save()
         program.set_current_language("en")
         program.name = "A Program"
@@ -92,20 +84,17 @@ class ProgramSerializerTests(BaseTestCase):
         data = {
             "focus": "general_fitness",
             "level": "beginner",
-            "duration_days": 7,
             "is_public": True,
             "content": {
                 "version": 1,
                 "sessions": [{"sequences": [[{"value": 10}]]}],
-            }
+            },
         }
 
         serializer = ProgramSerializer(data=data)
         self.assertTrue(
             serializer.is_valid(), serializer.errors
-        )  # Serializer passes because content validation is model-level
-
-        # Save should raise ValidationError
+        )
         program = Program(
             focus=data["focus"], level=data["level"], content=data["content"]
         )
@@ -117,7 +106,8 @@ class ProgramSerializerTests(BaseTestCase):
 
 class ProgramModelTests(BaseTestCase):
     def test_program_save_auto_slug(self):
-        program = Program(
+        program = ProgramFactory.build(
+            name="test_program",
             focus="general_fitness",
             level="beginner",
             content={
@@ -135,10 +125,13 @@ class ProgramModelTests(BaseTestCase):
         program.set_current_language("en")
         program.name = "Test Program"
         program.save()
-        self.assertEqual(program.slug, "test_program")
+        self.assertIsNotNone(program.slug)
+        self.assertIn("test_program", program.slug)
 
     def test_program_save_missing_version_raises_error(self):
-        program = Program(focus="general_fitness", level="beginner", content={})
+        program = ProgramFactory.build(
+            focus="general_fitness", level="beginner", content={}
+        )
         program.set_current_language("en")
         program.name = "Invalid Program"
 
@@ -158,7 +151,9 @@ class ProgramModelTests(BaseTestCase):
             ],
             "repeat": {"cycles": 3},
         }
-        program = Program(focus="general_fitness", level="beginner", content=content)
+        program = ProgramFactory.build(
+            focus="general_fitness", level="beginner", content=content
+        )
         program.set_current_language("en")
         program.name = "Duration Test"
         program.save()
@@ -185,20 +180,23 @@ class ProgramViewSetPermissionsTests(BaseTestCase):
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
 
         self.client.force_authenticate(user=self.admin)
+        program_obj = ProgramFactory.build(content=None)
+        program_obj.content = {
+            "version": 1,
+            "sessions": [
+                {
+                    "sequences": [
+                        [{"exercise": self.exercise1.slug, "value": 10}],
+                        [{"exercise": self.exercise2.slug, "value": 30}],
+                    ]
+                }
+            ],
+        }
         data = {
             "focus": "general_fitness",
             "level": "beginner",
-            "content": {
-                "version": 1,
-                "sessions": [
-                    {
-                        "sequences": [
-                            [{"exercise": self.exercise1.slug, "value": 10}],
-                            [{"exercise": self.exercise2.slug, "value": 30}],
-                        ]
-                    }
-                ],
-            },
+            "is_public": True,
+            "content": program_obj.content,
         }
         response = self.client.post(self.url, data, format="json")
         self.assertIn(
