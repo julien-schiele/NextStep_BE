@@ -1,0 +1,55 @@
+# Suivi des programmes
+# Copyright (C) 2026 Julien Schiele
+# This file is distributed under the same license as the PACKAGE package.
+# Julien Schiele <julien.schiele@gmail.com>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: TRACKING 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-02-03 02:47+0000\n"
+"PO-Revision-Date: 2026-01-30 19:31+0000\n"
+"Last-Translator: Julien Schiele <julien.schiele@gmail.com>\n"
+"Language-Team: French <fr@li.org>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: apps/tracking/choices.py:6
+msgid "Active"
+msgstr "Actif"
+
+#: apps/tracking/choices.py:7
+msgid "Completed"
+msgstr "Terminé"
+
+#: apps/tracking/choices.py:8
+msgid "Abandoned"
+msgstr "Abandonné"
+
+#: apps/tracking/choices.py:12
+msgid "Too Easy"
+msgstr "Trop facile"
+
+#: apps/tracking/choices.py:13
+msgid "OK"
+msgstr "Correct"
+
+#: apps/tracking/choices.py:14
+msgid "Too Hard"
+msgstr "Trop difficile"
+
+#: apps/tracking/choices.py:18
+msgid "Not Useful"
+msgstr "Pas utile"
+
+#: apps/tracking/choices.py:19
+msgid "Useful"
+msgstr "Utile"
+
+#: apps/tracking/choices.py:20
+msgid "Very Useful"
+msgstr "Très utile"

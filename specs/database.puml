@@ -73,38 +73,26 @@ entity Program #3498DB {
 ' Tracking App
 entity UserProgram #58D68D {
   +id : UUID
+  created_at : timestamptz <<UTC>>
+  updated_at : timestamptz <<UTC>>
 
-  user_id : UUID
-  program_id : UUID
-  start_date : date
+  user : FK -> User
+  program : FK -> Program
   status : enum("active","completed","abandoned")
 }
 
-entity UserSessionProgress #58D68D {
+entity UserProgramSession #58D68D {
   +id : UUID
   created_at : timestamptz <<UTC>>
   updated_at : timestamptz <<UTC>>
 
   user_program_id : UUID
-  program_session : int
+  session_in_cycle : int
   cycle_count : int
-  session_date : date
-  completed_at : timestamptz <<UTC>>
   completed : boolean <<calculated>>
-  attempt_number : int
-  session
+  session_snapshot: jsonb
   rating : enum("too_easy","ok","too_hard")
-  comment : text
 }
-
-note right of UserSessionProgress
-  Meta constraint:
-  - unique_day_per_cycle
-  - fields:
-    * user_program
-    * cycle_count
-    * program_session
-end note
 
 entity UserProgramFeedback #58D68D {
   +id : UUID
@@ -153,7 +141,7 @@ Program ||--o{ UserProgram
 skinparam classArrowColor #27AE60
 skinparam classArrowFontColor #27AE60
 skinparam classArrowThickness 2
-UserProgram ||--o{ UserSessionProgress
+UserProgram ||--o{ UserProgramSession
 UserProgram ||--|| UserProgramFeedback
 
 ' Translation tables (thin, pastel)
@@ -174,7 +162,7 @@ User --|> AbstractBaseUUID : UUID
 Exercise --|> AbstractBaseUUID : UUID
 Program --|> AbstractBaseUUID : UUID
 UserProgram --|> AbstractBaseUUID : UUID
-UserSessionProgress --|> AbstractBaseUUID : UUID
+UserProgramSession --|> AbstractBaseUUID : UUID
 UserProgramFeedback --|> AbstractBaseUUID : UUID
 
 skinparam classArrowColor #EBF5FB
@@ -183,7 +171,7 @@ User --|> AbstractTimeStamped : created_at / updated_at
 Exercise --|> AbstractTimeStamped : created_at / updated_at
 Program --|> AbstractTimeStamped : created_at / updated_at
 UserProgram --|> AbstractTimeStamped : created_at / updated_at
-UserSessionProgress --|> AbstractTimeStamped : created_at / updated_at
+UserProgramSession --|> AbstractTimeStamped : created_at / updated_at
 UserProgramFeedback --|> AbstractTimeStamped : created_at / updated_at
 
 skinparam classArrowColor #FEF5E7

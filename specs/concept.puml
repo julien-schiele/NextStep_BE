@@ -30,7 +30,7 @@ rectangle "NextStep App" {
         end note
     }
 
-    rectangle UserSessionProgress {
+    rectangle UserProgramSession {
         note right
             Tracking minimal
             day + cycle
@@ -41,5 +41,5 @@ rectangle "NextStep App" {
 User --> Program : browse / select
 Program --> ProgramContent : defines
 User --> UserProgram : start
-UserProgram --> UserSessionProgress : track progress
+UserProgram --> UserProgramSession : track progress
 @enduml
