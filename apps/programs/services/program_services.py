@@ -96,3 +96,25 @@ class ProgramService:
             preview["cycles"].append(cycle_data)
 
         return preview
+
+    def compute_number_of_sessions(self) -> int:
+        """
+        Returns the number of sessions defined in the program.
+        """
+        content = self.program.content
+        sessions = content.get("sessions", [])
+
+        repeat = content.get("repeat", {})
+        cycles = repeat.get("cycles", 1)
+
+        return len(sessions) * cycles
+
+    def get_number_of_cycle(self) -> int:
+        content = self.program.content
+        repeat = content.get("repeat", {})
+        return repeat.get("cycles", 1)
+
+    def get_number_of_sessions_per_cycle(self) -> int:
+        content = self.program.content
+        sessions = content.get("sessions", [])
+        return len(sessions)
