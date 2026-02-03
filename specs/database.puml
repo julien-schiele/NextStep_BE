@@ -86,7 +86,7 @@ entity UserProgramSession #58D68D {
   created_at : timestamptz <<UTC>>
   updated_at : timestamptz <<UTC>>
 
-  user_program_id : UUID
+  user_program : FK -> UserProgram
   session_in_cycle : int
   cycle_count : int
   completed : boolean <<calculated>>
@@ -99,7 +99,7 @@ entity UserProgramFeedback #58D68D {
   created_at : timestamptz <<UTC>>
   updated_at : timestamptz <<UTC>>
 
-  user_program_id : UUID
+  user_program : FK -> UserProgram
   usefulness : enum("not_useful","useful","very_useful")
   would_repeat : boolean
   comment : text
