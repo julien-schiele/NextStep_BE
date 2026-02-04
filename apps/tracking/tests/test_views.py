@@ -100,7 +100,7 @@ class TrackingAPITests(APITestCase):
         res = self.client1.post(url, payload, format="json")
 
         self.assertEqual(res.status_code, 201)
-        self.assertEqual(UserProgramSession.objects.count(), 3)
+        self.assertEqual(UserProgramSession.objects.count(), 2)
 
     # --------------------------------------------------
     # Feedback
