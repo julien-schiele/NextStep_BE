@@ -1,0 +1,24 @@
+@startuml
+start
+
+:User has active UserProgram;
+:Current cycle = N;
+
+while (cycle not completed?)
+    :Fetch cycle days;
+    :Display available days;
+
+    if (User selects a day?) then (yes)
+        :Start session;
+        :Complete exercises;
+        :Mark day as completed;
+    endif
+
+    if (All required days completed?) then (yes)
+        :Increment cycle;
+    endif
+endwhile
+
+:Program completed;
+stop
+@enduml

@@ -1,0 +1,17 @@
+@startuml
+actor User
+participant "Frontend (Next.js)" as FE
+participant "API Backend" as BE
+participant "Program.content JSON" as JSON
+
+User -> FE : Open "My Program"
+FE -> BE : GET /my-program
+
+BE -> JSON : Parse program.content
+BE -> BE : Compute current cycle
+BE -> BE : Compute day statuses
+
+BE --> FE : ProgramView (ready-to-display)
+
+FE -> User : Render days + progress
+@enduml

@@ -1,0 +1,60 @@
+// Program content example
+{
+  "version": 1,
+  "sessions": [
+    {
+      "session": 1,
+      "focus": "fitness",
+      "sequences": [
+        [
+          {
+            "exercise": "mobility",
+            "value": 10,
+            "practice_zone": "everywhere"
+          }
+        ],
+        [
+          {
+            "exercise": "push_up",
+            "value": 10,
+            "practice_zone": "everywhere"
+          },
+          {
+            "exercise": "squat",
+            "value": 15,
+            "practice_zone": "everywhere"
+          }
+        ]
+      ]
+    },
+    {
+      "session": 2,
+      "focus": "climbing",
+      "sequences": [
+        [
+          {
+            "exercise": "easy_traverse",
+            "value": 10,
+            "practice_zone": "climbing_gym"
+          }
+        ],
+        [
+          {
+            "exercise": "basic_boulder",
+            "value": 8,
+            "practice_zone": "climbing_gym"
+          }
+        ]
+      ]
+    }
+  ],
+  "repeat": {
+    "cycles": 2,
+    "progression": {
+      "push_up": {
+        "increment": 2,
+        "per_cycle": 1
+      }
+    }
+  }
+}
