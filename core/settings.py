@@ -27,7 +27,7 @@ SECRET_KEY = "django-insecure-50d$42+k_!c2euv$wk3nzj*f6%5eu(_q)o86)7i@%(vr&z#92r
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["localhost", "0.0.0.0"]
+ALLOWED_HOSTS = ["localhost", "0.0.0.0", "django"]
 
 
 # Application definition
@@ -43,13 +43,16 @@ INSTALLED_APPS = [
     "drf_yasg",
     "parler",
     "django_filters",
+    "corsheaders",
     "apps.users",
     "apps.programs.apps.ProgramsConfig",  # ot laod app AND signals
     "apps.tracking",
+    "apps.utils",
 ]
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "apps.utils.middleware.AcceptLanguageHeaderMiddleware",
     "django.middleware.locale.LocaleMiddleware",  # for fallback (optional)
@@ -181,7 +184,18 @@ PARLER_LANGUAGES = {
 
 
 SIMPLE_JWT = {
-    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=60),     # token valid for 1h
-    "REFRESH_TOKEN_LIFETIME": timedelta(days=7),        # refresh token valid for 7 days
+    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=10),
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=7),
     "ROTATE_REFRESH_TOKENS": True,                      # if True, refresh token is updated after use
+    "AUTH_COOKIE": "refresh_token",
+    "AUTH_COOKIE_HTTP_ONLY": True,
+    "AUTH_COOKIE_SECURE": False,                        # have to be true in prod (HTTPS)
+    "AUTH_COOKIE_SAMESITE": "Lax",
 }
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+    "http://0.0.0.0:3000",
+]
+
+CORS_ALLOW_CREDENTIALS = True

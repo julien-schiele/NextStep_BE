@@ -1,10 +1,10 @@
 from django.urls import path
-from .views import CurrentUserView, UserListView, UserDetailView, UserCreateView
-from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
+from .views import CookieTokenView, CurrentUserView, UserListView, UserDetailView, UserCreateView
+from rest_framework_simplejwt.views import TokenRefreshView
 
 urlpatterns = [
     # JWT auth
-    path("token/", TokenObtainPairView.as_view(), name="token_obtain_pair"),
+    path("token/", CookieTokenView.as_view(), name="token_obtain_pair"),
     path("token/refresh/", TokenRefreshView.as_view(), name="token_refresh"),
 
     # User CRUD
