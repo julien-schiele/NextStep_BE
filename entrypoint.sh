@@ -19,6 +19,9 @@ if [ "$EXERCISE_COUNT" -eq 0 ]; then
     echo "Loading initial exercises and programs..."
     python manage.py load_exercises apps/programs/fixtures/exercises.json
     python manage.py load_programs apps/programs/fixtures/programs.json
+    python manage.py load_privacy apps/utils/fixtures/privacy_en.md --lang en
+    python manage.py load_privacy apps/utils/fixtures/privacy_es.md --lang es
+    python manage.py load_privacy apps/utils/fixtures/privacy_fr.md --lang fr
 fi
 
 # Compile translation messages (if needed)
