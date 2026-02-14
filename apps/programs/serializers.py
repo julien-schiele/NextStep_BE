@@ -50,7 +50,8 @@ class ProgramListSerializer(serializers.ModelSerializer):
         model = Program
         fields = [
             "id",
-            "slug",
+            "name",
+            "description",
             "level",
             "focus",
             "duration_days",
@@ -65,6 +66,8 @@ class ProgramDetailSerializer(serializers.ModelSerializer):
             "id",
             "name",
             "description",
+            "realistic_if",
+            "not_realistic_if",
             "focus",
             "level",
             "duration_days",

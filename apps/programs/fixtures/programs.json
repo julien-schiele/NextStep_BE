@@ -501,7 +501,21 @@
             [
               {
                 "exercise": "easy_hangboard",
-                "value": 6,
+                "value": 5,
+                "practice_zone": "climbing_gym"
+              }
+            ],
+            [
+              {
+                "exercise": "easy_hangboard",
+                "value": 7,
+                "practice_zone": "climbing_gym"
+              }
+            ],
+            [
+              {
+                "exercise": "easy_hangboard",
+                "value": 5,
                 "practice_zone": "climbing_gym"
               }
             ]
@@ -510,7 +524,12 @@
       ],
       "repeat": {
         "cycles": 3,
-        "progression": {}
+        "progression": {
+          "easy_hangboard": {
+            "increment": 2,
+            "per_cycle": 1
+          }
+        }
       }
     }
   },
@@ -934,6 +953,202 @@
       "repeat": {
         "cycles": 4,
         "progression": {}
+      }
+    }
+  },
+  {
+    "translations": {
+      "en": {
+        "name": "Push-Ups Challenge",
+        "description": "A progressive beginner-friendly challenge to build upper body strength and core stability.",
+        "realistic_if": [
+          "No shoulder pain",
+          "Can do at least 3 push-ups"
+        ],
+        "not_realistic_if": [
+          "Shoulder or wrist pain"
+        ]
+      },
+      "fr": {
+        "name": "Défi pompes",
+        "description": "Un challenge progressif pour débutants afin de développer la force du haut du corps et la stabilité du gainage.",
+        "realistic_if": [
+          "Pas de douleur aux épaules",
+          "Capable de faire au moins 3 pompes"
+        ],
+        "not_realistic_if": [
+          "Douleur aux épaules ou aux poignets"
+        ]
+      },
+      "es": {
+        "name": "Desafío flexiones",
+        "description": "Un reto progresivo para principiantes para desarrollar fuerza en la parte superior del cuerpo y estabilidad del core.",
+        "realistic_if": [
+          "Sin dolor en los hombros",
+          "Puede hacer al menos 3 flexiones"
+        ],
+        "not_realistic_if": [
+          "Dolor en hombros o muñecas"
+        ]
+      }
+    },
+    "focus": "general_fitness",
+    "level": "beginner",
+    "is_public": true,
+    "focus_axes": [
+      "general_strength",
+      "core_stability",
+      "progressive_overload"
+    ],
+    "cycle_rhythm": {
+      "total_sessions": 7,
+      "strength": 5,
+      "off_or_active": 2
+    },
+    "content": {
+      "version": 1,
+      "sessions": [
+        {
+          "session": 1,
+          "focus": "fitness",
+          "sequences": [
+            [
+              {
+                "exercise": "push_up",
+                "value": 4,
+                "practice_zone": "everywhere"
+              }
+            ],
+            [
+              {
+                "exercise": "push_up",
+                "value": 2,
+                "practice_zone": "everywhere"
+              }
+            ],
+            [
+              {
+                "exercise": "push_up",
+                "value": 2,
+                "practice_zone": "everywhere"
+              }
+            ]
+          ]
+        },
+        {
+          "session": 2,
+          "focus": "fitness",
+          "sequences": [
+            [
+              {
+                "exercise": "push_up",
+                "value": 6,
+                "practice_zone": "everywhere"
+              }
+            ],
+            [
+              {
+                "exercise": "push_up",
+                "value": 2,
+                "practice_zone": "everywhere"
+              }
+            ],
+            [
+              {
+                "exercise": "push_up",
+                "value": 2,
+                "practice_zone": "everywhere"
+              }
+            ]
+          ]
+        },
+        {
+          "session": 3,
+          "focus": "fitness",
+          "sequences": [
+            [
+              {
+                "exercise": "plank",
+                "value": 10,
+                "practice_zone": "everywhere"
+              }
+            ],
+            [
+              {
+                "exercise": "plank",
+                "value": 10,
+                "practice_zone": "everywhere"
+              }
+            ],
+            [
+              {
+                "exercise": "plank",
+                "value": 10,
+                "practice_zone": "everywhere"
+              }
+            ]
+          ]
+        },
+        {
+          "session": 4,
+          "focus": "fitness",
+          "sequences": [
+            [
+              {
+                "exercise": "push_up",
+                "value": 8,
+                "practice_zone": "everywhere"
+              }
+            ],
+            [
+              {
+                "exercise": "push_up",
+                "value": 3,
+                "practice_zone": "everywhere"
+              }
+            ],
+            [
+              {
+                "exercise": "push_up",
+                "value": 3,
+                "practice_zone": "everywhere"
+              }
+            ]
+          ]
+        },
+        {
+          "session": 5,
+          "focus": "fitness",
+          "sequences": [
+            [
+              {
+                "exercise": "plank",
+                "value": 15,
+                "practice_zone": "everywhere"
+              }
+            ],
+            [
+              {
+                "exercise": "plank",
+                "value": 15,
+                "practice_zone": "everywhere"
+              }
+            ]
+          ]
+        }
+      ],
+      "repeat": {
+        "cycles": 6,
+        "progression": {
+          "push_up": {
+            "increment": 2,
+            "per_cycle": 1
+          },
+          "plank": {
+            "increment": 5,
+            "per_cycle": 1
+          }
+        }
       }
     }
   }

@@ -12,12 +12,17 @@ class ProgramFilter(django_filters.FilterSet):
         field_name="focus",
         choices=Focus.choices,
     )
-    
+
     focus_axes = django_filters.MultipleChoiceFilter(
-        field_name="focus_axes",
         choices=FocusAxis.choices,
-        lookup_expr="contains",
+        method="filter_focus_axes",
     )
+
+    def filter_focus_axes(self, queryset, name, value):
+        if not value:
+            return queryset
+
+        return queryset.filter(focus_axes__overlap=value)
 
     class Meta:
         model = Program

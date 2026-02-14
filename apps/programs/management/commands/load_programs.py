@@ -25,6 +25,7 @@ class Command(BaseCommand):
 
             slug = slugify(en_name)
 
+            # TODO:    "cycle_rhythm" which is in json fixture should not exits in json fixture but might be computed in database on save.
             program = Program.objects.create(
                 slug=slug,
                 focus=item.get("focus"),

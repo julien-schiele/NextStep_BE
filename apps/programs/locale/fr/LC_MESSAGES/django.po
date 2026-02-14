@@ -24,7 +24,7 @@ msgstr "Répétition"
 
 #: apps/programs/choices.py:7
 msgid "Duration"
-msgstr "Durée"
+msgstr "Secondes"
 
 #: apps/programs/choices.py:11
 msgid "Everywhere"
