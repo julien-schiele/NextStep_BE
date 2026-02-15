@@ -96,11 +96,12 @@ class TrackingAPITests(APITestCase):
             "cycle_count": 1,
             "session_snapshot": {"dummy": "data"},
         }
+        
         url = reverse("user-program-sessions", kwargs={"user_program_id": self.up1.id})
+        self.assertEqual(UserProgramSession.objects.filter(user_program=self.up1).count(), 1)
         res = self.client1.post(url, payload, format="json")
-
         self.assertEqual(res.status_code, 201)
-        self.assertEqual(UserProgramSession.objects.count(), 2)
+        self.assertEqual(UserProgramSession.objects.filter(user_program=self.up1).count(), 2)
 
     # --------------------------------------------------
     # Feedback

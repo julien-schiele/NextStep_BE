@@ -25,20 +25,31 @@ class UsersAPITestCase(APITestCase):
         )
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertIn("access", response.data)
-        self.assertIn("refresh", response.data)
+        self.assertNotIn("refresh", response.data)
         self.access_token = response.data["access"]
-        self.refresh_token = response.data["refresh"]
+        self.refresh_token = response.cookies.get("refresh_token")
 
     def test_refresh_token(self):
-        # Login to get refresh token
         url_login = reverse("token_obtain_pair")
+
+        # LOGIN
         resp_login = self.client.post(
             url_login, {"email": self.user.email, "password": "password123"}
         )
-        refresh = resp_login.data["refresh"]
+
+        self.assertEqual(resp_login.status_code, status.HTTP_200_OK)
+
+        refresh_cookie = resp_login.cookies.get("refresh_token")
+        self.assertIsNotNone(
+            refresh_cookie, "Le cookie refresh_token doit être présent pour le web"
+        )
+
+        self.assertIn("access", resp_login.data)
+        access_token = resp_login.data["access"]
+        self.assertTrue(isinstance(access_token, str) and len(access_token) > 0)
 
         url_refresh = reverse("token_refresh")
-        resp_refresh = self.client.post(url_refresh, {"refresh": refresh})
+        resp_refresh = self.client.post(url_refresh)
         self.assertEqual(resp_refresh.status_code, status.HTTP_200_OK)
         self.assertIn("access", resp_refresh.data)
 

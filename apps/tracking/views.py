@@ -92,6 +92,7 @@ class UserProgramFeedbackViewSet(
     serializer_class = UserProgramFeedbackSerializer
     queryset = UserProgramFeedback.objects.all()
     user_field = "user_program__user_id"
+    http_method_names = ["get", "post", "head", "options"]
 
     def get_queryset(self):
         qs = super().get_queryset()
