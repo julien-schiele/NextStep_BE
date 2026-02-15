@@ -4,12 +4,14 @@ from django_filters.rest_framework import DjangoFilterBackend
 from .choices import Focus, Level, FocusAxis, PracticeZone, Resolution
 from .models import Program, Exercise
 from .serializers import (
+    ProgramFiltersSerializer,
     ProgramListSerializer,
     ProgramDetailSerializer,
     ExerciseSerializer,
     ProgramSerializer,
 )
 from .filters import ProgramFilter
+from drf_spectacular.utils import extend_schema
 
 
 ###################################################################################################
@@ -41,14 +43,17 @@ class ProgramViewSet(viewsets.ModelViewSet):
 class ProgramFiltersView(views.APIView):
     permission_classes = [permissions.AllowAny]
 
+    @extend_schema(responses=ProgramFiltersSerializer)
     def get(self, request, *args, **kwargs):
-        return Response(
-            {
-                "level": [{"value": c.value, "label": c.label} for c in Level],
-                "focus": [{"value": c.value, "label": c.label} for c in Focus],
-                "focus_axes": [{"value": c.value, "label": c.label} for c in FocusAxis],
-            }
-        )
+        data = {
+            "level": [{"value": c.value, "label": c.label} for c in Level],
+            "focus": [{"value": c.value, "label": c.label} for c in Focus],
+            "focus_axes": [{"value": c.value, "label": c.label} for c in FocusAxis],
+        }
+        serializer = ProgramFiltersSerializer(data=data)
+        serializer.is_valid()
+        return Response(serializer.data)
+
 
 
 ###################################################################################################

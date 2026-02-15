@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from .models import Exercise, Program
 from .services.program_services import ProgramService
+from drf_spectacular.utils import extend_schema_field
 
 
 # -------------------------------
@@ -25,14 +26,27 @@ class ExerciseSerializer(serializers.ModelSerializer):
 
 
 # -------------------------------
+# Exercise in computed sequence Serializer
+# -------------------------------
+class ExercisePreviewSerializer(serializers.Serializer):
+    slug = serializers.CharField()
+    name = serializers.CharField()
+    description = serializers.CharField()
+    resolution = serializers.CharField()
+    practice_zone = serializers.CharField()
+    value = serializers.IntegerField()
+
+
+# -------------------------------
 # Session Serializer
 # -------------------------------
 class SessionSerializer(serializers.Serializer):
     session = serializers.IntegerField()
     sequences = serializers.ListField(
-        child=serializers.ListSerializer(child=ExerciseSerializer())
+        child=serializers.ListSerializer(
+            child=ExercisePreviewSerializer()
+        )
     )
-
 
 # -------------------------------
 # Cycle Serializer
@@ -45,9 +59,42 @@ class CycleSerializer(serializers.Serializer):
 # -------------------------------
 # Program Content Serializer
 # -------------------------------
-class ProgramContentSerializer(serializers.Serializer):
+class ProgramDetailContentSerializer(serializers.Serializer):
     cycles = CycleSerializer(many=True)
+    total_cycles = serializers.IntegerField()
 
+
+# -------------------------------
+# Program Detail Serializer
+# -------------------------------
+class ProgramDetailSerializer(serializers.ModelSerializer):
+    content = serializers.SerializerMethodField()
+
+    class Meta:
+        model = Program
+        fields = [
+            "id",
+            "name",
+            "description",
+            "realistic_if",
+            "not_realistic_if",
+            "focus",
+            "level",
+            "duration_days",
+            "focus_axes",
+            "content",
+            "created_at",
+            "updated_at",
+        ]
+        read_only_fields = ["id", "slug", "created_at", "updated_at"]
+
+    @extend_schema_field(ProgramDetailContentSerializer)
+    def get_content(self, obj):
+        program_services = ProgramService(obj)
+        raw_content = program_services.compute_preview()
+        serializer = ProgramDetailContentSerializer(instance=raw_content)
+        return serializer.data
+    
 
 # -------------------------------
 # Program List Serializer
@@ -92,34 +139,17 @@ class ProgramSerializer(serializers.ModelSerializer):
 
 
 # -------------------------------
-# Program Detail Serializer
+# Filter Option Serializer
 # -------------------------------
-class ProgramDetailSerializer(serializers.ModelSerializer):
-    content = ProgramContentSerializer()
+class FilterOptionSerializer(serializers.Serializer):
+    value = serializers.CharField()
+    label = serializers.CharField()
 
-    class Meta:
-        model = Program
-        fields = [
-            "id",
-            "slug",
-            "name",
-            "description",
-            "realistic_if",
-            "not_realistic_if",
-            "focus",
-            "level",
-            "duration_days",
-            "focus_axes",
-            "is_public",
-            "content",
-            "cycle_rhythm",
-            "created_at",
-            "updated_at",
-        ]
-        read_only_fields = ["id", "slug", "created_at", "updated_at"]
 
-    def to_representation(self, obj):
-        data = super().to_representation(obj)
-        program_services = ProgramService(obj)
-        data["content"] = program_services.compute_preview()
-        return data
+# -------------------------------
+# Program Filters Serializer
+# -------------------------------
+class ProgramFiltersSerializer(serializers.Serializer):
+    level = FilterOptionSerializer(many=True)
+    focus = FilterOptionSerializer(many=True)
+    focus_axes = FilterOptionSerializer(many=True)
