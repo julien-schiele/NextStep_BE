@@ -68,7 +68,12 @@ class ProgramService:
         cycles = repeat.get("cycles", 1)
         progression = repeat.get("progression", {})
 
-        preview = {"total_cycles": cycles, "cycles": []}
+        preview = {
+            "sessions_per_cycles": len(sessions),
+            "total_cycles": cycles,
+            "total_sessions": cycles * len(sessions),
+            "cycles": []
+            }
 
         for cycle_index in range(cycles):
             cycle_data = {"cycle": cycle_index + 1, "sessions": []}

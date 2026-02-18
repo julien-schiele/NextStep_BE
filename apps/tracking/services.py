@@ -58,8 +58,8 @@ class UserProgramService:
 
         if next_cycle > cycles:
             return {
-                "session": None,
-                "cycle": None,
+                "session": 0,
+                "cycle": 0,
             }
 
         return {

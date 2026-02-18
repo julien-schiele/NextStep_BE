@@ -48,6 +48,7 @@ class SessionSerializer(serializers.Serializer):
         )
     )
 
+
 # -------------------------------
 # Cycle Serializer
 # -------------------------------
@@ -62,6 +63,8 @@ class CycleSerializer(serializers.Serializer):
 class ProgramDetailContentSerializer(serializers.Serializer):
     cycles = CycleSerializer(many=True)
     total_cycles = serializers.IntegerField()
+    sessions_per_cycles = serializers.IntegerField()
+    total_sessions = serializers.IntegerField()
 
 
 # -------------------------------

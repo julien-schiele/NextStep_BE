@@ -4,6 +4,7 @@ from apps.users.models import User
 from apps.utils.models import AbstractBaseUUID, AbstractTimeStamped
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from django.db.models import Q
 
 
 class UserProgram(AbstractBaseUUID, AbstractTimeStamped, models.Model):
@@ -23,6 +24,15 @@ class UserProgram(AbstractBaseUUID, AbstractTimeStamped, models.Model):
 
     def __str__(self):
         return f"UserProgram {self.id} ({self.status})"
+    
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(
+                fields=["user"],
+                condition=Q(status=Status.ACTIVE),
+                name="unique_active_program_per_user",
+            )
+        ]
 
 
 class UserProgramSession(AbstractBaseUUID, AbstractTimeStamped, models.Model):
@@ -52,7 +62,7 @@ class UserProgramSession(AbstractBaseUUID, AbstractTimeStamped, models.Model):
     def __str__(self):
         return (
             f"UserProgramSessionProgress"
-            f"(program={self.user_program.slug}, "
+            f"(program={self.user_program.id}, "
             f"cycle={self.cycle_count}, "
             f"session={self.session_in_cycle})"
         )
