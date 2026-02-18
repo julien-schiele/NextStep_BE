@@ -78,14 +78,13 @@ class UserProgramSessionViewSet(
     - GET /user-programs/{id}/sessions/
     - POST /user-programs/{id}/sessions/
     - GET /user-programs/{user_program_id}/sessions/{id}/
-    - PATCH /user-programs/{user_program_id}/sessions/{id}/
     - DELETE /user-programs/{user_program_id}/sessions/{id}/
     """
 
     serializer_class = UserProgramSessionSerializer
     queryset = UserProgramSession.objects.all()
     user_field = "user_program__user_id"
-    http_method_names = ["get", "post", "patch", "delete", "head", "options"]
+    http_method_names = ["get", "post", "delete", "head", "options"]
     lookup_field = "id"
 
     def get_queryset(self):
@@ -96,14 +95,6 @@ class UserProgramSessionViewSet(
         if self.action == "partial_update":
             return UserProgramSessionPatchSerializer
         return super().get_serializer_class()
-
-    def partial_update(self, request, *args, **kwargs):
-        response = super().partial_update(request, *args, **kwargs)
-        session = self.get_object()
-        user_program = session.user_program
-        service = UserProgramService(user_program)
-        service.update_program_status_if_needed()
-        return response
 
     def destroy(self, request, *args, **kwargs):
         instance = self.get_object()

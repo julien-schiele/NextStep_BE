@@ -108,6 +108,9 @@ class UserProgramSessionSerializer(serializers.ModelSerializer):
             session_in_cycle=validated_data["session_in_cycle"],
             defaults=validated_data,
         )
+        
+        service = UserProgramService(user_program)
+        service.update_program_status_if_needed()
 
         return session
 
