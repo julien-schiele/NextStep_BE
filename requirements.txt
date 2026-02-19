@@ -1,5 +1,6 @@
 asgiref==3.11.0
 asttokens==3.0.1
+attrs==25.4.0
 decorator==5.2.1
 Django==5.2.10
 django-cors-headers==4.9.0
@@ -11,13 +12,15 @@ django-types==0.22.0
 djangorestframework==3.16.1
 djangorestframework-stubs==3.16.7
 djangorestframework_simplejwt==5.5.1
-drf-yasg==1.21.14
+drf-spectacular==0.29.0
 executing==2.2.1
 factory_boy==3.3.3
 Faker==40.1.2
 inflection==0.5.1
 ipython==8.38.0
 jedi==0.19.2
+jsonschema==4.26.0
+jsonschema-specifications==2025.9.1
 Markdown==3.10.2
 matplotlib-inline==0.2.1
 packaging==26.0
@@ -34,6 +37,8 @@ PyJWT==2.10.1
 python-dotenv==1.2.1
 pytz==2025.2
 PyYAML==6.0.3
+referencing==0.37.0
+rpds-py==0.30.0
 sqlparse==0.5.5
 stack-data==0.6.3
 traitlets==5.14.3
