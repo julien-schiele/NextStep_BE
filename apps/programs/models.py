@@ -173,7 +173,6 @@ class Program(AbstractBaseUUID, AbstractTimeStamped, TranslatableModel):
                 "slug", flat=True
             )
         )
-        print(existing_slugs)
         missing = exercise_slugs - existing_slugs
         if missing:
             raise ValidationError(
@@ -184,6 +183,12 @@ class Program(AbstractBaseUUID, AbstractTimeStamped, TranslatableModel):
         repeat = content.get("repeat", {})
         cycles = repeat.get("cycles", 1) if isinstance(repeat, dict) else 1
         self.duration_days = len(sessions) * cycles
+        
+        # ----------------- FOCUS AXES EXIST ----------------------
+        valid_axes = {c[0] for c in FocusAxis.choices}
+        invalid = set(self.focus_axes) - valid_axes
+        if invalid:
+            raise ValidationError(f"Invalid focus_axes: {invalid}")
 
     def save(self, *args, **kwargs):
         self._validate_and_prepare()

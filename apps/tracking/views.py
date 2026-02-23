@@ -3,7 +3,6 @@ from apps.tracking.choices import Status
 from apps.tracking.filters import UserProgramFilter
 from rest_framework.response import Response
 from rest_framework import status
-from apps.tracking.services import UserProgramService
 from rest_framework import viewsets, mixins
 from apps.tracking.serializers import (
     UserProgramSerializer,
@@ -21,6 +20,7 @@ from .serializers import UserStatsSerializer
 from rest_framework.permissions import IsAuthenticated
 from drf_spectacular.utils import extend_schema
 
+
 class UserProgramViewSet(CurrentUserOnlyMixin, viewsets.ModelViewSet):
     """
     Only:
@@ -34,12 +34,13 @@ class UserProgramViewSet(CurrentUserOnlyMixin, viewsets.ModelViewSet):
     filterset_class = UserProgramFilter
     queryset = UserProgram.objects.all()
     serializer_class = UserProgramSerializer
-    user_field = "user_id"
+    user_field = "user__id"
     http_method_names = ["get", "patch", "post", "head", "options"]
 
     def get_queryset(self):
+        qs = super().get_queryset()
         return (
-            UserProgram.objects.select_related("program")
+            qs.select_related("program")
             .prefetch_related("sessions")
             .order_by("-created_at")
         )
@@ -155,7 +156,7 @@ class UserStatsView(APIView):
             user=user, status=Status.COMPLETED
         ).select_related("program")
 
-        total_programs_completed = completed_programs.count()
+        total_programs_completed = completed_programs.count() or 0
 
         # Highest level completed
         highest_level_completed = None
@@ -179,11 +180,22 @@ class UserStatsView(APIView):
         current_level = (
             active_program.program.level if active_program else highest_level_completed
         )
-        
-        # Get translated labels
-        current_level_label = Level(current_level).label
-        highest_level_completed_label = Level(highest_level_completed).label
 
+        # Get translated labels
+        current_level_label = None
+        if current_level:
+            current_level_label = Level(current_level).label
+
+        highest_level_completed_label = None
+        if highest_level_completed:
+            highest_level_completed_label = Level(highest_level_completed).label
+
+        data = {
+            "total_sessions_completed": total_sessions,
+            "total_programs_completed": total_programs_completed,
+        }
+
+        # if current_level and highest_level_completed:
         data = {
             "total_sessions_completed": total_sessions,
             "total_programs_completed": total_programs_completed,

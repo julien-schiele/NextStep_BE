@@ -19,12 +19,13 @@ from .serializers import (
     PasswordResetRequestSerializer,
     PasswordResetResponseSerializer,
     PasswordResetSerializer,
+    TokenResponseSerializer,
     UserSerializer,
     UserCreateSerializer,
 )
 from .models import User
 from rest_framework import status
-from drf_spectacular.utils import extend_schema
+from drf_spectacular.utils import OpenApiResponse, extend_schema
 
 
 class UserListView(generics.ListAPIView):
@@ -73,6 +74,14 @@ class CurrentUserView(APIView):
 
 class CookieTokenView(TokenObtainPairView):
 
+    @extend_schema(
+        responses={
+            200: OpenApiResponse(
+                response=TokenResponseSerializer,
+                description="JWT tokens + HttpOnly refresh_token cookie",
+            )
+        }
+    )
     def post(self, request, *args, **kwargs):
         response = super().post(request, *args, **kwargs)
 

@@ -58,7 +58,7 @@ class ChangePasswordSerializer(serializers.Serializer):
     def validate_new_password(self, value):
         validate_password(value)
         return value
-    
+
 
 class ChangePasswordResponseSerializer(serializers.Serializer):
     message = serializers.CharField()
@@ -66,3 +66,8 @@ class ChangePasswordResponseSerializer(serializers.Serializer):
 
 class ChangePasswordErrorSerializer(serializers.Serializer):
     detail = serializers.CharField()
+
+
+class TokenResponseSerializer(serializers.Serializer):
+    access = serializers.CharField()
+    refresh = serializers.CharField(required=False)

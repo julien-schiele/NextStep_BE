@@ -70,7 +70,7 @@ class UserProgramSerializer(serializers.ModelSerializer):
 
     @extend_schema_field(serializers.DateTimeField)
     def get_end_date(self, obj):
-        if obj.status != Status.COMPLETED:
+        if obj.status == Status.ACTIVE:
             return None
         last_session = obj.sessions.order_by("-created_at").first()
         return last_session.created_at if last_session else None
@@ -108,7 +108,7 @@ class UserProgramSessionSerializer(serializers.ModelSerializer):
             session_in_cycle=validated_data["session_in_cycle"],
             defaults=validated_data,
         )
-        
+
         service = UserProgramService(user_program)
         service.update_program_status_if_needed()
 
@@ -186,10 +186,8 @@ class UserStatsSerializer(serializers.Serializer):
     total_sessions_completed = serializers.IntegerField()
     total_programs_completed = serializers.IntegerField()
     current_level = serializers.ChoiceField(
-        choices=Level.choices,
-        allow_null=True,
+        choices=Level.choices, allow_null=True, allow_blank=True
     )
     highest_level_completed = serializers.ChoiceField(
-        choices=Level.choices,
-        allow_null=True,
+        choices=Level.choices, allow_null=True, allow_blank=True
     )

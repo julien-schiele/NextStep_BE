@@ -711,7 +711,7 @@
     },
     "focus": "climbing_performance",
     "level": "advanced",
-    "is_public": false,
+    "is_public": true,
     "focus_axes": [
       "max_strength",
       "project_bouldering",
@@ -781,7 +781,7 @@
     },
     "focus": "climbing_performance",
     "level": "advanced",
-    "is_public": false,
+    "is_public": true,
     "focus_axes": [
       "power_endurance",
       "climbing_volume",
@@ -851,11 +851,10 @@
     },
     "focus": "climbing_performance",
     "level": "advanced",
-    "is_public": false,
+    "is_public": true,
     "focus_axes": [
       "project_bouldering",
-      "movement_efficiency",
-      "confidence"
+      "movement_efficiency"
     ],
     "cycle_rhythm": {
       "total_sessions": 6,
@@ -921,7 +920,7 @@
     },
     "focus": "general_fitness",
     "level": "advanced",
-    "is_public": false,
+    "is_public": true,
     "focus_axes": [
       "general_strength",
       "active_recovery",
@@ -997,7 +996,6 @@
     "is_public": true,
     "focus_axes": [
       "general_strength",
-      "core_stability",
       "progressive_overload"
     ],
     "cycle_rhythm": {
