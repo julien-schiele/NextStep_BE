@@ -26,6 +26,7 @@ from .serializers import (
 from .models import User
 from rest_framework import status
 from drf_spectacular.utils import OpenApiResponse, extend_schema
+from django.utils.translation import gettext_lazy as _
 
 
 class UserListView(generics.ListAPIView):
@@ -190,7 +191,7 @@ class ChangePasswordView(APIView):
         new_password = serializer.validated_data["new_password"]
 
         if not user.check_password(old_password):
-            raise ValidationError({"detail": "Current password is incorrect."})
+            raise ValidationError(_("Current password is incorrect."))
 
         user.set_password(new_password)
         user.save()

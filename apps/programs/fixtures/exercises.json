@@ -319,7 +319,7 @@
                 "description": "Trabajo repetido en un bloque exigente para mejorar la lectura, la confianza y el rendimiento máximo."
             }
         },
-        "resolution": "attempts",
+        "resolution": "repetition",
         "image": "exercises/images/project_boulder.png"
     },
     {

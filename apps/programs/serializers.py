@@ -1,3 +1,4 @@
+from apps.programs.choices import Focus, FocusAxis, Level
 from rest_framework import serializers
 from .models import Exercise, Program
 from .services.program_services import ProgramService
@@ -72,6 +73,16 @@ class ProgramDetailContentSerializer(serializers.Serializer):
 # -------------------------------
 class ProgramDetailSerializer(serializers.ModelSerializer):
     content = serializers.SerializerMethodField()
+    realistic_if = serializers.ListField(
+        child=serializers.CharField(),
+        required=False,
+        allow_empty=True
+    )
+    not_realistic_if = serializers.ListField(
+        child=serializers.CharField(),
+        required=False,
+        allow_empty=True
+    )
 
     class Meta:
         model = Program
@@ -85,6 +96,7 @@ class ProgramDetailSerializer(serializers.ModelSerializer):
             "level",
             "duration_days",
             "focus_axes",
+            "level",
             "content",
             "created_at",
             "updated_at",
@@ -119,6 +131,17 @@ class ProgramListSerializer(serializers.ModelSerializer):
 # Program Create Serializer
 # -------------------------------
 class ProgramSerializer(serializers.ModelSerializer):
+    realistic_if = serializers.ListField(
+        child=serializers.CharField(),
+        required=False,
+        allow_empty=True
+    )
+    not_realistic_if = serializers.ListField(
+        child=serializers.CharField(),
+        required=False,
+        allow_empty=True
+    )
+    
     class Meta:
         model = Program
         fields = [
@@ -142,17 +165,22 @@ class ProgramSerializer(serializers.ModelSerializer):
 
 
 # -------------------------------
-# Filter Option Serializer
-# -------------------------------
-class FilterOptionSerializer(serializers.Serializer):
-    value = serializers.CharField()
-    label = serializers.CharField()
-
-
-# -------------------------------
 # Program Filters Serializer
 # -------------------------------
+
+class LevelFilterSerializer(serializers.Serializer):
+    value = serializers.ChoiceField(choices=Level.choices)
+    label = serializers.CharField()
+    
+class FocusFilterSerializer(serializers.Serializer):
+    value = serializers.ChoiceField(choices=Focus.choices)
+    label = serializers.CharField()
+    
+class FocusAxesFilterSerializer(serializers.Serializer):
+    value = serializers.ChoiceField(choices=FocusAxis.choices)
+    label = serializers.CharField()
+    
 class ProgramFiltersSerializer(serializers.Serializer):
-    level = FilterOptionSerializer(many=True)
-    focus = FilterOptionSerializer(many=True)
-    focus_axes = FilterOptionSerializer(many=True)
+    level = LevelFilterSerializer(many=True)
+    focus = FocusFilterSerializer(many=True)
+    focus_axes = FocusAxesFilterSerializer(many=True)

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROGRAMS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-30 19:31+0000\n"
+"POT-Creation-Date: 2026-02-23 23:52+0000\n"
 "PO-Revision-Date: 2026-01-30 19:31+0000\n"
 "Last-Translator: Your Name <you@example.com>\n"
 "Language-Team: English <en@li.org>\n"
@@ -166,10 +166,47 @@ msgstr "Movement efficiency"
 msgid "Does this exercise count by repetitions or seconds?"
 msgstr "Does this exercise count by repetitions or seconds?"
 
-#: apps/programs/models.py:29 apps/programs/models.py:86
+#: apps/programs/models.py:29 apps/programs/models.py:84
 msgid "Name"
 msgstr "Name"
 
-#: apps/programs/models.py:30 apps/programs/models.py:87
+#: apps/programs/models.py:30 apps/programs/models.py:85
 msgid "Description"
 msgstr "Description"
+
+#: apps/programs/models.py:118
+msgid "Program content must define a 'version'."
+msgstr "Program content must define a 'version'."
+
+#: apps/programs/models.py:123
+msgid "Program content must contain a non-empty list of sessions."
+msgstr "Program content must contain a non-empty list of sessions."
+
+#: apps/programs/models.py:138
+msgid "Each exercise item must define an 'exercise' slug."
+msgstr "Each exercise item must define an 'exercise' slug."
+
+#: apps/programs/models.py:143
+#, python-format
+msgid "Exercise '%(slug)s'must define a numeric 'value'."
+msgstr "Exercise '%(slug)s'must define a numeric 'value'."
+
+#: apps/programs/models.py:165
+#, python-format
+msgid "Session '%(i)s': climbing_gym series must be grouped together."
+msgstr "Session '%(i)s': climbing_gym series must be grouped together."
+
+#: apps/programs/models.py:185
+#, python-format
+msgid "Unknown exercise slugs in program content: '%(missing)s'"
+msgstr "Unknown exercise slugs in program content: '%(missing)s'"
+
+#: apps/programs/models.py:199
+#, python-format
+msgid "Invalid focus_axes: '%(invalid)s'"
+msgstr "Invalid focus_axes: '%(invalid)s'"
+
+#: apps/programs/signals.py:36
+#, python-format
+msgid "Cannot delete exercise '%(slug)s': used in program(s): %(used_in)s"
+msgstr "Cannot delete exercise '%(slug)s': used in program(s): %(used_in)s"

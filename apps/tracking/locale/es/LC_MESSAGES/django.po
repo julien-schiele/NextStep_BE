@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TRACKING 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-03 02:47+0000\n"
+"POT-Creation-Date: 2026-02-23 23:52+0000\n"
 "PO-Revision-Date: 2026-01-30 19:31+0000\n"
 "Last-Translator: Julien Schiele <julien.schiele@gmail.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
@@ -53,3 +53,7 @@ msgstr "Útil"
 #: apps/tracking/choices.py:20
 msgid "Very Useful"
 msgstr "Muy útil"
+
+#: apps/tracking/views.py:52
+msgid "User already has an active program."
+msgstr "El usuario ya tiene un programa activo."

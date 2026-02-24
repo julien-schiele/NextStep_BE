@@ -24,7 +24,7 @@ class Exercise(AbstractBaseUUID, AbstractTimeStamped, TranslatableModel):
         default=PracticeZone.EVERYWHERE,
         db_index=True,
     )
-        
+
     translations = TranslatedFields(
         name=models.CharField(_("Name"), max_length=200),
         description=models.TextField(_("Description"), blank=True),
@@ -37,11 +37,9 @@ class Exercise(AbstractBaseUUID, AbstractTimeStamped, TranslatableModel):
         help_text="Slugified version of the English name, auto-generated",
     )
 
-
     image = models.ImageField(upload_to="exercises/images/", blank=True, null=True)
     gif = models.FileField(upload_to="exercises/gifs/", blank=True, null=True)
     video = models.URLField(blank=True, null=True)
-
 
     def save(self, *args, **kwargs):
         # -------------------------------------------------
@@ -117,12 +115,12 @@ class Program(AbstractBaseUUID, AbstractTimeStamped, TranslatableModel):
         # ----------------- CONTENT -----------------
         content = self.content or {}
         if "version" not in content:
-            raise ValidationError("Program content must define a 'version'.")
+            raise ValidationError(_("Program content must define a 'version'."))
 
         sessions = content.get("sessions")
         if not isinstance(sessions, list) or not sessions:
             raise ValidationError(
-                "Program content must contain a non-empty list of sessions."
+                _("Program content must contain a non-empty list of sessions.")
             )
 
         exercise_slugs = set()
@@ -137,12 +135,15 @@ class Program(AbstractBaseUUID, AbstractTimeStamped, TranslatableModel):
                     slug = item.get("exercise")
                     if not isinstance(slug, str):
                         raise ValidationError(
-                            "Each exercise item must define an 'exercise' slug."
+                            _("Each exercise item must define an 'exercise' slug.")
                         )
                     value = item.get("value")
                     if not isinstance(value, (int, float)):
                         raise ValidationError(
-                            f"Exercise '{slug}' must define a numeric 'value'."
+                            _("Exercise '%(slug)s'must define a numeric 'value'.")
+                            % {
+                                "slug": slug,
+                            }
                         )
                     exercise_slugs.add(slug)
 
@@ -160,7 +161,12 @@ class Program(AbstractBaseUUID, AbstractTimeStamped, TranslatableModel):
                 if flag == 1:
                     if seen_non_climbing_after_climbing:
                         raise ValidationError(
-                            f"Session {session_idx + 1}: climbing_gym series must be grouped together."
+                            _(
+                                "Session '%(i)s': climbing_gym series must be grouped together."
+                            )
+                            % {
+                                "i": session_idx + 1,
+                            }
                         )
                     in_climbing_block = True
                 elif flag == 0:
@@ -176,19 +182,23 @@ class Program(AbstractBaseUUID, AbstractTimeStamped, TranslatableModel):
         missing = exercise_slugs - existing_slugs
         if missing:
             raise ValidationError(
-                f"Unknown exercise slugs in program content: {missing}"
+                _("Unknown exercise slugs in program content: '%(missing)s'")
+                % {"missing": missing}
             )
 
         # ----------------- AUTO-COMPUTE DURATION -----------------
         repeat = content.get("repeat", {})
         cycles = repeat.get("cycles", 1) if isinstance(repeat, dict) else 1
         self.duration_days = len(sessions) * cycles
-        
+
         # ----------------- FOCUS AXES EXIST ----------------------
         valid_axes = {c[0] for c in FocusAxis.choices}
         invalid = set(self.focus_axes) - valid_axes
         if invalid:
-            raise ValidationError(f"Invalid focus_axes: {invalid}")
+            raise ValidationError(
+                _("Invalid focus_axes: '%(invalid)s'")
+                % {"invalid": invalid}
+            )
 
     def save(self, *args, **kwargs):
         self._validate_and_prepare()

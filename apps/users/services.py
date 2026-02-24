@@ -6,6 +6,7 @@ from datetime import timedelta
 from django.core.mail import send_mail
 from django.conf import settings
 from .models import UserActionToken
+from django.utils.translation import gettext_lazy as _
 
 
 def generate_user_action_token(user, expiration_hours, action_type):
@@ -47,11 +48,11 @@ def reset_password_with_token(token, new_password):
     )
 
     if not user_action_token:
-        raise ValidationError({"detail": "Invalid token."})
+        raise ValidationError(_("Invalid token."))
 
     if user_action_token.is_expired():
         user_action_token.delete()
-        raise ValidationError({"detail": "Token expired."})
+        raise ValidationError(_("Token expired."))
 
     user = user_action_token.user
     user.set_password(new_password)

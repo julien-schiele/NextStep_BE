@@ -19,6 +19,7 @@ from rest_framework.views import APIView
 from .serializers import UserStatsSerializer
 from rest_framework.permissions import IsAuthenticated
 from drf_spectacular.utils import extend_schema
+from django.utils.translation import gettext_lazy as _
 
 
 class UserProgramViewSet(CurrentUserOnlyMixin, viewsets.ModelViewSet):
@@ -48,7 +49,7 @@ class UserProgramViewSet(CurrentUserOnlyMixin, viewsets.ModelViewSet):
     def perform_create(self, serializer):
         user = self.request.user
         if UserProgram.objects.filter(user=user, status=Status.ACTIVE).exists():
-            raise ValidationError("User already has an active program.")
+            raise ValidationError(_("User already has an active program."))
         serializer.save(user=user, status=Status.ACTIVE)
 
     @action(detail=False, methods=["get"], url_path="active")
