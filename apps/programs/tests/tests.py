@@ -1,3 +1,4 @@
+from apps.programs.choices import Focus
 from apps.programs.models import Program
 from apps.programs.serializers import ExerciseSerializer, ProgramSerializer
 from .factories import ExerciseFactory, ProgramFactory
@@ -47,6 +48,8 @@ class ProgramSerializerTests(BaseTestCase):
             "version": 1,
             "sessions": [
                 {
+                    "session": 1,
+                    "focus": Focus.GENERAL_FITNESS,
                     "sequences": [
                         [
                             {
@@ -60,14 +63,14 @@ class ProgramSerializerTests(BaseTestCase):
                                 "practice_zone": "everywhere",
                             },
                         ]
-                    ]
+                    ],
                 }
             ],
         }
 
         serializer = ProgramSerializer(
             data={
-                "focus": "general_fitness",
+                "focus": Focus.GENERAL_FITNESS,
                 "level": "beginner",
                 "is_public": True,
                 "content": program_data.content,
@@ -82,19 +85,19 @@ class ProgramSerializerTests(BaseTestCase):
 
     def test_invalid_program_content_missing_slug(self):
         data = {
-            "focus": "general_fitness",
+            "focus": Focus.GENERAL_FITNESS,
             "level": "beginner",
             "is_public": True,
             "content": {
                 "version": 1,
-                "sessions": [{"sequences": [[{"value": 10}]]}],
+                "sessions": [
+                    {"session": 1, "focus": Focus.GENERAL_FITNESS, "sequences": [[{"value": 10}]]}
+                ],
             },
         }
 
         serializer = ProgramSerializer(data=data)
-        self.assertTrue(
-            serializer.is_valid(), serializer.errors
-        )
+        self.assertTrue(serializer.is_valid(), serializer.errors)
         program = Program(
             focus=data["focus"], level=data["level"], content=data["content"]
         )
@@ -108,16 +111,18 @@ class ProgramModelTests(BaseTestCase):
     def test_program_save_auto_slug(self):
         program = ProgramFactory.build(
             name="test_program",
-            focus="general_fitness",
+            focus=Focus.GENERAL_FITNESS,
             level="beginner",
             content={
                 "version": 1,
                 "sessions": [
                     {
+                        "session": 1,
+                        "focus": Focus.GENERAL_FITNESS,
                         "sequences": [
                             [{"exercise": self.exercise1.slug, "value": 10}],
                             [{"exercise": self.exercise2.slug, "value": 30}],
-                        ]
+                        ],
                     }
                 ],
             },
@@ -130,7 +135,7 @@ class ProgramModelTests(BaseTestCase):
 
     def test_program_save_missing_version_raises_error(self):
         program = ProgramFactory.build(
-            focus="general_fitness", level="beginner", content={}
+            focus=Focus.GENERAL_FITNESS, level="beginner", content={}
         )
         program.set_current_language("en")
         program.name = "Invalid Program"
@@ -143,6 +148,8 @@ class ProgramModelTests(BaseTestCase):
             "version": 1,
             "sessions": [
                 {
+                    "session": 1,
+                    "focus": Focus.GENERAL_FITNESS,
                     "sequences": [
                         [{"exercise": self.exercise1.slug, "value": 10}],
                         [{"exercise": self.exercise2.slug, "value": 30}],
@@ -152,7 +159,7 @@ class ProgramModelTests(BaseTestCase):
             "repeat": {"cycles": 3},
         }
         program = ProgramFactory.build(
-            focus="general_fitness", level="beginner", content=content
+            focus=Focus.GENERAL_FITNESS, level="beginner", content=content
         )
         program.set_current_language("en")
         program.name = "Duration Test"
@@ -185,6 +192,8 @@ class ProgramViewSetPermissionsTests(BaseTestCase):
             "version": 1,
             "sessions": [
                 {
+                    "session": 1,
+                    "focus": Focus.CLIMBING_PERFORMANCE,
                     "sequences": [
                         [{"exercise": self.exercise1.slug, "value": 10}],
                         [{"exercise": self.exercise2.slug, "value": 30}],
@@ -193,7 +202,7 @@ class ProgramViewSetPermissionsTests(BaseTestCase):
             ],
         }
         data = {
-            "focus": "general_fitness",
+            "focus": Focus.GENERAL_FITNESS,
             "level": "beginner",
             "is_public": True,
             "content": program_obj.content,

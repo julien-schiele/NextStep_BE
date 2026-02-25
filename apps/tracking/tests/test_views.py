@@ -50,7 +50,7 @@ class TrackingAPITests(APITestCase):
     # UserProgram
     # --------------------------------------------------
     def test_user_can_list_only_own_user_programs(self):
-        url = reverse("user-program-list")  # router basename
+        url = reverse("user-program-list")
         res = self.client1.get(url)
 
         self.assertEqual(res.status_code, 200)
