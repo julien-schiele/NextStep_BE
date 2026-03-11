@@ -37,6 +37,8 @@ class User(AbstractBaseUUID, AbstractTimeStamped, AbstractBaseUser, PermissionsM
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
     date_joined = models.DateTimeField(auto_now_add=True)
+    gdpr_consent = models.BooleanField(default=False)
+    gdpr_consent_date = models.DateTimeField(null=True, blank=True)
 
     objects = UserManager()
 

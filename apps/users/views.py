@@ -4,6 +4,7 @@ from apps.users.services import (
     send_reset_password_email,
 )
 from django.shortcuts import get_object_or_404
+from apps.users.permissions import IsNotDemoUser
 from rest_framework.exceptions import ValidationError
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -71,6 +72,10 @@ class CurrentUserView(APIView):
     def get(self, request):
         serializer = UserSerializer(request.user)
         return Response(serializer.data)
+    
+    def delete(self, request):
+        request.user.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
 
 
 class CookieTokenView(TokenObtainPairView):
@@ -124,7 +129,7 @@ class LogoutView(APIView):
 
 
 class PasswordResetRequestView(APIView):
-    permission_classes = [AllowAny]
+    permission_classes = [AllowAny, IsNotDemoUser]
 
     @extend_schema(
         request=PasswordResetRequestSerializer,
@@ -147,7 +152,7 @@ class PasswordResetRequestView(APIView):
 
 
 class PasswordResetView(APIView):
-    permission_classes = [AllowAny]
+    permission_classes = [AllowAny, IsNotDemoUser]
 
     @extend_schema(
         request=PasswordResetSerializer,
@@ -172,7 +177,7 @@ class PasswordResetView(APIView):
 
 
 class ChangePasswordView(APIView):
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated, IsNotDemoUser]
 
     @extend_schema(
         request=ChangePasswordSerializer,

@@ -32,8 +32,8 @@ urlpatterns = [
     path("change-password/", ChangePasswordView.as_view(), name="change-password"),
     # User CRUD
     # TODO: The 2 below are not useful from a UX perspective, and may raises GDPR/security questions.
-    path("users/", UserListView.as_view(), name="user-list"),
-    path("users/<uuid:id>/", UserDetailView.as_view(), name="user-detail"),
+    # path("users/", UserListView.as_view(), name="user-list"),
+    # path("users/<uuid:id>/", UserDetailView.as_view(), name="user-detail"),
     path("users/create/", UserCreateView.as_view(), name="user-create"),
     # Others
     path("users/me/", CurrentUserView.as_view(), name="current-user"),

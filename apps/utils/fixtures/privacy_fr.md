@@ -1,4 +1,4 @@
-# Privacy Policy (Politique de confidentialité)
+# Politique de confidentialité
 
 **Dernière mise à jour : 09/02/2026**
 

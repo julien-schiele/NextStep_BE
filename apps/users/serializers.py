@@ -1,6 +1,9 @@
 from rest_framework import serializers
 from .models import User
 from django.contrib.auth.password_validation import validate_password
+from django.utils.translation import gettext_lazy as _
+from django.utils import timezone
+from rest_framework.exceptions import ValidationError
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -19,15 +22,24 @@ class UserSerializer(serializers.ModelSerializer):
 
 
 class UserCreateSerializer(serializers.ModelSerializer):
+    gdpr_consent = serializers.BooleanField(required=False)
+
     class Meta:
         model = User
-        fields = ["email", "first_name", "last_name", "password"]
+        fields = ["email", "first_name", "last_name", "password", "gdpr_consent"]
         extra_kwargs = {"password": {"write_only": True}}
 
     def create(self, validated_data):
         password = validated_data.pop("password")
+        validated_data["gdpr_consent_date"] = timezone.now()
         user = User.objects.create_user(password=password, **validated_data)
         return user
+
+    def to_internal_value(self, data):
+        result = super().to_internal_value(data)
+        if not result.get("gdpr_consent", False):
+            raise ValidationError({"error": _("You must accept the privacy policy.")})
+        return result
 
 
 class PasswordResetRequestSerializer(serializers.Serializer):

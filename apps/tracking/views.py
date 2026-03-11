@@ -1,6 +1,7 @@
 from apps.programs.choices import Level
 from apps.tracking.choices import Status
 from apps.tracking.filters import UserProgramFilter
+from apps.users.permissions import IsNotDemoUser
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework import viewsets, mixins
@@ -88,6 +89,11 @@ class UserProgramSessionViewSet(
     user_field = "user_program__user_id"
     http_method_names = ["get", "post", "delete", "head", "options"]
     lookup_field = "id"
+    
+    def get_permissions(self):
+        if self.action == "destroy":
+            return [IsAuthenticated, IsNotDemoUser]
+        return [IsAuthenticated]
 
     def get_queryset(self):
         qs = super().get_queryset()
