@@ -77,7 +77,7 @@ class UserProgramSerializer(serializers.ModelSerializer):
 
 
 class UserProgramSessionSerializer(serializers.ModelSerializer):
-    completed = serializers.ReadOnlyField()
+    completed = serializers.BooleanField(read_only=True)
 
     class Meta:
         model = UserProgramSession
@@ -93,7 +93,7 @@ class UserProgramSessionSerializer(serializers.ModelSerializer):
             "updated_at",
         ]
         read_only_fields = ["user_program", "created_at", "updated_at"]
-
+        
     def create(self, validated_data):
         user_program_id = self.context["view"].kwargs.get("user_program_id")
         user_program = get_object_or_404(

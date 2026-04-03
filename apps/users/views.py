@@ -62,6 +62,7 @@ class UserCreateView(generics.CreateAPIView):
     permission_classes = [permissions.AllowAny]
 
 
+@extend_schema(responses=UserSerializer)
 class CurrentUserView(APIView):
     """
     Retrieve the current authenticated user
@@ -72,7 +73,8 @@ class CurrentUserView(APIView):
     def get(self, request):
         serializer = UserSerializer(request.user)
         return Response(serializer.data)
-    
+
+    @extend_schema(request=None, responses={204: None})
     def delete(self, request):
         request.user.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
@@ -115,6 +117,10 @@ class CookieRefreshView(TokenRefreshView):
         return super().post(request, *args, **kwargs)
 
 
+@extend_schema(
+    request=None,
+    responses={200: {"type": "object", "properties": {"detail": {"type": "string"}}}},
+)
 class LogoutView(APIView):
     """
     Delete refresh token cookie

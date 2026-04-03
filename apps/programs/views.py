@@ -4,6 +4,7 @@ from django_filters.rest_framework import DjangoFilterBackend
 from .choices import Focus, Level, FocusAxis, PracticeZone, Resolution
 from .models import Program, Exercise
 from .serializers import (
+    ExerciseFiltersSerializer,
     ProgramFiltersSerializer,
     ProgramListSerializer,
     ProgramDetailSerializer,
@@ -55,7 +56,6 @@ class ProgramFiltersView(views.APIView):
         return Response(serializer.data)
 
 
-
 ###################################################################################################
 # EXERCISE
 ###################################################################################################
@@ -68,17 +68,16 @@ class ExerciseViewSet(viewsets.ModelViewSet):
 ###################################################################################################
 # EXERCISE FILTERS
 ###################################################################################################
+@extend_schema(responses=ExerciseFiltersSerializer)
 class ExerciseFiltersView(views.APIView):
     permission_classes = [permissions.AllowAny]
 
     def get(self, request, *args, **kwargs):
-        return Response(
-            {
-                "resolution": [
-                    {"value": c.value, "label": c.label} for c in Resolution
-                ],
-                "practice_zone": [
-                    {"value": c.value, "label": c.label} for c in PracticeZone
-                ],
-            }
-        )
+        data = {
+            "resolution": [{"value": c.value, "label": c.label} for c in Resolution],
+            "practice_zone": [
+                {"value": c.value, "label": c.label} for c in PracticeZone
+            ],
+        }
+        serializer = ExerciseFiltersSerializer(data)
+        return Response(serializer.data)

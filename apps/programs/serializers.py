@@ -1,4 +1,4 @@
-from apps.programs.choices import Focus, FocusAxis, Level
+from apps.programs.choices import Focus, FocusAxis, Level, PracticeZone, Resolution
 from rest_framework import serializers
 from .models import Exercise, Program
 from .services.program_services import ProgramService
@@ -9,6 +9,9 @@ from drf_spectacular.utils import extend_schema_field
 # Exercise Serializer
 # -------------------------------
 class ExerciseSerializer(serializers.ModelSerializer):
+    name = serializers.CharField(help_text="Translated field (django-parler)")
+    description = serializers.CharField(help_text="Translated field (django-parler)")
+
     class Meta:
         model = Exercise
         fields = [
@@ -44,9 +47,7 @@ class ExercisePreviewSerializer(serializers.Serializer):
 class SessionSerializer(serializers.Serializer):
     session = serializers.IntegerField()
     sequences = serializers.ListField(
-        child=serializers.ListSerializer(
-            child=ExercisePreviewSerializer()
-        )
+        child=serializers.ListSerializer(child=ExercisePreviewSerializer())
     )
 
 
@@ -72,16 +73,14 @@ class ProgramDetailContentSerializer(serializers.Serializer):
 # Program Detail Serializer
 # -------------------------------
 class ProgramDetailSerializer(serializers.ModelSerializer):
+    name = serializers.CharField(help_text="Translated field (django-parler)")
+    description = serializers.CharField(help_text="Translated field (django-parler)")
     content = serializers.SerializerMethodField()
     realistic_if = serializers.ListField(
-        child=serializers.CharField(),
-        required=False,
-        allow_empty=True
+        child=serializers.CharField(), required=False, allow_empty=True
     )
     not_realistic_if = serializers.ListField(
-        child=serializers.CharField(),
-        required=False,
-        allow_empty=True
+        child=serializers.CharField(), required=False, allow_empty=True
     )
 
     class Meta:
@@ -109,12 +108,15 @@ class ProgramDetailSerializer(serializers.ModelSerializer):
         raw_content = program_services.compute_preview()
         serializer = ProgramDetailContentSerializer(instance=raw_content)
         return serializer.data
-    
+
 
 # -------------------------------
 # Program List Serializer
 # -------------------------------
 class ProgramListSerializer(serializers.ModelSerializer):
+    name = serializers.CharField(help_text="Translated field (django-parler)")
+    description = serializers.CharField(help_text="Translated field (django-parler)")
+
     class Meta:
         model = Program
         fields = [
@@ -131,17 +133,15 @@ class ProgramListSerializer(serializers.ModelSerializer):
 # Program Create Serializer
 # -------------------------------
 class ProgramSerializer(serializers.ModelSerializer):
+    name = serializers.CharField(help_text="Translated field (django-parler)")
+    description = serializers.CharField(help_text="Translated field (django-parler)")
     realistic_if = serializers.ListField(
-        child=serializers.CharField(),
-        required=False,
-        allow_empty=True
+        child=serializers.CharField(), required=False, allow_empty=True
     )
     not_realistic_if = serializers.ListField(
-        child=serializers.CharField(),
-        required=False,
-        allow_empty=True
+        child=serializers.CharField(), required=False, allow_empty=True
     )
-    
+
     class Meta:
         model = Program
         fields = [
@@ -168,19 +168,38 @@ class ProgramSerializer(serializers.ModelSerializer):
 # Program Filters Serializer
 # -------------------------------
 
+
 class LevelFilterSerializer(serializers.Serializer):
     value = serializers.ChoiceField(choices=Level.choices)
     label = serializers.CharField()
-    
+
+
 class FocusFilterSerializer(serializers.Serializer):
     value = serializers.ChoiceField(choices=Focus.choices)
     label = serializers.CharField()
-    
+
+
 class FocusAxesFilterSerializer(serializers.Serializer):
     value = serializers.ChoiceField(choices=FocusAxis.choices)
     label = serializers.CharField()
-    
+
+
 class ProgramFiltersSerializer(serializers.Serializer):
     level = LevelFilterSerializer(many=True)
     focus = FocusFilterSerializer(many=True)
     focus_axes = FocusAxesFilterSerializer(many=True)
+
+
+class ResolutionFilterSerializer(serializers.Serializer):
+    value = serializers.ChoiceField(choices=Resolution.choices)
+    label = serializers.CharField()
+
+
+class PracticeZoneFilterSerializer(serializers.Serializer):
+    value = serializers.ChoiceField(choices=PracticeZone.choices)
+    label = serializers.CharField()
+
+
+class ExerciseFiltersSerializer(serializers.Serializer):
+    resolution = ResolutionFilterSerializer(many=True)
+    practice_zone = PracticeZoneFilterSerializer(many=True)

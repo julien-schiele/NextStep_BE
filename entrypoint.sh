@@ -33,6 +33,9 @@ if [ "$1" = "runserver" ]; then
     echo "Starting Django server..."
     exec python manage.py runserver 0.0.0.0:8000
 else
+    echo "Collecting static files..."
+    python manage.py collectstatic --no-input
+
     # Allow running arbitrary commands, e.g. bash
     exec "$@"
 fi

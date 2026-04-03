@@ -92,8 +92,8 @@ class UserProgramSessionViewSet(
     
     def get_permissions(self):
         if self.action == "destroy":
-            return [IsAuthenticated, IsNotDemoUser]
-        return [IsAuthenticated]
+            return [IsAuthenticated(), IsNotDemoUser()]
+        return [IsAuthenticated()]
 
     def get_queryset(self):
         qs = super().get_queryset()
