@@ -1,3 +1,23 @@
+# Mentions légales
+
+Ce site est un portfolio et un projet de démonstration publié par :
+
+- **Éditeur :** Julien Schiele
+
+- **Contact :** julien.schiele@gmail.com
+
+- **Hébergement :** [Hetzner Online GmbH](https://www.hetzner.com), Industriestr. 25, 91710 Gunzenhausen, Allemagne
+
+NextStep (nextstep.julien-schiele.dev) est un projet de démonstration et non un produit commercial. Aucun achat, abonnement ou paiement n'est traité sur ce site.
+
+---
+
+# ⚠️ Avertissement relatif à la santé
+
+Le contenu de ce programme est présenté à titre de démonstration uniquement. **NextStep** est une démonstration de moteur de progression et ne doit en aucun cas être utilisé comme un conseil de remise en forme professionnel. Les utilisateurs sont responsables de leur propre santé et sécurité.
+
+---
+
 # Politique de confidentialité
 
 **Dernière mise à jour : 09/02/2026**
@@ -78,4 +98,4 @@ Conformément au RGPD, vous avez le droit de :
 ---
 
 <!-- SHORT -->
-Vos données personnelles sont utilisées uniquement pour l’authentification et le suivi.
+Ne constitue pas un conseil médical ou sportif professionnel. Vos données personnelles sont utilisées uniquement pour l’authentification et le suivi.

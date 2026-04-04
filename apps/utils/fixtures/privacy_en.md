@@ -1,3 +1,21 @@
+# Legal Notice
+
+This site is a portfolio and demo project published by:
+
+- **Publisher:** Julien Schiele  
+- **Contact:** julien.schiele@gmail.com  
+- **Hosting:** [Hetzner Online GmbH](https://www.hetzner.com), Industriestr. 25, 91710 Gunzenhausen, Germany  
+
+NextStep (nextstep.julien-schiele.dev) is a demonstration project and is not a commercial product. No purchases, subscriptions, or payments are processed on this site.
+
+---
+
+# ⚠️ Health Disclaimer
+
+All program content is for demonstration purposes only. **NextStep** is a progression engine demo and should not be used as professional fitness advice. Users are responsible for their own health and safety.
+
+---
+
 # Privacy Policy
 
 **Last updated: February 9, 2026**
@@ -81,4 +99,4 @@ In accordance with the GDPR, you have the right to:
 --
 
 <!-- SHORT -->
-Your personal data is used solely for authentication and tracking purposes.
+Not professional fitness advice. Your personal data is used solely for authentication and tracking purposes.
