@@ -39,7 +39,11 @@ class TrackingAPITests(APITestCase):
 
         # UserPrograms
         self.up1 = UserProgramFactory(user=self.user1)
-        self.up1_s1 = UserProgramSessionFactory(user_program=self.up1)
+        self.up1_s1 = UserProgramSessionFactory(
+            user_program=self.up1,
+            session_in_cycle=1,  # differ from payload that send 2
+            cycle_count=1,
+        )
         self.up1_fb = UserProgramFeedbackFactory(user_program=self.up1)
 
         self.up2 = UserProgramFactory(user=self.user2)
