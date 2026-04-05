@@ -9,8 +9,13 @@ from drf_spectacular.utils import extend_schema_field
 # Exercise Serializer
 # -------------------------------
 class ExerciseSerializer(serializers.ModelSerializer):
-    name = serializers.CharField(help_text="Translated field (django-parler)")
-    description = serializers.CharField(help_text="Translated field (django-parler)")
+    translations = serializers.DictField(
+        child=serializers.DictField(child=serializers.CharField()),
+        write_only=True,
+        required=True,
+    )
+    name = serializers.SerializerMethodField(read_only=True)
+    description = serializers.SerializerMethodField(read_only=True)
 
     class Meta:
         model = Exercise
@@ -18,6 +23,7 @@ class ExerciseSerializer(serializers.ModelSerializer):
             "slug",
             "name",
             "description",
+            "translations",
             "resolution",
             "practice_zone",
             "image",
@@ -27,6 +33,32 @@ class ExerciseSerializer(serializers.ModelSerializer):
             "updated_at",
         ]
         read_only_fields = ["slug", "created_at", "updated_at"]
+
+    def get_name(self, obj):
+        return obj.safe_translation_getter("name", any_language=True)
+
+    def get_description(self, obj):
+        return obj.safe_translation_getter("description", any_language=True)
+
+    def create(self, validated_data):
+        translations = validated_data.pop("translations", {})
+        instance = super().create(validated_data)
+        for lang_code, fields in translations.items():
+            instance.set_current_language(lang_code)
+            for field_name, value in fields.items():
+                setattr(instance, field_name, value)
+        instance.save()
+        return instance
+
+    def update(self, instance, validated_data):
+        translations = validated_data.pop("translations", {})
+        instance = super().update(instance, validated_data)
+        for lang_code, fields in translations.items():
+            instance.set_current_language(lang_code)
+            for field_name, value in fields.items():
+                setattr(instance, field_name, value)
+        instance.save()
+        return instance
 
 
 # -------------------------------
@@ -134,7 +166,9 @@ class ProgramListSerializer(serializers.ModelSerializer):
 # -------------------------------
 class ProgramSerializer(serializers.ModelSerializer):
     name = serializers.CharField(help_text="Translated field (django-parler)")
-    description = serializers.CharField(help_text="Translated field (django-parler)")
+    description = serializers.CharField(
+        required=False, allow_blank=True, help_text="Translated field (django-parler)"
+    )
     realistic_if = serializers.ListField(
         child=serializers.CharField(), required=False, allow_empty=True
     )

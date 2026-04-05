@@ -43,8 +43,7 @@ class ExerciseSerializerTests(BaseTestCase):
 
 class ProgramSerializerTests(BaseTestCase):
     def test_valid_program_content(self):
-        program_data = ProgramFactory.build(content=None)
-        program_data.content = {
+        program = ProgramFactory(content={
             "version": 1,
             "sessions": [
                 {
@@ -52,57 +51,50 @@ class ProgramSerializerTests(BaseTestCase):
                     "focus": Focus.GENERAL_FITNESS,
                     "sequences": [
                         [
-                            {
-                                "exercise": self.exercise1.slug,
-                                "value": 10,
-                                "practice_zone": "everywhere",
-                            },
-                            {
-                                "exercise": self.exercise2.slug,
-                                "value": 30,
-                                "practice_zone": "everywhere",
-                            },
+                            {"exercise": self.exercise1.slug, "value": 10, "practice_zone": "everywhere"},
+                            {"exercise": self.exercise2.slug, "value": 30, "practice_zone": "everywhere"},
                         ]
                     ],
                 }
             ],
-        }
+        })
 
+        program.set_current_language("en")
         serializer = ProgramSerializer(
             data={
-                "focus": Focus.GENERAL_FITNESS,
-                "level": "beginner",
-                "is_public": True,
-                "content": program_data.content,
+                "name": program.name,
+                "description": program.safe_translation_getter("description", language_code="en") or "",
+                "focus": program.focus,
+                "level": program.level,
+                "is_public": program.is_public,
+                "content": program.content,
             }
         )
         self.assertTrue(serializer.is_valid(), serializer.errors)
+        saved = serializer.save()
+        self.assertEqual(saved.content, program.content)
 
-        program = serializer.save()
-        program.set_current_language("en")
-        program.name = "A Program"
-        program.save()
 
-    def test_invalid_program_content_missing_slug(self):
-        data = {
-            "focus": Focus.GENERAL_FITNESS,
-            "level": "beginner",
-            "is_public": True,
-            "content": {
+    def test_invalid_program_content_missing_exercise_slug(self):
+        """ProgramDataValidator should throw ValidationError if exercise slug is missing from content."""
+        program = Program(
+            focus=Focus.GENERAL_FITNESS,
+            level="beginner",
+            is_public=True,
+            content={
                 "version": 1,
                 "sessions": [
-                    {"session": 1, "focus": Focus.GENERAL_FITNESS, "sequences": [[{"value": 10}]]}
+                    {
+                        "session": 1,
+                        "focus": Focus.GENERAL_FITNESS,
+                        "sequences": [[{"value": 10}]],
+                    }
                 ],
             },
-        }
-
-        serializer = ProgramSerializer(data=data)
-        self.assertTrue(serializer.is_valid(), serializer.errors)
-        program = Program(
-            focus=data["focus"], level=data["level"], content=data["content"]
         )
         program.set_current_language("en")
         program.name = "Invalid Program"
+
         with self.assertRaises(ValidationError):
             program.save()
 
@@ -153,7 +145,7 @@ class ProgramModelTests(BaseTestCase):
                     "sequences": [
                         [{"exercise": self.exercise1.slug, "value": 10}],
                         [{"exercise": self.exercise2.slug, "value": 30}],
-                    ]
+                    ],
                 }
             ],
             "repeat": {"cycles": 3},
@@ -197,7 +189,7 @@ class ProgramViewSetPermissionsTests(BaseTestCase):
                     "sequences": [
                         [{"exercise": self.exercise1.slug, "value": 10}],
                         [{"exercise": self.exercise2.slug, "value": 30}],
-                    ]
+                    ],
                 }
             ],
         }
