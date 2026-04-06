@@ -22,6 +22,7 @@ if [ "$EXERCISE_COUNT" -eq 0 ]; then
     python manage.py load_privacy apps/utils/fixtures/privacy_en.md --lang en
     python manage.py load_privacy apps/utils/fixtures/privacy_es.md --lang es
     python manage.py load_privacy apps/utils/fixtures/privacy_fr.md --lang fr
+    python manage.py seed_demo_data
 fi
 
 # Compile translation messages (if needed)

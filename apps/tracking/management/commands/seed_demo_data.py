@@ -65,6 +65,7 @@ def _get_or_create_demo_user(data: dict) -> User:
             "first_name": data["first_name"],
             "last_name": data["last_name"],
             "is_active": True,
+            "gdpr_consent": True,
         },
     )
     # Always reset password so it matches DEMO_PASSWORD after a wipe
