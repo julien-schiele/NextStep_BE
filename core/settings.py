@@ -197,7 +197,7 @@ SIMPLE_JWT = {
     "ROTATE_REFRESH_TOKENS": True,                      # if True, refresh token is updated after use
     "AUTH_COOKIE": "refresh_token",
     "AUTH_COOKIE_HTTP_ONLY": True,
-    "AUTH_COOKIE_SECURE": False,                        # have to be true in prod (HTTPS)
+    "AUTH_COOKIE_SECURE": not DEBUG,                     # have to be true in prod (HTTPS)
     "AUTH_COOKIE_SAMESITE": "Lax",
 }
 
