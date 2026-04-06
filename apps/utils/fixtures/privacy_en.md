@@ -18,7 +18,7 @@ All program content is for demonstration purposes only. **NextStep** is a progre
 
 # Privacy Policy
 
-**Last updated: February 9, 2026**
+**Last updated: 2026/04/06**
 
 Your privacy is important. Here's how we process your data on this portfolio and MVP site:
 

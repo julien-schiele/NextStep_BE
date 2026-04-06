@@ -18,7 +18,7 @@ Todo el contenido del programa es solo para fines demostrativos. **NextStep** es
 
 # Política de Privacidad
 
-**Última actualización: 9 de febrero de 2026**
+**Última actualización: 06/04/2026**
 
 Su privacidad es importante. Así es como procesamos tus datos en este sitio de portafolio y MVP:
 

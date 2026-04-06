@@ -20,7 +20,7 @@ Le contenu de ce programme est présenté à titre de démonstration uniquement.
 
 # Politique de confidentialité
 
-**Dernière mise à jour : 09/02/2026**
+**Dernière mise à jour : 06/04/2026**
 
 Votre vie privée est importante. Voici comment nous traitons vos données sur ce site portfolio et MVP :
 
