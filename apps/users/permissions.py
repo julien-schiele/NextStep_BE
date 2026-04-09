@@ -20,7 +20,7 @@ Endpoints to protect (see schema.yaml)
 Intentionally NOT blocked
 --------------------------
     POST   /api/users/create/          → allowing visitors to create a real account is useful
-    GET    /api/users/me/              → read-only, fine
+    GET    /api/users/current/         → read-only, fine
     POST   /api/user-programs/        → demo can "test" enrollment (daily reset anyway)
     PATCH  /api/user-programs/{id}/   → same, daily reset
     POST   /api/user-programs/{id}/sessions/    → same

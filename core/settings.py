@@ -69,10 +69,10 @@ MIDDLEWARE = [
 
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (
-        "rest_framework_simplejwt.authentication.JWTAuthentication",
+        "apps.utils.authentication.JWTAuthenticationExcludeOptions",
     ),
     "DEFAULT_PERMISSION_CLASSES": (
-        "rest_framework.permissions.IsAuthenticated",
+        "apps.utils.permissions.IsAuthenticatedExcludeOptions",
     ),
     "DEFAULT_FILTER_BACKENDS": [
         "django_filters.rest_framework.DjangoFilterBackend",
@@ -193,12 +193,10 @@ PARLER_LANGUAGES = {
 
 SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=10),
-    "REFRESH_TOKEN_LIFETIME": timedelta(days=7),
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=2),
     "ROTATE_REFRESH_TOKENS": True,                      # if True, refresh token is updated after use
-    "AUTH_COOKIE": "refresh_token",
-    "AUTH_COOKIE_HTTP_ONLY": True,
     "AUTH_COOKIE_SECURE": not DEBUG,                     # have to be true in prod (HTTPS)
-    "AUTH_COOKIE_SAMESITE": "Lax",
+    "AUTH_COOKIE_SAMESITE": "None",
 }
 
 SPECTACULAR_SETTINGS = {
@@ -219,10 +217,31 @@ SPECTACULAR_SETTINGS = {
 CORS_ALLOWED_ORIGINS = os.environ.get('CORS_ALLOWED_ORIGINS', '').split(',')
 CSRF_TRUSTED_ORIGINS = os.environ.get('CSRF_TRUSTED_ORIGINS', '').split(',')
 
+if not DEBUG:
+    USE_X_FORWARDED_HOST = True
+    SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+
 CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_METHODS = [
+    "DELETE",
+    "GET",
+    "OPTIONS",
+    "PATCH",
+    "POST",
+    "PUT",
+]
+
+# Allow les preflight without authentication
+CORS_URLS_REGEX = r"^/api/.*$"
 
 EMAIL_HOST=os.getenv("EMAIL_HOST")
 EMAIL_PORT=os.getenv("EMAIL_PORT")
+if not DEBUG:
+    EMAIL_USE_TLS = os.getenv("EMAIL_USE_TLS", 'False') == 'True'
+    EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")
+    EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
+    DEFAULT_FROM_EMAIL = os.getenv("DEFAULT_FROM_EMAIL")
+
 FE_HOST_URL=os.getenv("FE_HOST_URL")
 BE_HOST_URL=os.getenv("BE_HOST_URL")
 

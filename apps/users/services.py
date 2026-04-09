@@ -30,8 +30,8 @@ def send_reset_password_email(email, token):
     frontend_link = f"{settings.FE_HOST_URL}/reset-password/?token={token}"
     send_mail(
         "NextStep - Password Reset",
-        f"Click the following link to reset your password: {frontend_link} TODO:JS frontend must call {backend_link}",
-        "no-reply@nextstep.com",
+        f"Click the following link to reset your password: {frontend_link}",
+        settings.DEFAULT_FROM_EMAIL,
         [email],
         fail_silently=False,
     )

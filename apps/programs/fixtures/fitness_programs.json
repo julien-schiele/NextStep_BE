@@ -1,0 +1,855 @@
+[
+    {
+        "translations": {
+            "en": {
+                "name": "Body Reboot",
+                "description": "Progressive reconditioning program to rebuild a general fitness base from scratch.",
+                "realistic_if": [
+                    "Returning after a long break",
+                    "Can do a few push-ups but lacks consistency",
+                    "Looking for a simple, no-equipment routine"
+                ],
+                "not_realistic_if": [
+                    "Complete beginner with no physical activity history",
+                    "Injury limiting lower or upper body movement"
+                ]
+            },
+            "fr": {
+                "name": "Body Reboot",
+                "description": "Programme de remise en forme progressive pour reconstruire une base de condition physique générale.",
+                "realistic_if": [
+                    "Reprend après une longue pause",
+                    "Peut faire quelques pompes mais manque de régularité",
+                    "Cherche une routine simple sans matériel"
+                ],
+                "not_realistic_if": [
+                    "Débutant complet sans historique d'activité physique",
+                    "Blessure limitant les mouvements du haut ou du bas du corps"
+                ]
+            },
+            "es": {
+                "name": "Body Reboot",
+                "description": "Programa de reacondicionamiento progresivo para reconstruir una base de condición física general.",
+                "realistic_if": [
+                    "Retoma el ejercicio tras una larga pausa",
+                    "Puede hacer algunas flexiones pero le falta constancia",
+                    "Busca una rutina sencilla sin equipamiento"
+                ],
+                "not_realistic_if": [
+                    "Principiante absoluto sin historial de actividad física",
+                    "Lesión que limita el movimiento del tren superior o inferior"
+                ]
+            }
+        },
+        "focus": "general_fitness",
+        "level": "beginner",
+        "is_public": true,
+        "focus_axes": [
+            "general_strength",
+            "mobility",
+            "conditioning"
+        ],
+        "cycle_rhythm": {
+            "total_sessions": 5,
+            "strength": 2,
+            "conditioning": 1,
+            "off_or_active": 2
+        },
+        "content": {
+            "version": 1,
+            "sessions": [
+                {
+                    "session": 1,
+                    "focus": "general_fitness",
+                    "sequences": [
+                        [
+                            {
+                                "exercise": "mobility",
+                                "value": 10,
+                                "practice_zone": "everywhere"
+                            }
+                        ],
+                        [
+                            {
+                                "exercise": "push_up",
+                                "value": 8,
+                                "practice_zone": "everywhere"
+                            },
+                            {
+                                "exercise": "squat",
+                                "value": 12,
+                                "practice_zone": "everywhere"
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "session": 2,
+                    "focus": "general_fitness",
+                    "sequences": [
+                        [
+                            {
+                                "exercise": "plank",
+                                "value": 30,
+                                "practice_zone": "everywhere"
+                            },
+                            {
+                                "exercise": "glute_bridge",
+                                "value": 12,
+                                "practice_zone": "everywhere"
+                            },
+                            {
+                                "exercise": "hollow_body",
+                                "value": 20,
+                                "practice_zone": "everywhere"
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "session": 3,
+                    "focus": "general_fitness",
+                    "sequences": [
+                        [
+                            {
+                                "exercise": "mountain_climber",
+                                "value": 20,
+                                "practice_zone": "everywhere"
+                            }
+                        ],
+                        [
+                            {
+                                "exercise": "squat",
+                                "value": 15,
+                                "practice_zone": "everywhere"
+                            },
+                            {
+                                "exercise": "push_up",
+                                "value": 8,
+                                "practice_zone": "everywhere"
+                            }
+                        ]
+                    ]
+                }
+            ],
+            "repeat": {
+                "cycles": 2,
+                "progression": {
+                    "push_up": {
+                        "increment": 2,
+                        "per_cycle": 1
+                    },
+                    "squat": {
+                        "increment": 3,
+                        "per_cycle": 1
+                    },
+                    "plank": {
+                        "increment": 10,
+                        "per_cycle": 1
+                    },
+                    "hollow_body": {
+                        "increment": 5,
+                        "per_cycle": 1
+                    }
+                }
+            }
+        }
+    },
+    {
+        "translations": {
+            "en": {
+                "name": "Core Foundation",
+                "description": "Core and stability-focused program to build trunk strength before moving to climbing or higher intensity training.",
+                "realistic_if": [
+                    "Wants to build a solid core base",
+                    "Can hold a plank for 20–30 seconds",
+                    "No current injuries"
+                ],
+                "not_realistic_if": [
+                    "Lower back pain or acute spinal condition",
+                    "Never trained core before — start with Body Reboot first"
+                ]
+            },
+            "fr": {
+                "name": "Core Foundation",
+                "description": "Programme axé sur le gainage et la stabilité pour développer la force du tronc avant de passer à l'escalade ou à un entraînement plus intense.",
+                "realistic_if": [
+                    "Souhaite construire une base solide de gainage",
+                    "Peut tenir un plank 20–30 secondes",
+                    "Aucune blessure en cours"
+                ],
+                "not_realistic_if": [
+                    "Douleurs lombaires ou pathologie vertébrale aiguë",
+                    "N'a jamais travaillé le core — commencer par Body Reboot"
+                ]
+            },
+            "es": {
+                "name": "Core Foundation",
+                "description": "Programa centrado en el core y la estabilidad para desarrollar la fuerza del tronco antes de pasar a la escalada o a un entrenamiento de mayor intensidad.",
+                "realistic_if": [
+                    "Quiere construir una base sólida de core",
+                    "Puede mantener una plancha 20–30 segundos",
+                    "Sin lesiones actuales"
+                ],
+                "not_realistic_if": [
+                    "Dolor lumbar o patología espinal aguda",
+                    "Nunca ha trabajado el core — empezar con Body Reboot"
+                ]
+            }
+        },
+        "focus": "general_fitness",
+        "level": "beginner",
+        "is_public": true,
+        "focus_axes": [
+            "core_tension",
+            "stability",
+            "injury_prevention"
+        ],
+        "cycle_rhythm": {
+            "total_sessions": 5,
+            "strength": 2,
+            "conditioning": 1,
+            "off_or_active": 2
+        },
+        "content": {
+            "version": 1,
+            "sessions": [
+                {
+                    "session": 1,
+                    "focus": "general_fitness",
+                    "sequences": [
+                        [
+                            {
+                                "exercise": "plank",
+                                "value": 40,
+                                "practice_zone": "everywhere"
+                            },
+                            {
+                                "exercise": "hollow_body",
+                                "value": 20,
+                                "practice_zone": "everywhere"
+                            }
+                        ],
+                        [
+                            {
+                                "exercise": "glute_bridge",
+                                "value": 15,
+                                "practice_zone": "everywhere"
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "session": 2,
+                    "focus": "general_fitness",
+                    "sequences": [
+                        [
+                            {
+                                "exercise": "mountain_climber",
+                                "value": 16,
+                                "practice_zone": "everywhere"
+                            }
+                        ],
+                        [
+                            {
+                                "exercise": "hollow_body",
+                                "value": 25,
+                                "practice_zone": "everywhere"
+                            },
+                            {
+                                "exercise": "plank",
+                                "value": 40,
+                                "practice_zone": "everywhere"
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "session": 3,
+                    "focus": "general_fitness",
+                    "sequences": [
+                        [
+                            {
+                                "exercise": "mobility",
+                                "value": 10,
+                                "practice_zone": "everywhere"
+                            }
+                        ],
+                        [
+                            {
+                                "exercise": "squat",
+                                "value": 12,
+                                "practice_zone": "everywhere"
+                            },
+                            {
+                                "exercise": "push_up",
+                                "value": 8,
+                                "practice_zone": "everywhere"
+                            }
+                        ]
+                    ]
+                }
+            ],
+            "repeat": {
+                "cycles": 3,
+                "progression": {
+                    "plank": {
+                        "increment": 10,
+                        "per_cycle": 1
+                    },
+                    "hollow_body": {
+                        "increment": 5,
+                        "per_cycle": 1
+                    },
+                    "mountain_climber": {
+                        "increment": 4,
+                        "per_cycle": 1
+                    },
+                    "glute_bridge": {
+                        "increment": 3,
+                        "per_cycle": 1
+                    }
+                }
+            }
+        }
+    },
+    {
+        "translations": {
+            "en": {
+                "name": "Strength Builder",
+                "description": "Functional hypertrophy program targeting upper body push/pull strength and lower body power without equipment.",
+                "realistic_if": [
+                    "Can do 10+ push-ups and 1–3 pull-ups",
+                    "Trains 3–4 times per week",
+                    "Wants to gain strength with no gym access"
+                ],
+                "not_realistic_if": [
+                    "Cannot yet do a full push-up",
+                    "Shoulder or elbow pain limiting pressing or pulling"
+                ]
+            },
+            "fr": {
+                "name": "Strength Builder",
+                "description": "Programme d'hypertrophie fonctionnelle ciblant la force du haut du corps (push/pull) et la puissance des membres inférieurs sans matériel.",
+                "realistic_if": [
+                    "Peut faire 10+ pompes et 1–3 tractions",
+                    "S'entraîne 3–4 fois par semaine",
+                    "Cherche à gagner en force sans accès à une salle"
+                ],
+                "not_realistic_if": [
+                    "Ne peut pas encore faire une pompe complète",
+                    "Douleur à l'épaule ou au coude limitant les poussées ou tractions"
+                ]
+            },
+            "es": {
+                "name": "Strength Builder",
+                "description": "Programa de hipertrofia funcional orientado a la fuerza del tren superior (empuje/tirón) y la potencia del tren inferior sin equipamiento.",
+                "realistic_if": [
+                    "Puede hacer 10+ flexiones y 1–3 dominadas",
+                    "Entrena 3–4 veces por semana",
+                    "Quiere ganar fuerza sin acceso a un gimnasio"
+                ],
+                "not_realistic_if": [
+                    "Aún no puede hacer una flexión completa",
+                    "Dolor de hombro o codo que limita los empujes o tirones"
+                ]
+            }
+        },
+        "focus": "general_fitness",
+        "level": "intermediate",
+        "is_public": true,
+        "focus_axes": [
+            "general_strength",
+            "upper_body_strength",
+            "progressive_overload"
+        ],
+        "cycle_rhythm": {
+            "total_sessions": 6,
+            "strength": 3,
+            "conditioning": 1,
+            "off_or_active": 2
+        },
+        "content": {
+            "version": 1,
+            "sessions": [
+                {
+                    "session": 1,
+                    "focus": "general_fitness",
+                    "sequences": [
+                        [
+                            {
+                                "exercise": "push_up",
+                                "value": 15,
+                                "practice_zone": "everywhere"
+                            }
+                        ],
+                        [
+                            {
+                                "exercise": "squat",
+                                "value": 20,
+                                "practice_zone": "everywhere"
+                            },
+                            {
+                                "exercise": "glute_bridge",
+                                "value": 15,
+                                "practice_zone": "everywhere"
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "session": 2,
+                    "focus": "general_fitness",
+                    "sequences": [
+                        [
+                            {
+                                "exercise": "pull_up",
+                                "value": 5,
+                                "practice_zone": "everywhere"
+                            }
+                        ],
+                        [
+                            {
+                                "exercise": "hollow_body",
+                                "value": 30,
+                                "practice_zone": "everywhere"
+                            },
+                            {
+                                "exercise": "mountain_climber",
+                                "value": 24,
+                                "practice_zone": "everywhere"
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "session": 3,
+                    "focus": "general_fitness",
+                    "sequences": [
+                        [
+                            {
+                                "exercise": "push_up",
+                                "value": 20,
+                                "practice_zone": "everywhere"
+                            },
+                            {
+                                "exercise": "plank",
+                                "value": 45,
+                                "practice_zone": "everywhere"
+                            }
+                        ],
+                        [
+                            {
+                                "exercise": "squat",
+                                "value": 18,
+                                "practice_zone": "everywhere"
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "session": 4,
+                    "focus": "general_fitness",
+                    "sequences": [
+                        [
+                            {
+                                "exercise": "mobility",
+                                "value": 12,
+                                "practice_zone": "everywhere"
+                            },
+                            {
+                                "exercise": "glute_bridge",
+                                "value": 12,
+                                "practice_zone": "everywhere"
+                            }
+                        ]
+                    ]
+                }
+            ],
+            "repeat": {
+                "cycles": 3,
+                "progression": {
+                    "push_up": {
+                        "increment": 3,
+                        "per_cycle": 1
+                    },
+                    "pull_up": {
+                        "increment": 1,
+                        "per_cycle": 1
+                    },
+                    "squat": {
+                        "increment": 3,
+                        "per_cycle": 1
+                    },
+                    "hollow_body": {
+                        "increment": 5,
+                        "per_cycle": 1
+                    }
+                }
+            }
+        }
+    },
+    {
+        "translations": {
+            "en": {
+                "name": "Antagonist Shield",
+                "description": "Injury prevention program targeting antagonist muscles — shoulders, wrists, and glutes — to protect climbers from overuse injuries.",
+                "realistic_if": [
+                    "Climbs regularly and wants to stay injury-free",
+                    "Has experienced minor shoulder or finger fatigue",
+                    "Trains 3 times per week"
+                ],
+                "not_realistic_if": [
+                    "Current acute injury — consult a physio first",
+                    "Looking for performance gains rather than prevention"
+                ]
+            },
+            "fr": {
+                "name": "Antagonist Shield",
+                "description": "Programme de prévention ciblant les muscles antagonistes — épaules, poignets et fessiers — pour protéger les grimpeurs des blessures de surmenage.",
+                "realistic_if": [
+                    "Grimpe régulièrement et veut rester sans blessure",
+                    "A ressenti une légère fatigue des épaules ou des doigts",
+                    "S'entraîne 3 fois par semaine"
+                ],
+                "not_realistic_if": [
+                    "Blessure aiguë en cours — consulter un kiné d'abord",
+                    "Cherche des gains de performance plutôt que de la prévention"
+                ]
+            },
+            "es": {
+                "name": "Antagonist Shield",
+                "description": "Programa de prevención dirigido a los músculos antagonistas — hombros, muñecas y glúteos — para proteger a los escaladores de lesiones por sobreuso.",
+                "realistic_if": [
+                    "Escala con regularidad y quiere mantenerse sin lesiones",
+                    "Ha sentido leve fatiga en hombros o dedos",
+                    "Entrena 3 veces por semana"
+                ],
+                "not_realistic_if": [
+                    "Lesión aguda actual — consultar a un fisio primero",
+                    "Busca ganancias de rendimiento en lugar de prevención"
+                ]
+            }
+        },
+        "focus": "general_fitness",
+        "level": "intermediate",
+        "is_public": true,
+        "focus_axes": [
+            "antagonist_training",
+            "injury_prevention",
+            "stability"
+        ],
+        "cycle_rhythm": {
+            "total_sessions": 5,
+            "strength": 2,
+            "mobility": 1,
+            "off_or_active": 2
+        },
+        "content": {
+            "version": 1,
+            "sessions": [
+                {
+                    "session": 1,
+                    "focus": "general_fitness",
+                    "sequences": [
+                        [
+                            {
+                                "exercise": "push_up",
+                                "value": 15,
+                                "practice_zone": "everywhere"
+                            }
+                        ],
+                        [
+                            {
+                                "exercise": "mobility",
+                                "value": 12,
+                                "practice_zone": "everywhere"
+                            },
+                            {
+                                "exercise": "plank",
+                                "value": 40,
+                                "practice_zone": "everywhere"
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "session": 2,
+                    "focus": "general_fitness",
+                    "sequences": [
+                        [
+                            {
+                                "exercise": "glute_bridge",
+                                "value": 18,
+                                "practice_zone": "everywhere"
+                            }
+                        ],
+                        [
+                            {
+                                "exercise": "hollow_body",
+                                "value": 30,
+                                "practice_zone": "everywhere"
+                            },
+                            {
+                                "exercise": "mountain_climber",
+                                "value": 20,
+                                "practice_zone": "everywhere"
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "session": 3,
+                    "focus": "general_fitness",
+                    "sequences": [
+                        [
+                            {
+                                "exercise": "mobility",
+                                "value": 15,
+                                "practice_zone": "everywhere"
+                            }
+                        ],
+                        [
+                            {
+                                "exercise": "plank",
+                                "value": 40,
+                                "practice_zone": "everywhere"
+                            },
+                            {
+                                "exercise": "squat",
+                                "value": 15,
+                                "practice_zone": "everywhere"
+                            }
+                        ]
+                    ]
+                }
+            ],
+            "repeat": {
+                "cycles": 3,
+                "progression": {
+                    "push_up": {
+                        "increment": 2,
+                        "per_cycle": 1
+                    },
+                    "glute_bridge": {
+                        "increment": 3,
+                        "per_cycle": 1
+                    },
+                    "plank": {
+                        "increment": 10,
+                        "per_cycle": 1
+                    },
+                    "hollow_body": {
+                        "increment": 5,
+                        "per_cycle": 1
+                    }
+                }
+            }
+        }
+    },
+    {
+        "translations": {
+            "en": {
+                "name": "Peak Condition",
+                "description": "High-intensity program for experienced athletes targeting maximum strength, power endurance, and conditioning with no heavy equipment.",
+                "realistic_if": [
+                    "Can do 15+ push-ups and 8+ pull-ups",
+                    "Trains 4–5 times per week consistently",
+                    "Comfortable with high training volume"
+                ],
+                "not_realistic_if": [
+                    "Fewer than 6 months of consistent training",
+                    "Any upper body joint pain or active injury"
+                ]
+            },
+            "fr": {
+                "name": "Peak Condition",
+                "description": "Programme haute intensité pour athlètes confirmés, ciblant la force maximale, l'endurance de puissance et le conditionnement sans matériel lourd.",
+                "realistic_if": [
+                    "Peut faire 15+ pompes et 8+ tractions",
+                    "S'entraîne 4–5 fois par semaine de manière régulière",
+                    "À l'aise avec un volume d'entraînement élevé"
+                ],
+                "not_realistic_if": [
+                    "Moins de 6 mois d'entraînement régulier",
+                    "Douleur articulaire au membre supérieur ou blessure active"
+                ]
+            },
+            "es": {
+                "name": "Peak Condition",
+                "description": "Programa de alta intensidad para atletas experimentados, orientado a la fuerza máxima, la resistencia a la potencia y el acondicionamiento sin equipamiento pesado.",
+                "realistic_if": [
+                    "Puede hacer 15+ flexiones y 8+ dominadas",
+                    "Entrena 4–5 veces por semana de forma constante",
+                    "Cómodo con un volumen de entrenamiento alto"
+                ],
+                "not_realistic_if": [
+                    "Menos de 6 meses de entrenamiento constante",
+                    "Dolor articular en el tren superior o lesión activa"
+                ]
+            }
+        },
+        "focus": "general_fitness",
+        "level": "advanced",
+        "is_public": true,
+        "focus_axes": [
+            "max_strength",
+            "power_endurance",
+            "conditioning",
+            "progressive_overload"
+        ],
+        "cycle_rhythm": {
+            "total_sessions": 7,
+            "strength": 3,
+            "conditioning": 1,
+            "mobility": 1,
+            "off_or_active": 2
+        },
+        "content": {
+            "version": 1,
+            "sessions": [
+                {
+                    "session": 1,
+                    "focus": "general_fitness",
+                    "sequences": [
+                        [
+                            {
+                                "exercise": "pull_up",
+                                "value": 10,
+                                "practice_zone": "everywhere"
+                            }
+                        ],
+                        [
+                            {
+                                "exercise": "push_up",
+                                "value": 25,
+                                "practice_zone": "everywhere"
+                            },
+                            {
+                                "exercise": "hollow_body",
+                                "value": 40,
+                                "practice_zone": "everywhere"
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "session": 2,
+                    "focus": "general_fitness",
+                    "sequences": [
+                        [
+                            {
+                                "exercise": "squat",
+                                "value": 25,
+                                "practice_zone": "everywhere"
+                            }
+                        ],
+                        [
+                            {
+                                "exercise": "mountain_climber",
+                                "value": 30,
+                                "practice_zone": "everywhere"
+                            },
+                            {
+                                "exercise": "glute_bridge",
+                                "value": 20,
+                                "practice_zone": "everywhere"
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "session": 3,
+                    "focus": "general_fitness",
+                    "sequences": [
+                        [
+                            {
+                                "exercise": "push_up",
+                                "value": 20,
+                                "practice_zone": "everywhere"
+                            },
+                            {
+                                "exercise": "pull_up",
+                                "value": 8,
+                                "practice_zone": "everywhere"
+                            },
+                            {
+                                "exercise": "squat",
+                                "value": 20,
+                                "practice_zone": "everywhere"
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "session": 4,
+                    "focus": "general_fitness",
+                    "sequences": [
+                        [
+                            {
+                                "exercise": "plank",
+                                "value": 60,
+                                "practice_zone": "everywhere"
+                            }
+                        ],
+                        [
+                            {
+                                "exercise": "hollow_body",
+                                "value": 45,
+                                "practice_zone": "everywhere"
+                            },
+                            {
+                                "exercise": "mountain_climber",
+                                "value": 30,
+                                "practice_zone": "everywhere"
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "session": 5,
+                    "focus": "general_fitness",
+                    "sequences": [
+                        [
+                            {
+                                "exercise": "mobility",
+                                "value": 15,
+                                "practice_zone": "everywhere"
+                            },
+                            {
+                                "exercise": "glute_bridge",
+                                "value": 15,
+                                "practice_zone": "everywhere"
+                            }
+                        ]
+                    ]
+                }
+            ],
+            "repeat": {
+                "cycles": 3,
+                "progression": {
+                    "pull_up": {
+                        "increment": 2,
+                        "per_cycle": 1
+                    },
+                    "push_up": {
+                        "increment": 4,
+                        "per_cycle": 1
+                    },
+                    "squat": {
+                        "increment": 4,
+                        "per_cycle": 1
+                    },
+                    "plank": {
+                        "increment": 15,
+                        "per_cycle": 1
+                    },
+                    "hollow_body": {
+                        "increment": 10,
+                        "per_cycle": 1
+                    }
+                }
+            }
+        }
+    }
+]

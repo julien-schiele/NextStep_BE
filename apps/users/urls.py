@@ -36,5 +36,5 @@ urlpatterns = [
     # path("users/<uuid:id>/", UserDetailView.as_view(), name="user-detail"),
     path("users/create/", UserCreateView.as_view(), name="user-create"),
     # Others
-    path("users/me/", CurrentUserView.as_view(), name="current-user"),
+    path("users/current/", CurrentUserView.as_view(), name="current-user"),
 ]

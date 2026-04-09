@@ -5,6 +5,7 @@ from apps.users.services import (
 )
 from django.shortcuts import get_object_or_404
 from apps.users.permissions import IsNotDemoUser
+from apps.utils.permissions import IsAuthenticatedExcludeOptions
 from rest_framework.exceptions import ValidationError
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -24,6 +25,7 @@ from .serializers import (
     UserSerializer,
     UserCreateSerializer,
 )
+from django.conf import settings
 from .models import User
 from rest_framework import status
 from drf_spectacular.utils import OpenApiResponse, extend_schema
@@ -68,7 +70,7 @@ class CurrentUserView(APIView):
     Retrieve the current authenticated user
     """
 
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticatedExcludeOptions]
 
     def get(self, request):
         serializer = UserSerializer(request.user)
@@ -76,6 +78,11 @@ class CurrentUserView(APIView):
 
     @extend_schema(request=None, responses={204: None})
     def delete(self, request):
+        permission = IsNotDemoUser()
+        if not permission.has_permission(request, self):
+            return Response(
+                {"detail": permission.message}, status=status.HTTP_403_FORBIDDEN
+            )
         request.user.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
@@ -86,35 +93,76 @@ class CookieTokenView(TokenObtainPairView):
         responses={
             200: OpenApiResponse(
                 response=TokenResponseSerializer,
-                description="JWT tokens + HttpOnly refresh_token cookie",
+                description="JWT tokens + HttpOnly refresh token cookie",
             )
         }
     )
     def post(self, request, *args, **kwargs):
         response = super().post(request, *args, **kwargs)
 
+        access_token = response.data.get("access")
         refresh_token = response.data.get("refresh")
 
         client_type = request.headers.get("X-Client-Type", "web")
 
         # Mobile do not rely on cookie...
         if client_type != "mobile":
-            del response.data["refresh"]
+            response.set_cookie(
+                key="_at",
+                value=access_token,
+                secure=settings.SIMPLE_JWT.get("AUTH_COOKIE_SECURE", False),
+                httponly=False,  # accessible SSR
+                samesite=settings.SIMPLE_JWT.get("AUTH_COOKIE_SAMESITE", "Lax"),
+            )
 
-        response.set_cookie(
-            key="refresh_token",
-            value=refresh_token,
-            httponly=True,
-            samesite="Lax",
-        )
+            response.set_cookie(
+                key="_rt",
+                value=refresh_token,
+                secure=settings.SIMPLE_JWT.get("AUTH_COOKIE_SECURE", False),
+                httponly=True,  # secure
+                samesite=settings.SIMPLE_JWT.get("AUTH_COOKIE_SAMESITE", "Lax"),
+            )
+            response.data.pop("refresh", None)
 
         return response
 
 
 class CookieRefreshView(TokenRefreshView):
     def post(self, request, *args, **kwargs):
-        request.data["refresh"] = request.COOKIES.get("refresh_token")
-        return super().post(request, *args, **kwargs)
+        refresh_token = request.COOKIES.get("_rt")
+
+        if not refresh_token:
+            return Response(
+                {"detail": "Refresh token missing."},
+                status=status.HTTP_401_UNAUTHORIZED,
+            )
+
+        request.data["refresh"] = refresh_token
+
+        response = super().post(request, *args, **kwargs)
+
+        new_access = response.data.get("access")
+        new_refresh = response.data.get("refresh")
+
+        if new_access:
+            response.set_cookie(
+                key="_at",
+                value=new_access,
+                secure=settings.SIMPLE_JWT.get("AUTH_COOKIE_SECURE", False),
+                httponly=False,
+                samesite=settings.SIMPLE_JWT.get("AUTH_COOKIE_SAMESITE", "Lax"),
+            )
+
+        if new_refresh:
+            response.set_cookie(
+                key="_rt",
+                value=new_refresh,
+                secure=settings.SIMPLE_JWT.get("AUTH_COOKIE_SECURE", False),
+                httponly=True,
+                samesite=settings.SIMPLE_JWT.get("AUTH_COOKIE_SAMESITE", "Lax"),
+            )
+
+        return response
 
 
 @extend_schema(
@@ -130,7 +178,7 @@ class LogoutView(APIView):
 
     def post(self, request):
         response = Response({"detail": "Logged out"})
-        response.delete_cookie("refresh_token")
+        response.delete_cookie("_rt")
         return response
 
 

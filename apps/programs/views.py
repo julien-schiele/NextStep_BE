@@ -1,4 +1,4 @@
-from rest_framework import viewsets, permissions, views
+from rest_framework import viewsets, permissions, views, mixins
 from rest_framework.response import Response
 from django_filters.rest_framework import DjangoFilterBackend
 from .choices import Focus, Level, FocusAxis, PracticeZone, Resolution
@@ -13,12 +13,18 @@ from .serializers import (
 )
 from .filters import ProgramFilter
 from drf_spectacular.utils import extend_schema
+from itertools import chain
 
 
 ###################################################################################################
 # PROGRAM
 ###################################################################################################
-class ProgramViewSet(viewsets.ModelViewSet):
+class ProgramViewSet(
+    mixins.CreateModelMixin,
+    mixins.RetrieveModelMixin,
+    mixins.ListModelMixin,
+    viewsets.GenericViewSet,
+):
     filter_backends = [DjangoFilterBackend]
     filterset_class = ProgramFilter
 
@@ -33,7 +39,7 @@ class ProgramViewSet(viewsets.ModelViewSet):
     def get_serializer_class(self):
         if self.action == "list":
             return ProgramListSerializer
-        if self.action in ("retrieve"):
+        if self.action == "retrieve":
             return ProgramDetailSerializer
         return ProgramSerializer
 
@@ -46,10 +52,30 @@ class ProgramFiltersView(views.APIView):
 
     @extend_schema(responses=ProgramFiltersSerializer)
     def get(self, request, *args, **kwargs):
+        used_levels = Program.objects.values_list("level", flat=True).distinct()
+        used_focuses = Program.objects.values_list("focus", flat=True).distinct()
+        used_focus_axes = set(
+            chain.from_iterable(
+                Program.objects.values_list("focus_axes", flat=True).distinct()
+            )
+        )
+
         data = {
-            "level": [{"value": c.value, "label": c.label} for c in Level],
-            "focus": [{"value": c.value, "label": c.label} for c in Focus],
-            "focus_axes": [{"value": c.value, "label": c.label} for c in FocusAxis],
+            "level": [
+                {"value": c.value, "label": c.label}
+                for c in Level
+                if c.value in used_levels
+            ],
+            "focus": [
+                {"value": c.value, "label": c.label}
+                for c in Focus
+                if c.value in used_focuses
+            ],
+            "focus_axes": [
+                {"value": c.value, "label": c.label}
+                for c in FocusAxis
+                if c.value in used_focus_axes
+            ],
         }
         serializer = ProgramFiltersSerializer(data=data)
         serializer.is_valid()
@@ -59,7 +85,12 @@ class ProgramFiltersView(views.APIView):
 ###################################################################################################
 # EXERCISE
 ###################################################################################################
-class ExerciseViewSet(viewsets.ModelViewSet):
+class ExerciseViewSet(
+    mixins.CreateModelMixin,
+    mixins.RetrieveModelMixin,
+    mixins.ListModelMixin,
+    viewsets.GenericViewSet,
+):
     permission_classes = [permissions.IsAdminUser]
     queryset = Exercise.objects.all()
     serializer_class = ExerciseSerializer
@@ -73,10 +104,23 @@ class ExerciseFiltersView(views.APIView):
     permission_classes = [permissions.AllowAny]
 
     def get(self, request, *args, **kwargs):
+        used_resolutions = Exercise.objects.values_list(
+            "resolution", flat=True
+        ).distinct()
+        used_practice_zones = Exercise.objects.values_list(
+            "practice_zone", flat=True
+        ).distinct()
+
         data = {
-            "resolution": [{"value": c.value, "label": c.label} for c in Resolution],
+            "resolution": [
+                {"value": c.value, "label": c.label}
+                for c in Resolution
+                if c.value in used_resolutions
+            ],
             "practice_zone": [
-                {"value": c.value, "label": c.label} for c in PracticeZone
+                {"value": c.value, "label": c.label}
+                for c in PracticeZone
+                if c.value in used_practice_zones
             ],
         }
         serializer = ExerciseFiltersSerializer(data)

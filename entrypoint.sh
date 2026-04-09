@@ -15,7 +15,8 @@ python manage.py migrate
 # Upsert exercises and programs on every deploy (idempotent)
 echo "Upserting exercises and programs..."
 python manage.py upsert_exercises apps/programs/fixtures/exercises.json
-python manage.py upsert_programs apps/programs/fixtures/new_programs.json
+python manage.py upsert_programs apps/programs/fixtures/climbing_programs.json
+python manage.py upsert_programs apps/programs/fixtures/fitness_programs.json
 
 # Load privacy policies only if none exist (managed via admin after first deploy)
 POLICY_COUNT=$(python manage.py shell -c "from apps.utils.models import PrivacyPolicy; print(PrivacyPolicy.objects.count())" | grep -Eo '^[0-9]+$')
