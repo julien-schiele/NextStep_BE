@@ -21,8 +21,8 @@ Intentionally NOT blocked
 --------------------------
     POST   /api/users/create/          → allowing visitors to create a real account is useful
     GET    /api/users/current/         → read-only, fine
-    POST   /api/user-programs/        → demo can "test" enrollment (daily reset anyway)
-    PATCH  /api/user-programs/{id}/   → same, daily reset
+    POST   /api/user-programs/         → demo can "test" enrollment (weekly reset anyway)
+    PATCH  /api/user-programs/{id}/    → same, weekly reset
     POST   /api/user-programs/{id}/sessions/    → same
     POST   /api/user-programs/{id}/feedbacks/   → same
 

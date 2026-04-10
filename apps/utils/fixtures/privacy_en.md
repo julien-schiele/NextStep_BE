@@ -2,7 +2,7 @@
 
 This site is a portfolio and demo project published by:
 
-- **Publisher:** Julien Schiele  
+- **Publisher:** Julien Schiélé  
 - **Contact:** julien.schiele@gmail.com  
 - **Hosting:** [Hetzner Online GmbH](https://www.hetzner.com), Industriestr. 25, 91710 Gunzenhausen, Germany  
 

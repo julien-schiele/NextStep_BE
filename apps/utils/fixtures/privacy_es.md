@@ -2,7 +2,7 @@
 
 Este sitio es un portafolio y proyecto de demostración publicado por:
 
-- **Editor:** Julien Schiele
+- **Editor:** Julien Schiélé
 - **Contacto:** julien.schiele@gmail.com
 - **Alojamiento:** [Hetzner Online GmbH](https://www.hetzner.com), Industriestr. 25, 91710 Gunzenhausen, Alemania
 

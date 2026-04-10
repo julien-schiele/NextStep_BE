@@ -196,7 +196,7 @@ SIMPLE_JWT = {
     "REFRESH_TOKEN_LIFETIME": timedelta(days=2),
     "ROTATE_REFRESH_TOKENS": True,                      # if True, refresh token is updated after use
     "AUTH_COOKIE_SECURE": not DEBUG,                     # have to be true in prod (HTTPS)
-    "AUTH_COOKIE_SAMESITE": "None",
+    "AUTH_COOKIE_SAMESITE": "Lax" if DEBUG else "None",
 }
 
 SPECTACULAR_SETTINGS = {
@@ -241,6 +241,8 @@ if not DEBUG:
     EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")
     EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
     DEFAULT_FROM_EMAIL = os.getenv("DEFAULT_FROM_EMAIL")
+
+ADMIN_EMAIL=os.getenv("ADMIN_EMAIL")
 
 FE_HOST_URL=os.getenv("FE_HOST_URL")
 BE_HOST_URL=os.getenv("BE_HOST_URL")

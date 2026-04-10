@@ -2,7 +2,7 @@
 
 Ce site est un portfolio et un projet de démonstration publié par :
 
-- **Éditeur :** Julien Schiele
+- **Éditeur :** Julien Schiélé
 
 - **Contact :** julien.schiele@gmail.com
 

@@ -6,7 +6,7 @@ UserProgramFeedback data so visitors can log in and explore the app.
 
 Usage
 -----
-    # First run (or daily cron reset):
+    # First run (or weekly cron reset):
     python manage.py seed_demo_data
 
     # Keep existing Programs/Exercises, only reset user tracking data:
@@ -155,13 +155,13 @@ def _seed_tracking_for_user(user: User, program: Program, session_count: int) ->
 
 
 class Command(BaseCommand):
-    help = "Seed demo users + realistic tracking data (safe to run daily)"
+    help = "Seed demo users + realistic tracking data (safe to run weekly)"
 
     def add_arguments(self, parser):
         parser.add_argument(
             "--tracking-only",
             action="store_true",
-            help="Only reset tracking data; do not touch Users (faster daily cron)",
+            help="Only reset tracking data; do not touch Users (faster weekly cron)",
         )
 
     def handle(self, *args, **options):
