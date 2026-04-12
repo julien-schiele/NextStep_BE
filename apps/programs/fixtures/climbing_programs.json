@@ -1,0 +1,3426 @@
+[
+    {
+        "translations": {
+            "en": {
+                "name": "Base Climbing & Fitness",
+                "description": "Balanced program to build climbing habits and full-body strength.",
+                "realistic_if": [
+                    "Climbs V2–V3 regularly",
+                    "Looking for structure"
+                ],
+                "not_realistic_if": [
+                    "Complete beginner",
+                    "Injury limiting training"
+                ]
+            },
+            "fr": {
+                "name": "Base Climbing & Fitness",
+                "description": "Programme équilibré pour développer des habitudes d'escalade et une force corporelle complète.",
+                "realistic_if": [
+                    "Montre régulièrement des voies de niveau V2–V3",
+                    "Recherche de structure"
+                ],
+                "not_realistic_if": [
+                    "Débutant complet",
+                    "Entraînement pour limiter les blessures"
+                ]
+            },
+            "es": {
+                "name": "Base Climbing & Fitness",
+                "description": "Programa equilibrado para desarrollar hábitos de escalada y fuerza corporal total.",
+                "realistic_if": [
+                    "Escaladas V2–V3 regularmente",
+                    "Buscando estructura"
+                ],
+                "not_realistic_if": [
+                    "Principiante absoluto",
+                    "Entrenamiento para limitar lesiones"
+                ]
+            }
+        },
+        "focus": "climbing_performance",
+        "level": "beginner",
+        "is_public": true,
+        "focus_axes": [
+            "general_strength",
+            "mobility",
+            "movement_quality"
+        ],
+        "cycle_rhythm": {
+            "total_sessions": 7,
+            "climbing": 3,
+            "strength": 2,
+            "off_or_active": 2
+        },
+        "content": {
+            "version": 1,
+            "sessions": [
+                {
+                    "session": 1,
+                    "focus": "general_fitness",
+                    "sequences": [
+                        [
+                            {
+                                "exercise": "mobility",
+                                "value": 10,
+                                "practice_zone": "everywhere"
+                            }
+                        ],
+                        [
+                            {
+                                "exercise": "push_up",
+                                "value": 10,
+                                "practice_zone": "everywhere"
+                            },
+                            {
+                                "exercise": "squat",
+                                "value": 15,
+                                "practice_zone": "everywhere"
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "session": 2,
+                    "focus": "climbing_performance",
+                    "sequences": [
+                        [
+                            {
+                                "exercise": "easy_traverse",
+                                "value": 10,
+                                "practice_zone": "climbing_gym"
+                            }
+                        ],
+                        [
+                            {
+                                "exercise": "basic_boulder",
+                                "value": 8,
+                                "practice_zone": "climbing_gym"
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "session": 3,
+                    "focus": "general_fitness",
+                    "sequences": [
+                        [
+                            {
+                                "exercise": "plank",
+                                "value": 30,
+                                "practice_zone": "everywhere"
+                            },
+                            {
+                                "exercise": "glute_bridge",
+                                "value": 12,
+                                "practice_zone": "everywhere"
+                            }
+                        ],
+                        [
+                            {
+                                "exercise": "mountain_climber",
+                                "value": 20,
+                                "practice_zone": "everywhere"
+                            }
+                        ]
+                    ]
+                }
+            ],
+            "repeat": {
+                "cycles": 2,
+                "progression": {
+                    "push_up": {
+                        "increment": 2,
+                        "per_cycle": 1
+                    },
+                    "squat": {
+                        "increment": 3,
+                        "per_cycle": 1
+                    },
+                    "basic_boulder": {
+                        "increment": 1,
+                        "per_cycle": 1
+                    }
+                }
+            }
+        }
+    },
+    {
+        "translations": {
+            "en": {
+                "name": "Power & Strength Focus",
+                "description": "Program targeting explosive power and upper body strength for bouldering.",
+                "realistic_if": [
+                    "Climbs V3–V5",
+                    "Wants to improve power"
+                ],
+                "not_realistic_if": [
+                    "Beginner",
+                    "Recovering from injury"
+                ]
+            },
+            "fr": {
+                "name": "Force et Puissance",
+                "description": "Programme visant la puissance explosive et la force du haut du corps pour le bloc.",
+                "realistic_if": [
+                    "Montre V3–V5",
+                    "Veut améliorer sa puissance"
+                ],
+                "not_realistic_if": [
+                    "Débutant",
+                    "Récupération d'une blessure"
+                ]
+            },
+            "es": {
+                "name": "Fuerza y Potencia",
+                "description": "Programa enfocado en potencia explosiva y fuerza de la parte superior para búlder.",
+                "realistic_if": [
+                    "Escala V3–V5",
+                    "Quiere mejorar potencia"
+                ],
+                "not_realistic_if": [
+                    "Principiante",
+                    "Recuperándose de lesión"
+                ]
+            }
+        },
+        "focus": "climbing_performance",
+        "level": "intermediate",
+        "is_public": true,
+        "focus_axes": [
+            "power",
+            "pulling_strength",
+            "core_tension"
+        ],
+        "cycle_rhythm": {
+            "total_sessions": 14,
+            "climbing": 5,
+            "strength": 6,
+            "off_or_active": 3
+        },
+        "content": {
+            "version": 1,
+            "sessions": [
+                {
+                    "session": 1,
+                    "focus": "general_fitness",
+                    "sequences": [
+                        [
+                            {
+                                "exercise": "pull_up",
+                                "value": 8,
+                                "practice_zone": "everywhere"
+                            },
+                            {
+                                "exercise": "lock_off",
+                                "value": 15,
+                                "practice_zone": "everywhere"
+                            }
+                        ],
+                        [
+                            {
+                                "exercise": "dyno",
+                                "value": 6,
+                                "practice_zone": "climbing_gym"
+                            },
+                            {
+                                "exercise": "heel_hook",
+                                "value": 20,
+                                "practice_zone": "climbing_gym"
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "session": 2,
+                    "focus": "climbing_performance",
+                    "sequences": [
+                        [
+                            {
+                                "exercise": "limit_boulder",
+                                "value": 5,
+                                "practice_zone": "climbing_gym"
+                            },
+                            {
+                                "exercise": "technical_boulder",
+                                "value": 6,
+                                "practice_zone": "climbing_gym"
+                            }
+                        ]
+                    ]
+                }
+            ],
+            "repeat": {
+                "cycles": 7,
+                "progression": {
+                    "pull_up": {
+                        "increment": 1,
+                        "per_cycle": 1
+                    },
+                    "dyno": {
+                        "increment": 1,
+                        "per_cycle": 1
+                    }
+                }
+            }
+        }
+    },
+    {
+        "translations": {
+            "en": {
+                "name": "Core & Endurance",
+                "description": "Builds core stability and power endurance for longer climbing sessions.",
+                "realistic_if": [
+                    "Climbs V2–V4",
+                    "Wants endurance"
+                ],
+                "not_realistic_if": [
+                    "Severe shoulder injury"
+                ]
+            },
+            "fr": {
+                "name": "Core et Endurance",
+                "description": "Renforce la stabilité du tronc et l'endurance pour des sessions plus longues.",
+                "realistic_if": [
+                    "Montre V2–V4",
+                    "Veut endurance"
+                ],
+                "not_realistic_if": [
+                    "Blessure grave à l'épaule"
+                ]
+            },
+            "es": {
+                "name": "Core y Resistencia",
+                "description": "Fortalece el core y la resistencia para sesiones más largas.",
+                "realistic_if": [
+                    "Escala V2–V4",
+                    "Quiere resistencia"
+                ],
+                "not_realistic_if": [
+                    "Lesión grave de hombro"
+                ]
+            }
+        },
+        "focus": "climbing_performance",
+        "level": "intermediate",
+        "is_public": true,
+        "focus_axes": [
+            "core_tension",
+            "power_endurance",
+            "stability"
+        ],
+        "cycle_rhythm": {
+            "total_sessions": 10,
+            "climbing": 4,
+            "strength": 4,
+            "off_or_active": 2
+        },
+        "content": {
+            "version": 1,
+            "sessions": [
+                {
+                    "session": 1,
+                    "focus": "general_fitness",
+                    "sequences": [
+                        [
+                            {
+                                "exercise": "hollow_body",
+                                "value": 30,
+                                "practice_zone": "everywhere"
+                            },
+                            {
+                                "exercise": "plank",
+                                "value": 40,
+                                "practice_zone": "everywhere"
+                            }
+                        ],
+                        [
+                            {
+                                "exercise": "mountain_climber",
+                                "value": 25,
+                                "practice_zone": "everywhere"
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "session": 2,
+                    "focus": "climbing_performance",
+                    "sequences": [
+                        [
+                            {
+                                "exercise": "long_circuit",
+                                "value": 300,
+                                "practice_zone": "climbing_gym"
+                            }
+                        ]
+                    ]
+                }
+            ],
+            "repeat": {
+                "cycles": 5,
+                "progression": {
+                    "plank": {
+                        "increment": 5,
+                        "per_cycle": 1
+                    },
+                    "mountain_climber": {
+                        "increment": 2,
+                        "per_cycle": 1
+                    }
+                }
+            }
+        }
+    },
+    {
+        "translations": {
+            "en": {
+                "name": "Technical Climbing Mastery",
+                "description": "Focus on improving technical skills and movement efficiency on the wall.",
+                "realistic_if": [
+                    "Climbs V3–V5",
+                    "Wants precise technique"
+                ],
+                "not_realistic_if": [
+                    "Beginner"
+                ]
+            },
+            "fr": {
+                "name": "Maîtrise Technique",
+                "description": "Travaille la technique et l'efficacité sur le mur.",
+                "realistic_if": [
+                    "Montre V3–V5",
+                    "Veut précision technique"
+                ],
+                "not_realistic_if": [
+                    "Débutant"
+                ]
+            },
+            "es": {
+                "name": "Maestría Técnica",
+                "description": "Mejora la técnica y eficiencia en la pared.",
+                "realistic_if": [
+                    "Escala V3–V5",
+                    "Quiere técnica precisa"
+                ],
+                "not_realistic_if": [
+                    "Principiante"
+                ]
+            }
+        },
+        "focus": "climbing_performance",
+        "level": "advanced",
+        "is_public": true,
+        "focus_axes": [
+            "movement_quality",
+            "technical_bouldering",
+            "footwork"
+        ],
+        "cycle_rhythm": {
+            "total_sessions": 12,
+            "climbing": 7,
+            "strength": 3,
+            "off_or_active": 2
+        },
+        "content": {
+            "version": 1,
+            "sessions": [
+                {
+                    "session": 1,
+                    "focus": "climbing_performance",
+                    "sequences": [
+                        [
+                            {
+                                "exercise": "technical_boulder",
+                                "value": 10,
+                                "practice_zone": "climbing_gym"
+                            },
+                            {
+                                "exercise": "mantle",
+                                "value": 5,
+                                "practice_zone": "climbing_gym"
+                            }
+                        ],
+                        [
+                            {
+                                "exercise": "easy_traverse",
+                                "value": 15,
+                                "practice_zone": "climbing_gym"
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "session": 2,
+                    "focus": "general_fitness",
+                    "sequences": [
+                        [
+                            {
+                                "exercise": "pull_up",
+                                "value": 10,
+                                "practice_zone": "everywhere"
+                            },
+                            {
+                                "exercise": "lock_off",
+                                "value": 20,
+                                "practice_zone": "everywhere"
+                            }
+                        ]
+                    ]
+                }
+            ],
+            "repeat": {
+                "cycles": 6,
+                "progression": {
+                    "technical_boulder": {
+                        "increment": 1,
+                        "per_cycle": 1
+                    },
+                    "pull_up": {
+                        "increment": 1,
+                        "per_cycle": 1
+                    }
+                }
+            }
+        }
+    },
+    {
+        "translations": {
+            "en": {
+                "name": "Project Boulder Preparation",
+                "description": "Intense program for climbers working on hard projects and limit boulders.",
+                "realistic_if": [
+                    "Climbs V5+",
+                    "Works on personal projects"
+                ],
+                "not_realistic_if": [
+                    "Beginner"
+                ]
+            },
+            "fr": {
+                "name": "Préparation Projet Bloc",
+                "description": "Programme intense pour travailler sur des blocs difficiles et projets personnels.",
+                "realistic_if": [
+                    "Montre V5+",
+                    "Travaille ses projets"
+                ],
+                "not_realistic_if": [
+                    "Débutant"
+                ]
+            },
+            "es": {
+                "name": "Preparación Proyecto Boulder",
+                "description": "Programa intenso para trabajar proyectos difíciles y bloques personales.",
+                "realistic_if": [
+                    "Escala V5+",
+                    "Trabaja en sus proyectos"
+                ],
+                "not_realistic_if": [
+                    "Principiante"
+                ]
+            }
+        },
+        "focus": "climbing_performance",
+        "level": "advanced",
+        "is_public": true,
+        "focus_axes": [
+            "technical_bouldering",
+            "max_strength",
+            "project_bouldering"
+        ],
+        "cycle_rhythm": {
+            "total_sessions": 15,
+            "climbing": 10,
+            "strength": 3,
+            "off_or_active": 2
+        },
+        "content": {
+            "version": 1,
+            "sessions": [
+                {
+                    "session": 1,
+                    "focus": "climbing_performance",
+                    "sequences": [
+                        [
+                            {
+                                "exercise": "project_boulder",
+                                "value": 5,
+                                "practice_zone": "climbing_gym"
+                            },
+                            {
+                                "exercise": "limit_boulder",
+                                "value": 4,
+                                "practice_zone": "climbing_gym"
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "session": 2,
+                    "focus": "general_fitness",
+                    "sequences": [
+                        [
+                            {
+                                "exercise": "easy_hangboard",
+                                "value": 30,
+                                "practice_zone": "climbing_gym"
+                            },
+                            {
+                                "exercise": "glute_bridge",
+                                "value": 15,
+                                "practice_zone": "everywhere"
+                            }
+                        ]
+                    ]
+                }
+            ],
+            "repeat": {
+                "cycles": 7,
+                "progression": {
+                    "project_boulder": {
+                        "increment": 1,
+                        "per_cycle": 1
+                    },
+                    "limit_boulder": {
+                        "increment": 1,
+                        "per_cycle": 1
+                    }
+                }
+            }
+        }
+    },
+    {
+        "translations": {
+            "en": {
+                "name": "Full-Body Conditioning",
+                "description": "Build general fitness, mobility, and climbing readiness with balanced sessions.",
+                "realistic_if": [
+                    "Climbs V1–V3",
+                    "Wants overall conditioning"
+                ],
+                "not_realistic_if": [
+                    "Injury limiting training"
+                ]
+            },
+            "fr": {
+                "name": "Conditionnement Complet",
+                "description": "Renforce la forme générale, la mobilité et la préparation à l'escalade.",
+                "realistic_if": [
+                    "Montre V1–V3",
+                    "Veut conditionnement général"
+                ],
+                "not_realistic_if": [
+                    "Blessure limitant l'entraînement"
+                ]
+            },
+            "es": {
+                "name": "Acondicionamiento Completo",
+                "description": "Mejora la condición general, movilidad y preparación para escalar.",
+                "realistic_if": [
+                    "Escala V1–V3",
+                    "Quiere acondicionamiento general"
+                ],
+                "not_realistic_if": [
+                    "Lesión que limita entrenamiento"
+                ]
+            }
+        },
+        "focus": "climbing_performance",
+        "level": "beginner",
+        "is_public": true,
+        "focus_axes": [
+            "general_strength",
+            "mobility",
+            "stability"
+        ],
+        "cycle_rhythm": {
+            "total_sessions": 7,
+            "climbing": 2,
+            "strength": 3,
+            "off_or_active": 2
+        },
+        "content": {
+            "version": 1,
+            "sessions": [
+                {
+                    "session": 1,
+                    "focus": "general_fitness",
+                    "sequences": [
+                        [
+                            {
+                                "exercise": "mobility",
+                                "value": 10,
+                                "practice_zone": "everywhere"
+                            },
+                            {
+                                "exercise": "squat",
+                                "value": 15,
+                                "practice_zone": "everywhere"
+                            }
+                        ],
+                        [
+                            {
+                                "exercise": "push_up",
+                                "value": 10,
+                                "practice_zone": "everywhere"
+                            },
+                            {
+                                "exercise": "glute_bridge",
+                                "value": 12,
+                                "practice_zone": "everywhere"
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "session": 2,
+                    "focus": "climbing_performance",
+                    "sequences": [
+                        [
+                            {
+                                "exercise": "easy_traverse",
+                                "value": 12,
+                                "practice_zone": "climbing_gym"
+                            },
+                            {
+                                "exercise": "basic_boulder",
+                                "value": 8,
+                                "practice_zone": "climbing_gym"
+                            }
+                        ]
+                    ]
+                }
+            ],
+            "repeat": {
+                "cycles": 2,
+                "progression": {
+                    "push_up": {
+                        "increment": 2,
+                        "per_cycle": 1
+                    },
+                    "squat": {
+                        "increment": 3,
+                        "per_cycle": 1
+                    },
+                    "basic_boulder": {
+                        "increment": 1,
+                        "per_cycle": 1
+                    }
+                }
+            }
+        }
+    },
+    {
+        "translations": {
+            "en": {
+                "name": "Lock-Off & Core Strength",
+                "description": "Focused program to improve lock-offs and core tension for intermediate boulderers.",
+                "realistic_if": [
+                    "Climbs V3–V5",
+                    "Wants upper-body strength"
+                ],
+                "not_realistic_if": [
+                    "Beginner"
+                ]
+            },
+            "fr": {
+                "name": "Force Core et Lock-Off",
+                "description": "Programme pour améliorer les lock-offs et la tension du tronc.",
+                "realistic_if": [
+                    "Montre V3–V5",
+                    "Veut force du haut du corps"
+                ],
+                "not_realistic_if": [
+                    "Débutant"
+                ]
+            },
+            "es": {
+                "name": "Fuerza Core y Lock-Off",
+                "description": "Programa para mejorar lock-offs y tensión de core.",
+                "realistic_if": [
+                    "Escala V3–V5",
+                    "Quiere fuerza superior"
+                ],
+                "not_realistic_if": [
+                    "Principiante"
+                ]
+            }
+        },
+        "focus": "climbing_performance",
+        "level": "intermediate",
+        "is_public": true,
+        "focus_axes": [
+            "lock_off_strength",
+            "core_tension",
+            "pulling_strength"
+        ],
+        "cycle_rhythm": {
+            "total_sessions": 10,
+            "climbing": 4,
+            "strength": 5,
+            "off_or_active": 1
+        },
+        "content": {
+            "version": 1,
+            "sessions": [
+                {
+                    "session": 1,
+                    "focus": "general_fitness",
+                    "sequences": [
+                        [
+                            {
+                                "exercise": "lock_off",
+                                "value": 15,
+                                "practice_zone": "everywhere"
+                            },
+                            {
+                                "exercise": "hollow_body",
+                                "value": 30,
+                                "practice_zone": "everywhere"
+                            }
+                        ],
+                        [
+                            {
+                                "exercise": "pull_up",
+                                "value": 8,
+                                "practice_zone": "everywhere"
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "session": 2,
+                    "focus": "climbing_performance",
+                    "sequences": [
+                        [
+                            {
+                                "exercise": "limit_boulder",
+                                "value": 6,
+                                "practice_zone": "climbing_gym"
+                            },
+                            {
+                                "exercise": "technical_boulder",
+                                "value": 6,
+                                "practice_zone": "climbing_gym"
+                            }
+                        ]
+                    ]
+                }
+            ],
+            "repeat": {
+                "cycles": 5,
+                "progression": {
+                    "pull_up": {
+                        "increment": 1,
+                        "per_cycle": 1
+                    },
+                    "lock_off": {
+                        "increment": 2,
+                        "per_cycle": 1
+                    }
+                }
+            }
+        }
+    },
+    {
+        "translations": {
+            "en": {
+                "name": "Power-Endurance Circuit",
+                "description": "Improve climbing stamina and circuit performance using power-endurance exercises.",
+                "realistic_if": [
+                    "Climbs V2–V4",
+                    "Wants longer sessions without fatigue"
+                ],
+                "not_realistic_if": [
+                    "Severe injuries"
+                ]
+            },
+            "fr": {
+                "name": "Circuit Endurance-Puissance",
+                "description": "Améliore l'endurance et la performance en circuit avec des exercices de puissance-endurance.",
+                "realistic_if": [
+                    "Montre V2–V4",
+                    "Veut sessions plus longues sans fatigue"
+                ],
+                "not_realistic_if": [
+                    "Blessures graves"
+                ]
+            },
+            "es": {
+                "name": "Circuito Resistencia-Potencia",
+                "description": "Mejora la resistencia y rendimiento en circuito con ejercicios de power-endurance.",
+                "realistic_if": [
+                    "Escala V2–V4",
+                    "Quiere sesiones más largas sin fatiga"
+                ],
+                "not_realistic_if": [
+                    "Lesiones graves"
+                ]
+            }
+        },
+        "focus": "climbing_performance",
+        "level": "intermediate",
+        "is_public": true,
+        "focus_axes": [
+            "power_endurance",
+            "endurance_continuity",
+            "core_tension"
+        ],
+        "cycle_rhythm": {
+            "total_sessions": 12,
+            "climbing": 5,
+            "strength": 4,
+            "off_or_active": 3
+        },
+        "content": {
+            "version": 1,
+            "sessions": [
+                {
+                    "session": 1,
+                    "focus": "general_fitness",
+                    "sequences": [
+                        [
+                            {
+                                "exercise": "power_endurance_circuit",
+                                "value": 180,
+                                "practice_zone": "climbing_gym"
+                            },
+                            {
+                                "exercise": "plank",
+                                "value": 40,
+                                "practice_zone": "everywhere"
+                            }
+                        ],
+                        [
+                            {
+                                "exercise": "mountain_climber",
+                                "value": 30,
+                                "practice_zone": "everywhere"
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "session": 2,
+                    "focus": "climbing_performance",
+                    "sequences": [
+                        [
+                            {
+                                "exercise": "long_circuit",
+                                "value": 240,
+                                "practice_zone": "climbing_gym"
+                            }
+                        ]
+                    ]
+                }
+            ],
+            "repeat": {
+                "cycles": 6,
+                "progression": {
+                    "plank": {
+                        "increment": 5,
+                        "per_cycle": 1
+                    },
+                    "power_endurance_circuit": {
+                        "increment": 15,
+                        "per_cycle": 1
+                    }
+                }
+            }
+        }
+    },
+    {
+        "translations": {
+            "en": {
+                "name": "Advanced Boulder Technique",
+                "description": "Improve advanced movement, heel hooks, mantles, and dynamic bouldering skills.",
+                "realistic_if": [
+                    "Climbs V4–V6",
+                    "Seeks technique improvement"
+                ],
+                "not_realistic_if": [
+                    "Beginner"
+                ]
+            },
+            "fr": {
+                "name": "Technique Bloc Avancée",
+                "description": "Améliore les mouvements avancés, heel hooks, mantles et dynamiques.",
+                "realistic_if": [
+                    "Montre V4–V6",
+                    "Veut améliorer la technique"
+                ],
+                "not_realistic_if": [
+                    "Débutant"
+                ]
+            },
+            "es": {
+                "name": "Técnica Boulder Avanzada",
+                "description": "Mejora movimientos avanzados, heel hooks, mantles y dinámicos.",
+                "realistic_if": [
+                    "Escala V4–V6",
+                    "Busca mejorar técnica"
+                ],
+                "not_realistic_if": [
+                    "Principiante"
+                ]
+            }
+        },
+        "focus": "climbing_performance",
+        "level": "advanced",
+        "is_public": true,
+        "focus_axes": [
+            "technical_bouldering",
+            "movement_quality",
+            "footwork"
+        ],
+        "cycle_rhythm": {
+            "total_sessions": 14,
+            "climbing": 8,
+            "strength": 4,
+            "off_or_active": 2
+        },
+        "content": {
+            "version": 1,
+            "sessions": [
+                {
+                    "session": 1,
+                    "focus": "climbing_performance",
+                    "sequences": [
+                        [
+                            {
+                                "exercise": "mantle",
+                                "value": 5,
+                                "practice_zone": "climbing_gym"
+                            },
+                            {
+                                "exercise": "heel_hook",
+                                "value": 20,
+                                "practice_zone": "climbing_gym"
+                            }
+                        ],
+                        [
+                            {
+                                "exercise": "dyno",
+                                "value": 6,
+                                "practice_zone": "climbing_gym"
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "session": 2,
+                    "focus": "general_fitness",
+                    "sequences": [
+                        [
+                            {
+                                "exercise": "pull_up",
+                                "value": 10,
+                                "practice_zone": "everywhere"
+                            },
+                            {
+                                "exercise": "hollow_body",
+                                "value": 35,
+                                "practice_zone": "everywhere"
+                            }
+                        ]
+                    ]
+                }
+            ],
+            "repeat": {
+                "cycles": 7,
+                "progression": {
+                    "dyno": {
+                        "increment": 1,
+                        "per_cycle": 1
+                    },
+                    "pull_up": {
+                        "increment": 1,
+                        "per_cycle": 1
+                    }
+                }
+            }
+        }
+    },
+    {
+        "translations": {
+            "en": {
+                "name": "Project Boulder Intensive",
+                "description": "High-level program for working on multiple hard projects in the gym.",
+                "realistic_if": [
+                    "Climbs V5+",
+                    "Experienced in project bouldering"
+                ],
+                "not_realistic_if": [
+                    "Beginner"
+                ]
+            },
+            "fr": {
+                "name": "Intensif Projet Bloc",
+                "description": "Programme de haut niveau pour travailler plusieurs projets difficiles en salle.",
+                "realistic_if": [
+                    "Montre V5+",
+                    "Expérimenté en projets de bloc"
+                ],
+                "not_realistic_if": [
+                    "Débutant"
+                ]
+            },
+            "es": {
+                "name": "Proyecto Boulder Intensivo",
+                "description": "Programa de alto nivel para trabajar varios proyectos difíciles en el gimnasio.",
+                "realistic_if": [
+                    "Escala V5+",
+                    "Experto en project boulder"
+                ],
+                "not_realistic_if": [
+                    "Principiante"
+                ]
+            }
+        },
+        "focus": "climbing_performance",
+        "level": "advanced",
+        "is_public": true,
+        "focus_axes": [
+            "project_bouldering",
+            "max_strength",
+            "technical_bouldering"
+        ],
+        "cycle_rhythm": {
+            "total_sessions": 15,
+            "climbing": 10,
+            "strength": 3,
+            "off_or_active": 2
+        },
+        "content": {
+            "version": 1,
+            "sessions": [
+                {
+                    "session": 1,
+                    "focus": "climbing_performance",
+                    "sequences": [
+                        [
+                            {
+                                "exercise": "project_boulder",
+                                "value": 5,
+                                "practice_zone": "climbing_gym"
+                            },
+                            {
+                                "exercise": "limit_boulder",
+                                "value": 4,
+                                "practice_zone": "climbing_gym"
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "session": 2,
+                    "focus": "general_fitness",
+                    "sequences": [
+                        [
+                            {
+                                "exercise": "easy_hangboard",
+                                "value": 30,
+                                "practice_zone": "climbing_gym"
+                            },
+                            {
+                                "exercise": "glute_bridge",
+                                "value": 15,
+                                "practice_zone": "everywhere"
+                            }
+                        ]
+                    ]
+                }
+            ],
+            "repeat": {
+                "cycles": 7,
+                "progression": {
+                    "project_boulder": {
+                        "increment": 1,
+                        "per_cycle": 1
+                    },
+                    "limit_boulder": {
+                        "increment": 1,
+                        "per_cycle": 1
+                    }
+                }
+            }
+        }
+    },
+    {
+        "translations": {
+            "en": {
+                "name": "General Fitness & Climbing Prep",
+                "description": "Build general strength, mobility and basic climbing skills with varied sessions.",
+                "realistic_if": [
+                    "Climbs V1–V3",
+                    "Wants structured training"
+                ],
+                "not_realistic_if": [
+                    "Severe injuries"
+                ]
+            },
+            "fr": {
+                "name": "Fitness Général & Préparation Escalade",
+                "description": "Renforce la force générale, la mobilité et les bases d'escalade avec des sessions variées.",
+                "realistic_if": [
+                    "Montre V1–V3",
+                    "Recherche structure"
+                ],
+                "not_realistic_if": [
+                    "Blessures importantes"
+                ]
+            },
+            "es": {
+                "name": "Fitness General y Preparación Escalada",
+                "description": "Mejora fuerza general, movilidad y habilidades básicas de escalada con sesiones variadas.",
+                "realistic_if": [
+                    "Escala V1–V3",
+                    "Busca estructura"
+                ],
+                "not_realistic_if": [
+                    "Lesión grave"
+                ]
+            }
+        },
+        "focus": "climbing_performance",
+        "level": "beginner",
+        "is_public": true,
+        "focus_axes": [
+            "general_strength",
+            "mobility",
+            "movement_quality"
+        ],
+        "cycle_rhythm": {
+            "total_sessions": 8,
+            "climbing": 3,
+            "strength": 3,
+            "off_or_active": 2
+        },
+        "content": {
+            "version": 1,
+            "sessions": [
+                {
+                    "session": 1,
+                    "focus": "general_fitness",
+                    "sequences": [
+                        [
+                            {
+                                "exercise": "mobility",
+                                "value": 10,
+                                "practice_zone": "everywhere"
+                            },
+                            {
+                                "exercise": "plank",
+                                "value": 30,
+                                "practice_zone": "everywhere"
+                            }
+                        ],
+                        [
+                            {
+                                "exercise": "push_up",
+                                "value": 12,
+                                "practice_zone": "everywhere"
+                            },
+                            {
+                                "exercise": "squat",
+                                "value": 15,
+                                "practice_zone": "everywhere"
+                            }
+                        ],
+                        [
+                            {
+                                "exercise": "glute_bridge",
+                                "value": 12,
+                                "practice_zone": "everywhere"
+                            },
+                            {
+                                "exercise": "mountain_climber",
+                                "value": 20,
+                                "practice_zone": "everywhere"
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "session": 2,
+                    "focus": "climbing_performance",
+                    "sequences": [
+                        [
+                            {
+                                "exercise": "easy_traverse",
+                                "value": 12,
+                                "practice_zone": "climbing_gym"
+                            }
+                        ],
+                        [
+                            {
+                                "exercise": "basic_boulder",
+                                "value": 8,
+                                "practice_zone": "climbing_gym"
+                            }
+                        ],
+                        [
+                            {
+                                "exercise": "technical_boulder",
+                                "value": 6,
+                                "practice_zone": "climbing_gym"
+                            }
+                        ]
+                    ]
+                }
+            ],
+            "repeat": {
+                "cycles": 2,
+                "progression": {
+                    "push_up": {
+                        "increment": 2,
+                        "per_cycle": 1
+                    },
+                    "squat": {
+                        "increment": 2,
+                        "per_cycle": 1
+                    },
+                    "basic_boulder": {
+                        "increment": 1,
+                        "per_cycle": 1
+                    }
+                }
+            }
+        }
+    },
+    {
+        "translations": {
+            "en": {
+                "name": "Core & Stability Boulder Prep",
+                "description": "Focus on core strength, hollow body, lock-offs, and movement quality for bouldering.",
+                "realistic_if": [
+                    "Climbs V2–V4",
+                    "Wants core strength"
+                ],
+                "not_realistic_if": [
+                    "Beginner"
+                ]
+            },
+            "fr": {
+                "name": "Core & Stabilité pour Bloc",
+                "description": "Travaille la force du tronc, hollow body, lock-offs et qualité de mouvement pour le bloc.",
+                "realistic_if": [
+                    "Montre V2–V4",
+                    "Veut force du tronc"
+                ],
+                "not_realistic_if": [
+                    "Débutant"
+                ]
+            },
+            "es": {
+                "name": "Core y Estabilidad para Boulder",
+                "description": "Fuerza de core, hollow body, lock-offs y calidad de movimiento para boulder.",
+                "realistic_if": [
+                    "Escala V2–V4",
+                    "Quiere fuerza de core"
+                ],
+                "not_realistic_if": [
+                    "Principiante"
+                ]
+            }
+        },
+        "focus": "climbing_performance",
+        "level": "intermediate",
+        "is_public": true,
+        "focus_axes": [
+            "core_tension",
+            "lock_off_strength",
+            "movement_quality"
+        ],
+        "cycle_rhythm": {
+            "total_sessions": 10,
+            "climbing": 4,
+            "strength": 5,
+            "off_or_active": 1
+        },
+        "content": {
+            "version": 1,
+            "sessions": [
+                {
+                    "session": 1,
+                    "focus": "general_fitness",
+                    "sequences": [
+                        [
+                            {
+                                "exercise": "hollow_body",
+                                "value": 30,
+                                "practice_zone": "everywhere"
+                            },
+                            {
+                                "exercise": "plank",
+                                "value": 35,
+                                "practice_zone": "everywhere"
+                            }
+                        ],
+                        [
+                            {
+                                "exercise": "lock_off",
+                                "value": 20,
+                                "practice_zone": "everywhere"
+                            },
+                            {
+                                "exercise": "pull_up",
+                                "value": 8,
+                                "practice_zone": "everywhere"
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "session": 2,
+                    "focus": "climbing_performance",
+                    "sequences": [
+                        [
+                            {
+                                "exercise": "limit_boulder",
+                                "value": 5,
+                                "practice_zone": "climbing_gym"
+                            }
+                        ],
+                        [
+                            {
+                                "exercise": "technical_boulder",
+                                "value": 6,
+                                "practice_zone": "climbing_gym"
+                            }
+                        ]
+                    ]
+                }
+            ],
+            "repeat": {
+                "cycles": 5,
+                "progression": {
+                    "pull_up": {
+                        "increment": 1,
+                        "per_cycle": 1
+                    },
+                    "lock_off": {
+                        "increment": 2,
+                        "per_cycle": 1
+                    }
+                }
+            }
+        }
+    },
+    {
+        "translations": {
+            "en": {
+                "name": "Power & Dynamic Moves",
+                "description": "Develop explosive strength, dynos, mantles, and upper body power for advanced bouldering.",
+                "realistic_if": [
+                    "Climbs V4–V6",
+                    "Wants explosive strength"
+                ],
+                "not_realistic_if": [
+                    "Beginner"
+                ]
+            },
+            "fr": {
+                "name": "Puissance & Mouvements Dynamiques",
+                "description": "Développe la force explosive, dynos, mantles et puissance du haut du corps pour le bloc avancé.",
+                "realistic_if": [
+                    "Montre V4–V6",
+                    "Veut force explosive"
+                ],
+                "not_realistic_if": [
+                    "Débutant"
+                ]
+            },
+            "es": {
+                "name": "Potencia y Movimientos Dinámicos",
+                "description": "Fuerza explosiva, dynos, mantles y potencia para boulder avanzado.",
+                "realistic_if": [
+                    "Escala V4–V6",
+                    "Quiere fuerza explosiva"
+                ],
+                "not_realistic_if": [
+                    "Principiante"
+                ]
+            }
+        },
+        "focus": "climbing_performance",
+        "level": "advanced",
+        "is_public": true,
+        "focus_axes": [
+            "power",
+            "upper_body_strength",
+            "technical_bouldering"
+        ],
+        "cycle_rhythm": {
+            "total_sessions": 12,
+            "climbing": 6,
+            "strength": 4,
+            "off_or_active": 2
+        },
+        "content": {
+            "version": 1,
+            "sessions": [
+                {
+                    "session": 1,
+                    "focus": "general_fitness",
+                    "sequences": [
+                        [
+                            {
+                                "exercise": "dyno",
+                                "value": 6,
+                                "practice_zone": "climbing_gym"
+                            },
+                            {
+                                "exercise": "mantle",
+                                "value": 5,
+                                "practice_zone": "climbing_gym"
+                            }
+                        ],
+                        [
+                            {
+                                "exercise": "pull_up",
+                                "value": 10,
+                                "practice_zone": "everywhere"
+                            },
+                            {
+                                "exercise": "push_up",
+                                "value": 12,
+                                "practice_zone": "everywhere"
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "session": 2,
+                    "focus": "climbing_performance",
+                    "sequences": [
+                        [
+                            {
+                                "exercise": "limit_boulder",
+                                "value": 5,
+                                "practice_zone": "climbing_gym"
+                            },
+                            {
+                                "exercise": "technical_boulder",
+                                "value": 6,
+                                "practice_zone": "climbing_gym"
+                            }
+                        ],
+                        [
+                            {
+                                "exercise": "project_boulder",
+                                "value": 4,
+                                "practice_zone": "climbing_gym"
+                            }
+                        ]
+                    ]
+                }
+            ],
+            "repeat": {
+                "cycles": 6,
+                "progression": {
+                    "pull_up": {
+                        "increment": 1,
+                        "per_cycle": 1
+                    },
+                    "dyno": {
+                        "increment": 1,
+                        "per_cycle": 1
+                    }
+                }
+            }
+        }
+    },
+    {
+        "translations": {
+            "en": {
+                "name": "Endurance & Circuits",
+                "description": "Develop power-endurance and climbing volume using circuits and long traverses.",
+                "realistic_if": [
+                    "Climbs V2–V4",
+                    "Wants stamina"
+                ],
+                "not_realistic_if": [
+                    "Severe injury"
+                ]
+            },
+            "fr": {
+                "name": "Endurance & Circuits",
+                "description": "Développe l'endurance et le volume d'escalade avec circuits et longues traversées.",
+                "realistic_if": [
+                    "Montre V2–V4",
+                    "Veut endurance"
+                ],
+                "not_realistic_if": [
+                    "Blessure grave"
+                ]
+            },
+            "es": {
+                "name": "Resistencia & Circuitos",
+                "description": "Mejora la resistencia y volumen de escalada con circuitos y travesías largas.",
+                "realistic_if": [
+                    "Escala V2–V4",
+                    "Quiere resistencia"
+                ],
+                "not_realistic_if": [
+                    "Lesión grave"
+                ]
+            }
+        },
+        "focus": "climbing_performance",
+        "level": "intermediate",
+        "is_public": true,
+        "focus_axes": [
+            "power_endurance",
+            "endurance_continuity",
+            "core_tension"
+        ],
+        "cycle_rhythm": {
+            "total_sessions": 10,
+            "climbing": 5,
+            "strength": 3,
+            "off_or_active": 2
+        },
+        "content": {
+            "version": 1,
+            "sessions": [
+                {
+                    "session": 1,
+                    "focus": "general_fitness",
+                    "sequences": [
+                        [
+                            {
+                                "exercise": "power_endurance_circuit",
+                                "value": 180,
+                                "practice_zone": "climbing_gym"
+                            },
+                            {
+                                "exercise": "mountain_climber",
+                                "value": 25,
+                                "practice_zone": "everywhere"
+                            }
+                        ],
+                        [
+                            {
+                                "exercise": "plank",
+                                "value": 40,
+                                "practice_zone": "everywhere"
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "session": 2,
+                    "focus": "climbing_performance",
+                    "sequences": [
+                        [
+                            {
+                                "exercise": "long_circuit",
+                                "value": 300,
+                                "practice_zone": "climbing_gym"
+                            },
+                            {
+                                "exercise": "easy_traverse",
+                                "value": 15,
+                                "practice_zone": "climbing_gym"
+                            }
+                        ]
+                    ]
+                }
+            ],
+            "repeat": {
+                "cycles": 5,
+                "progression": {
+                    "plank": {
+                        "increment": 5,
+                        "per_cycle": 1
+                    },
+                    "power_endurance_circuit": {
+                        "increment": 15,
+                        "per_cycle": 1
+                    }
+                }
+            }
+        }
+    },
+    {
+        "translations": {
+            "en": {
+                "name": "Project & Limit Boulder Focus",
+                "description": "Advanced program for climbers aiming to send hard projects and limit boulders.",
+                "realistic_if": [
+                    "Climbs V5+",
+                    "Experienced"
+                ],
+                "not_realistic_if": [
+                    "Beginner"
+                ]
+            },
+            "fr": {
+                "name": "Projet & Bloc Limite",
+                "description": "Programme avancé pour envoyer des projets difficiles et blocs limites.",
+                "realistic_if": [
+                    "Montre V5+",
+                    "Expérimenté"
+                ],
+                "not_realistic_if": [
+                    "Débutant"
+                ]
+            },
+            "es": {
+                "name": "Proyecto & Boulder Límite",
+                "description": "Programa avanzado para trabajar proyectos duros y boulder límite.",
+                "realistic_if": [
+                    "Escala V5+",
+                    "Experto"
+                ],
+                "not_realistic_if": [
+                    "Principiante"
+                ]
+            }
+        },
+        "focus": "climbing_performance",
+        "level": "advanced",
+        "is_public": true,
+        "focus_axes": [
+            "project_bouldering",
+            "technical_bouldering",
+            "max_strength"
+        ],
+        "cycle_rhythm": {
+            "total_sessions": 12,
+            "climbing": 8,
+            "strength": 3,
+            "off_or_active": 1
+        },
+        "content": {
+            "version": 1,
+            "sessions": [
+                {
+                    "session": 1,
+                    "focus": "climbing_performance",
+                    "sequences": [
+                        [
+                            {
+                                "exercise": "project_boulder",
+                                "value": 5,
+                                "practice_zone": "climbing_gym"
+                            },
+                            {
+                                "exercise": "limit_boulder",
+                                "value": 4,
+                                "practice_zone": "climbing_gym"
+                            }
+                        ],
+                        [
+                            {
+                                "exercise": "technical_boulder",
+                                "value": 5,
+                                "practice_zone": "climbing_gym"
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "session": 2,
+                    "focus": "general_fitness",
+                    "sequences": [
+                        [
+                            {
+                                "exercise": "easy_hangboard",
+                                "value": 30,
+                                "practice_zone": "climbing_gym"
+                            },
+                            {
+                                "exercise": "glute_bridge",
+                                "value": 15,
+                                "practice_zone": "everywhere"
+                            }
+                        ],
+                        [
+                            {
+                                "exercise": "plank",
+                                "value": 40,
+                                "practice_zone": "everywhere"
+                            }
+                        ]
+                    ]
+                }
+            ],
+            "repeat": {
+                "cycles": 6,
+                "progression": {
+                    "project_boulder": {
+                        "increment": 1,
+                        "per_cycle": 1
+                    },
+                    "limit_boulder": {
+                        "increment": 1,
+                        "per_cycle": 1
+                    }
+                }
+            }
+        }
+    },
+    {
+        "translations": {
+            "en": {
+                "name": "Elite Boulder Power",
+                "description": "Maximize explosive strength, dynos, and limit moves for elite boulderers.",
+                "realistic_if": [
+                    "Climbs V6+",
+                    "Seeks max power for bouldering"
+                ],
+                "not_realistic_if": [
+                    "Beginner or intermediate"
+                ]
+            },
+            "fr": {
+                "name": "Puissance Bloc Elite",
+                "description": "Maximise la force explosive, dynos et mouvements limites pour bloc élite.",
+                "realistic_if": [
+                    "Montre V6+",
+                    "Veut puissance maximale"
+                ],
+                "not_realistic_if": [
+                    "Débutant ou intermédiaire"
+                ]
+            },
+            "es": {
+                "name": "Potencia Boulder Élite",
+                "description": "Maximiza fuerza explosiva, dynos y movimientos límite para boulder élite.",
+                "realistic_if": [
+                    "Escala V6+",
+                    "Busca fuerza máxima"
+                ],
+                "not_realistic_if": [
+                    "Principiante o intermedio"
+                ]
+            }
+        },
+        "focus": "climbing_performance",
+        "level": "advanced",
+        "is_public": true,
+        "focus_axes": [
+            "power",
+            "technical_bouldering",
+            "movement_quality"
+        ],
+        "cycle_rhythm": {
+            "total_sessions": 14,
+            "climbing": 9,
+            "strength": 4,
+            "off_or_active": 1
+        },
+        "content": {
+            "version": 1,
+            "sessions": [
+                {
+                    "session": 1,
+                    "focus": "general_fitness",
+                    "sequences": [
+                        [
+                            {
+                                "exercise": "pull_up",
+                                "value": 12,
+                                "practice_zone": "everywhere"
+                            },
+                            {
+                                "exercise": "lock_off",
+                                "value": 25,
+                                "practice_zone": "everywhere"
+                            }
+                        ],
+                        [
+                            {
+                                "exercise": "hollow_body",
+                                "value": 40,
+                                "practice_zone": "everywhere"
+                            },
+                            {
+                                "exercise": "plank",
+                                "value": 50,
+                                "practice_zone": "everywhere"
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "session": 2,
+                    "focus": "climbing_performance",
+                    "sequences": [
+                        [
+                            {
+                                "exercise": "dyno",
+                                "value": 8,
+                                "practice_zone": "climbing_gym"
+                            },
+                            {
+                                "exercise": "limit_boulder",
+                                "value": 6,
+                                "practice_zone": "climbing_gym"
+                            }
+                        ],
+                        [
+                            {
+                                "exercise": "technical_boulder",
+                                "value": 8,
+                                "practice_zone": "climbing_gym"
+                            }
+                        ]
+                    ]
+                }
+            ],
+            "repeat": {
+                "cycles": 7,
+                "progression": {
+                    "pull_up": {
+                        "increment": 1,
+                        "per_cycle": 1
+                    },
+                    "dyno": {
+                        "increment": 1,
+                        "per_cycle": 1
+                    },
+                    "limit_boulder": {
+                        "increment": 1,
+                        "per_cycle": 1
+                    }
+                }
+            }
+        }
+    },
+    {
+        "translations": {
+            "en": {
+                "name": "Elite Core & Lock-Off Mastery",
+                "description": "Build ultimate core tension, lock-off endurance, and body control for complex boulders.",
+                "realistic_if": [
+                    "Climbs V6+",
+                    "Seeks core mastery"
+                ],
+                "not_realistic_if": [
+                    "Beginner"
+                ]
+            },
+            "fr": {
+                "name": "Maîtrise Core & Lock-Off Elite",
+                "description": "Développe la tension du tronc, endurance lock-off et contrôle du corps pour blocs complexes.",
+                "realistic_if": [
+                    "Montre V6+",
+                    "Veut maîtrise du core"
+                ],
+                "not_realistic_if": [
+                    "Débutant"
+                ]
+            },
+            "es": {
+                "name": "Maestría Core & Lock-Off Élite",
+                "description": "Construye tensión del core, resistencia de lock-off y control corporal para boulder complejos.",
+                "realistic_if": [
+                    "Escala V6+",
+                    "Busca dominio del core"
+                ],
+                "not_realistic_if": [
+                    "Principiante"
+                ]
+            }
+        },
+        "focus": "climbing_performance",
+        "level": "advanced",
+        "is_public": true,
+        "focus_axes": [
+            "core_tension",
+            "lock_off_strength",
+            "movement_quality"
+        ],
+        "cycle_rhythm": {
+            "total_sessions": 12,
+            "climbing": 7,
+            "strength": 4,
+            "off_or_active": 1
+        },
+        "content": {
+            "version": 1,
+            "sessions": [
+                {
+                    "session": 1,
+                    "focus": "general_fitness",
+                    "sequences": [
+                        [
+                            {
+                                "exercise": "hollow_body",
+                                "value": 50,
+                                "practice_zone": "everywhere"
+                            },
+                            {
+                                "exercise": "lock_off",
+                                "value": 30,
+                                "practice_zone": "everywhere"
+                            }
+                        ],
+                        [
+                            {
+                                "exercise": "pull_up",
+                                "value": 12,
+                                "practice_zone": "everywhere"
+                            },
+                            {
+                                "exercise": "heel_hook",
+                                "value": 25,
+                                "practice_zone": "climbing_gym"
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "session": 2,
+                    "focus": "climbing_performance",
+                    "sequences": [
+                        [
+                            {
+                                "exercise": "limit_boulder",
+                                "value": 6,
+                                "practice_zone": "climbing_gym"
+                            },
+                            {
+                                "exercise": "project_boulder",
+                                "value": 5,
+                                "practice_zone": "climbing_gym"
+                            }
+                        ],
+                        [
+                            {
+                                "exercise": "technical_boulder",
+                                "value": 7,
+                                "practice_zone": "climbing_gym"
+                            }
+                        ]
+                    ]
+                }
+            ],
+            "repeat": {
+                "cycles": 6,
+                "progression": {
+                    "pull_up": {
+                        "increment": 1,
+                        "per_cycle": 1
+                    },
+                    "lock_off": {
+                        "increment": 2,
+                        "per_cycle": 1
+                    }
+                }
+            }
+        }
+    },
+    {
+        "translations": {
+            "en": {
+                "name": "Advanced Project Boulder Focus",
+                "description": "Dedicated program for sending multiple hard projects in a single cycle.",
+                "realistic_if": [
+                    "Climbs V6+",
+                    "Experienced project boulderer"
+                ],
+                "not_realistic_if": [
+                    "Beginner"
+                ]
+            },
+            "fr": {
+                "name": "Projet Bloc Avancé",
+                "description": "Programme dédié pour travailler plusieurs projets difficiles sur un cycle.",
+                "realistic_if": [
+                    "Montre V6+",
+                    "Expérimenté en projets"
+                ],
+                "not_realistic_if": [
+                    "Débutant"
+                ]
+            },
+            "es": {
+                "name": "Proyecto Boulder Avanzado",
+                "description": "Programa para trabajar múltiples proyectos duros en un ciclo.",
+                "realistic_if": [
+                    "Escala V6+",
+                    "Experimentado en project boulder"
+                ],
+                "not_realistic_if": [
+                    "Principiante"
+                ]
+            }
+        },
+        "focus": "climbing_performance",
+        "level": "advanced",
+        "is_public": true,
+        "focus_axes": [
+            "project_bouldering",
+            "technical_bouldering",
+            "max_strength"
+        ],
+        "cycle_rhythm": {
+            "total_sessions": 15,
+            "climbing": 10,
+            "strength": 3,
+            "off_or_active": 2
+        },
+        "content": {
+            "version": 1,
+            "sessions": [
+                {
+                    "session": 1,
+                    "focus": "climbing_performance",
+                    "sequences": [
+                        [
+                            {
+                                "exercise": "project_boulder",
+                                "value": 5,
+                                "practice_zone": "climbing_gym"
+                            },
+                            {
+                                "exercise": "limit_boulder",
+                                "value": 5,
+                                "practice_zone": "climbing_gym"
+                            }
+                        ],
+                        [
+                            {
+                                "exercise": "technical_boulder",
+                                "value": 6,
+                                "practice_zone": "climbing_gym"
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "session": 2,
+                    "focus": "general_fitness",
+                    "sequences": [
+                        [
+                            {
+                                "exercise": "easy_hangboard",
+                                "value": 40,
+                                "practice_zone": "climbing_gym"
+                            },
+                            {
+                                "exercise": "plank",
+                                "value": 50,
+                                "practice_zone": "everywhere"
+                            }
+                        ],
+                        [
+                            {
+                                "exercise": "glute_bridge",
+                                "value": 20,
+                                "practice_zone": "everywhere"
+                            }
+                        ]
+                    ]
+                }
+            ],
+            "repeat": {
+                "cycles": 7,
+                "progression": {
+                    "project_boulder": {
+                        "increment": 1,
+                        "per_cycle": 1
+                    },
+                    "limit_boulder": {
+                        "increment": 1,
+                        "per_cycle": 1
+                    }
+                }
+            }
+        }
+    },
+    {
+        "translations": {
+            "en": {
+                "name": "Elite Technical Boulder Mastery",
+                "description": "Focus on perfecting technical bouldering, mantles, and dynamic sequences.",
+                "realistic_if": [
+                    "Climbs V6+",
+                    "Seeks technical excellence"
+                ],
+                "not_realistic_if": [
+                    "Beginner"
+                ]
+            },
+            "fr": {
+                "name": "Maîtrise Technique Bloc Elite",
+                "description": "Travaille la technique parfaite, mantles et mouvements dynamiques.",
+                "realistic_if": [
+                    "Montre V6+",
+                    "Veut excellence technique"
+                ],
+                "not_realistic_if": [
+                    "Débutant"
+                ]
+            },
+            "es": {
+                "name": "Maestría Técnica Boulder Élite",
+                "description": "Perfecciona técnica, mantles y movimientos dinámicos.",
+                "realistic_if": [
+                    "Escala V6+",
+                    "Busca excelencia técnica"
+                ],
+                "not_realistic_if": [
+                    "Principiante"
+                ]
+            }
+        },
+        "focus": "climbing_performance",
+        "level": "advanced",
+        "is_public": true,
+        "focus_axes": [
+            "technical_bouldering",
+            "movement_quality",
+            "footwork"
+        ],
+        "cycle_rhythm": {
+            "total_sessions": 12,
+            "climbing": 8,
+            "strength": 3,
+            "off_or_active": 1
+        },
+        "content": {
+            "version": 1,
+            "sessions": [
+                {
+                    "session": 1,
+                    "focus": "climbing_performance",
+                    "sequences": [
+                        [
+                            {
+                                "exercise": "technical_boulder",
+                                "value": 8,
+                                "practice_zone": "climbing_gym"
+                            },
+                            {
+                                "exercise": "mantle",
+                                "value": 6,
+                                "practice_zone": "climbing_gym"
+                            }
+                        ],
+                        [
+                            {
+                                "exercise": "dyno",
+                                "value": 6,
+                                "practice_zone": "climbing_gym"
+                            },
+                            {
+                                "exercise": "heel_hook",
+                                "value": 30,
+                                "practice_zone": "climbing_gym"
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "session": 2,
+                    "focus": "general_fitness",
+                    "sequences": [
+                        [
+                            {
+                                "exercise": "pull_up",
+                                "value": 12,
+                                "practice_zone": "everywhere"
+                            },
+                            {
+                                "exercise": "lock_off",
+                                "value": 25,
+                                "practice_zone": "everywhere"
+                            }
+                        ]
+                    ]
+                }
+            ],
+            "repeat": {
+                "cycles": 6,
+                "progression": {
+                    "dyno": {
+                        "increment": 1,
+                        "per_cycle": 1
+                    },
+                    "pull_up": {
+                        "increment": 1,
+                        "per_cycle": 1
+                    }
+                }
+            }
+        }
+    },
+    {
+        "translations": {
+            "en": {
+                "name": "Ultimate Project Boulder Cycle",
+                "description": "High-intensity cycle focused on sending hardest projects and limit boulders with fitness integration.",
+                "realistic_if": [
+                    "Climbs V7+",
+                    "Elite boulderer"
+                ],
+                "not_realistic_if": [
+                    "Beginner or intermediate"
+                ]
+            },
+            "fr": {
+                "name": "Cycle Projet Bloc Ultime",
+                "description": "Cycle intense pour envoyer les projets les plus durs et blocs limites avec intégration fitness.",
+                "realistic_if": [
+                    "Montre V7+",
+                    "Bloc élite"
+                ],
+                "not_realistic_if": [
+                    "Débutant ou intermédiaire"
+                ]
+            },
+            "es": {
+                "name": "Ciclo Proyecto Boulder Último",
+                "description": "Ciclo de alta intensidad para enviar proyectos difíciles y boulder límite con fitness integrado.",
+                "realistic_if": [
+                    "Escala V7+",
+                    "Boulder élite"
+                ],
+                "not_realistic_if": [
+                    "Principiante o intermedio"
+                ]
+            }
+        },
+        "focus": "climbing_performance",
+        "level": "advanced",
+        "is_public": true,
+        "focus_axes": [
+            "project_bouldering",
+            "technical_bouldering",
+            "max_strength",
+            "power_endurance"
+        ],
+        "cycle_rhythm": {
+            "total_sessions": 16,
+            "climbing": 10,
+            "strength": 5,
+            "off_or_active": 1
+        },
+        "content": {
+            "version": 1,
+            "sessions": [
+                {
+                    "session": 1,
+                    "focus": "climbing_performance",
+                    "sequences": [
+                        [
+                            {
+                                "exercise": "project_boulder",
+                                "value": 6,
+                                "practice_zone": "climbing_gym"
+                            },
+                            {
+                                "exercise": "limit_boulder",
+                                "value": 5,
+                                "practice_zone": "climbing_gym"
+                            }
+                        ],
+                        [
+                            {
+                                "exercise": "technical_boulder",
+                                "value": 7,
+                                "practice_zone": "climbing_gym"
+                            },
+                            {
+                                "exercise": "dyno",
+                                "value": 6,
+                                "practice_zone": "climbing_gym"
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "session": 2,
+                    "focus": "general_fitness",
+                    "sequences": [
+                        [
+                            {
+                                "exercise": "easy_hangboard",
+                                "value": 45,
+                                "practice_zone": "climbing_gym"
+                            },
+                            {
+                                "exercise": "plank",
+                                "value": 50,
+                                "practice_zone": "everywhere"
+                            }
+                        ],
+                        [
+                            {
+                                "exercise": "glute_bridge",
+                                "value": 20,
+                                "practice_zone": "everywhere"
+                            }
+                        ]
+                    ]
+                }
+            ],
+            "repeat": {
+                "cycles": 8,
+                "progression": {
+                    "project_boulder": {
+                        "increment": 1,
+                        "per_cycle": 1
+                    },
+                    "limit_boulder": {
+                        "increment": 1,
+                        "per_cycle": 1
+                    },
+                    "dyno": {
+                        "increment": 1,
+                        "per_cycle": 1
+                    }
+                }
+            }
+        }
+    },
+    {
+        "translations": {
+            "en": {
+                "name": "Active Recovery & Mobility",
+                "description": "Light sessions to recover from intense climbing cycles while maintaining mobility and core engagement.",
+                "realistic_if": [
+                    "Recently finished an intense training block",
+                    "Wants active recovery"
+                ],
+                "not_realistic_if": [
+                    "Looking for max strength gains"
+                ]
+            },
+            "fr": {
+                "name": "Récupération Active & Mobilité",
+                "description": "Séances légères pour récupérer après un cycle intense tout en maintenant mobilité et gainage.",
+                "realistic_if": [
+                    "A terminé un cycle intense",
+                    "Veut récupération active"
+                ],
+                "not_realistic_if": [
+                    "Recherche force maximale"
+                ]
+            },
+            "es": {
+                "name": "Recuperación Activa & Movilidad",
+                "description": "Sesiones ligeras para recuperarse tras un ciclo intenso manteniendo movilidad y core.",
+                "realistic_if": [
+                    "Terminó un ciclo intenso",
+                    "Busca recuperación activa"
+                ],
+                "not_realistic_if": [
+                    "Busca fuerza máxima"
+                ]
+            }
+        },
+        "focus": "climbing_performance",
+        "level": "beginner",
+        "is_public": true,
+        "focus_axes": [
+            "mobility",
+            "active_recovery",
+            "stability"
+        ],
+        "cycle_rhythm": {
+            "total_sessions": 7,
+            "climbing": 2,
+            "strength": 2,
+            "off_or_active": 3
+        },
+        "content": {
+            "version": 1,
+            "sessions": [
+                {
+                    "session": 1,
+                    "focus": "general_fitness",
+                    "sequences": [
+                        [
+                            {
+                                "exercise": "mobility",
+                                "value": 15,
+                                "practice_zone": "everywhere"
+                            },
+                            {
+                                "exercise": "plank",
+                                "value": 30,
+                                "practice_zone": "everywhere"
+                            }
+                        ],
+                        [
+                            {
+                                "exercise": "glute_bridge",
+                                "value": 12,
+                                "practice_zone": "everywhere"
+                            },
+                            {
+                                "exercise": "squat",
+                                "value": 10,
+                                "practice_zone": "everywhere"
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "session": 2,
+                    "focus": "climbing_performance",
+                    "sequences": [
+                        [
+                            {
+                                "exercise": "easy_traverse",
+                                "value": 12,
+                                "practice_zone": "climbing_gym"
+                            }
+                        ],
+                        [
+                            {
+                                "exercise": "basic_boulder",
+                                "value": 6,
+                                "practice_zone": "climbing_gym"
+                            }
+                        ]
+                    ]
+                }
+            ],
+            "repeat": {
+                "cycles": 2
+            }
+        }
+    },
+    {
+        "translations": {
+            "en": {
+                "name": "Antagonist & Shoulder Health",
+                "description": "Focus on antagonist muscles and shoulder stability to prevent injuries while maintaining climbing fitness.",
+                "realistic_if": [
+                    "Completed high-intensity climbing cycles",
+                    "Wants injury prevention"
+                ],
+                "not_realistic_if": [
+                    "Looking for max climbing volume"
+                ]
+            },
+            "fr": {
+                "name": "Antagonistes & Santé des Épaules",
+                "description": "Travaille les muscles antagonistes et la stabilité des épaules pour prévenir les blessures tout en restant actif.",
+                "realistic_if": [
+                    "A terminé un cycle intense",
+                    "Veut prévenir les blessures"
+                ],
+                "not_realistic_if": [
+                    "Recherche volume maximum"
+                ]
+            },
+            "es": {
+                "name": "Antagonistas & Salud Hombros",
+                "description": "Trabaja músculos antagonistas y estabilidad de hombros para prevenir lesiones manteniendo actividad.",
+                "realistic_if": [
+                    "Terminó un ciclo intenso",
+                    "Busca prevención de lesiones"
+                ],
+                "not_realistic_if": [
+                    "Busca máximo volumen de escalada"
+                ]
+            }
+        },
+        "focus": "climbing_performance",
+        "level": "intermediate",
+        "is_public": true,
+        "focus_axes": [
+            "antagonist_training",
+            "stability",
+            "mobility"
+        ],
+        "cycle_rhythm": {
+            "total_sessions": 8,
+            "climbing": 2,
+            "strength": 3,
+            "off_or_active": 3
+        },
+        "content": {
+            "version": 1,
+            "sessions": [
+                {
+                    "session": 1,
+                    "focus": "general_fitness",
+                    "sequences": [
+                        [
+                            {
+                                "exercise": "push_up",
+                                "value": 8,
+                                "practice_zone": "everywhere"
+                            },
+                            {
+                                "exercise": "glute_bridge",
+                                "value": 15,
+                                "practice_zone": "everywhere"
+                            }
+                        ],
+                        [
+                            {
+                                "exercise": "mobility",
+                                "value": 15,
+                                "practice_zone": "everywhere"
+                            },
+                            {
+                                "exercise": "plank",
+                                "value": 25,
+                                "practice_zone": "everywhere"
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "session": 2,
+                    "focus": "climbing_performance",
+                    "sequences": [
+                        [
+                            {
+                                "exercise": "easy_traverse",
+                                "value": 10,
+                                "practice_zone": "climbing_gym"
+                            },
+                            {
+                                "exercise": "basic_boulder",
+                                "value": 5,
+                                "practice_zone": "climbing_gym"
+                            }
+                        ]
+                    ]
+                }
+            ],
+            "repeat": {
+                "cycles": 2
+            }
+        }
+    },
+    {
+        "translations": {
+            "en": {
+                "name": "Deload & Core Activation",
+                "description": "Reduce intensity while keeping core and posterior chain active to recover safely.",
+                "realistic_if": [
+                    "After heavy climbing week",
+                    "Wants low-intensity active sessions"
+                ],
+                "not_realistic_if": [
+                    "Seeking high-intensity strength gains"
+                ]
+            },
+            "fr": {
+                "name": "Deload & Activation Core",
+                "description": "Réduit l’intensité tout en maintenant le tronc et la chaîne postérieure actifs pour récupérer en sécurité.",
+                "realistic_if": [
+                    "Après une semaine intense",
+                    "Veut sessions légères"
+                ],
+                "not_realistic_if": [
+                    "Recherche gains de force intensifs"
+                ]
+            },
+            "es": {
+                "name": "Deload & Activación Core",
+                "description": "Reduce intensidad manteniendo core y cadena posterior activos para recuperarse seguro.",
+                "realistic_if": [
+                    "Tras semana intensa",
+                    "Busca sesiones ligeras"
+                ],
+                "not_realistic_if": [
+                    "Busca fuerza máxima"
+                ]
+            }
+        },
+        "focus": "climbing_performance",
+        "level": "intermediate",
+        "is_public": true,
+        "focus_axes": [
+            "core_tension",
+            "active_recovery",
+            "stability"
+        ],
+        "cycle_rhythm": {
+            "total_sessions": 7,
+            "climbing": 2,
+            "strength": 2,
+            "off_or_active": 3
+        },
+        "content": {
+            "version": 1,
+            "sessions": [
+                {
+                    "session": 1,
+                    "focus": "general_fitness",
+                    "sequences": [
+                        [
+                            {
+                                "exercise": "hollow_body",
+                                "value": 30,
+                                "practice_zone": "everywhere"
+                            },
+                            {
+                                "exercise": "plank",
+                                "value": 30,
+                                "practice_zone": "everywhere"
+                            }
+                        ],
+                        [
+                            {
+                                "exercise": "glute_bridge",
+                                "value": 12,
+                                "practice_zone": "everywhere"
+                            },
+                            {
+                                "exercise": "mobility",
+                                "value": 15,
+                                "practice_zone": "everywhere"
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "session": 2,
+                    "focus": "climbing_performance",
+                    "sequences": [
+                        [
+                            {
+                                "exercise": "easy_traverse",
+                                "value": 12,
+                                "practice_zone": "climbing_gym"
+                            }
+                        ]
+                    ]
+                }
+            ],
+            "repeat": {
+                "cycles": 2
+            }
+        }
+    },
+    {
+        "translations": {
+            "en": {
+                "name": "Shoulder & Antagonist Circuit",
+                "description": "Prevent injuries with antagonist-focused circuits and light climbing movement.",
+                "realistic_if": [
+                    "Feeling shoulder fatigue after climbing cycles",
+                    "Wants injury prevention"
+                ],
+                "not_realistic_if": [
+                    "Seeking climbing max intensity"
+                ]
+            },
+            "fr": {
+                "name": "Circuit Épaules & Antagonistes",
+                "description": "Prévenir les blessures avec circuits antagonistes et escalade légère.",
+                "realistic_if": [
+                    "Fatigue des épaules après cycles",
+                    "Veut prévenir blessures"
+                ],
+                "not_realistic_if": [
+                    "Recherche intensité maximale"
+                ]
+            },
+            "es": {
+                "name": "Circuito Hombros & Antagonistas",
+                "description": "Prevención de lesiones con circuitos de antagonistas y escalada ligera.",
+                "realistic_if": [
+                    "Fatiga de hombros tras ciclo",
+                    "Busca prevención lesiones"
+                ],
+                "not_realistic_if": [
+                    "Busca intensidad máxima"
+                ]
+            }
+        },
+        "focus": "climbing_performance",
+        "level": "advanced",
+        "is_public": true,
+        "focus_axes": [
+            "antagonist_training",
+            "stability",
+            "mobility"
+        ],
+        "cycle_rhythm": {
+            "total_sessions": 9,
+            "climbing": 3,
+            "strength": 4,
+            "off_or_active": 2
+        },
+        "content": {
+            "version": 1,
+            "sessions": [
+                {
+                    "session": 1,
+                    "focus": "general_fitness",
+                    "sequences": [
+                        [
+                            {
+                                "exercise": "push_up",
+                                "value": 10,
+                                "practice_zone": "everywhere"
+                            },
+                            {
+                                "exercise": "glute_bridge",
+                                "value": 15,
+                                "practice_zone": "everywhere"
+                            }
+                        ],
+                        [
+                            {
+                                "exercise": "mobility",
+                                "value": 20,
+                                "practice_zone": "everywhere"
+                            },
+                            {
+                                "exercise": "plank",
+                                "value": 35,
+                                "practice_zone": "everywhere"
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "session": 2,
+                    "focus": "climbing_performance",
+                    "sequences": [
+                        [
+                            {
+                                "exercise": "easy_traverse",
+                                "value": 10,
+                                "practice_zone": "climbing_gym"
+                            },
+                            {
+                                "exercise": "basic_boulder",
+                                "value": 6,
+                                "practice_zone": "climbing_gym"
+                            }
+                        ]
+                    ]
+                }
+            ],
+            "repeat": {
+                "cycles": 2
+            }
+        }
+    },
+    {
+        "translations": {
+            "en": {
+                "name": "Recovery & Deload Circuit",
+                "description": "Comprehensive low-intensity circuit combining mobility, core, and antagonist exercises for full recovery.",
+                "realistic_if": [
+                    "Completed intense boulder weeks",
+                    "Needs full recovery"
+                ],
+                "not_realistic_if": [
+                    "Seeking maximum performance"
+                ]
+            },
+            "fr": {
+                "name": "Circuit Récupération & Deload",
+                "description": "Circuit complet basse intensité combinant mobilité, core et exercices antagonistes pour récupération totale.",
+                "realistic_if": [
+                    "Après semaines de bloc intense",
+                    "Besoin de récupération complète"
+                ],
+                "not_realistic_if": [
+                    "Recherche performance maximale"
+                ]
+            },
+            "es": {
+                "name": "Circuito Recuperación & Deload",
+                "description": "Circuito completo baja intensidad combinando movilidad, core y antagonistas para recuperación total.",
+                "realistic_if": [
+                    "Tras semanas de boulder intenso",
+                    "Necesita recuperación completa"
+                ],
+                "not_realistic_if": [
+                    "Busca rendimiento máximo"
+                ]
+            }
+        },
+        "focus": "climbing_performance",
+        "level": "advanced",
+        "is_public": true,
+        "focus_axes": [
+            "mobility",
+            "core_tension",
+            "antagonist_training",
+            "active_recovery"
+        ],
+        "cycle_rhythm": {
+            "total_sessions": 10,
+            "climbing": 3,
+            "strength": 4,
+            "off_or_active": 3
+        },
+        "content": {
+            "version": 1,
+            "sessions": [
+                {
+                    "session": 1,
+                    "focus": "general_fitness",
+                    "sequences": [
+                        [
+                            {
+                                "exercise": "mobility",
+                                "value": 20,
+                                "practice_zone": "everywhere"
+                            },
+                            {
+                                "exercise": "plank",
+                                "value": 40,
+                                "practice_zone": "everywhere"
+                            }
+                        ],
+                        [
+                            {
+                                "exercise": "push_up",
+                                "value": 10,
+                                "practice_zone": "everywhere"
+                            },
+                            {
+                                "exercise": "glute_bridge",
+                                "value": 15,
+                                "practice_zone": "everywhere"
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "session": 2,
+                    "focus": "climbing_performance",
+                    "sequences": [
+                        [
+                            {
+                                "exercise": "easy_traverse",
+                                "value": 12,
+                                "practice_zone": "climbing_gym"
+                            },
+                            {
+                                "exercise": "basic_boulder",
+                                "value": 6,
+                                "practice_zone": "climbing_gym"
+                            }
+                        ]
+                    ]
+                }
+            ],
+            "repeat": {
+                "cycles": 2
+            }
+        }
+    },
+    {
+        "translations": {
+            "en": {
+                "name": "Knee Recovery & Light Mobility",
+                "description": "Program to safely resume climbing after a knee sprain using low-impact leg work and core activation.",
+                "realistic_if": [
+                    "Recovering from mild knee sprain",
+                    "Needs safe return to climbing"
+                ],
+                "not_realistic_if": [
+                    "Acute injury phase"
+                ]
+            },
+            "fr": {
+                "name": "Récupération Genou & Mobilité Douce",
+                "description": "Programme pour reprendre l’escalade après entorse du genou avec travail jambes à faible impact et gainage.",
+                "realistic_if": [
+                    "Reprise après entorse légère",
+                    "Besoin de retour sûr à l’escalade"
+                ],
+                "not_realistic_if": [
+                    "Phase aiguë de blessure"
+                ]
+            },
+            "es": {
+                "name": "Recuperación Rodilla & Movilidad Suave",
+                "description": "Programa para volver a escalar tras esguince de rodilla con trabajo de piernas de bajo impacto y core.",
+                "realistic_if": [
+                    "Recuperación de esguince leve",
+                    "Necesita vuelta segura al climbing"
+                ],
+                "not_realistic_if": [
+                    "Fase aguda de lesión"
+                ]
+            }
+        },
+        "focus": "climbing_performance",
+        "level": "beginner",
+        "is_public": true,
+        "focus_axes": [
+            "mobility",
+            "core_tension",
+            "stability"
+        ],
+        "cycle_rhythm": {
+            "total_sessions": 6,
+            "climbing": 1,
+            "strength": 3,
+            "off_or_active": 2
+        },
+        "content": {
+            "version": 1,
+            "sessions": [
+                {
+                    "session": 1,
+                    "focus": "general_fitness",
+                    "sequences": [
+                        [
+                            {
+                                "exercise": "plank",
+                                "value": 20,
+                                "practice_zone": "everywhere"
+                            },
+                            {
+                                "exercise": "glute_bridge",
+                                "value": 10,
+                                "practice_zone": "everywhere"
+                            }
+                        ],
+                        [
+                            {
+                                "exercise": "mobility",
+                                "value": 15,
+                                "practice_zone": "everywhere"
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "session": 2,
+                    "focus": "climbing_performance",
+                    "sequences": [
+                        [
+                            {
+                                "exercise": "easy_traverse",
+                                "value": 8,
+                                "practice_zone": "climbing_gym"
+                            }
+                        ]
+                    ]
+                }
+            ],
+            "repeat": {
+                "cycles": 2
+            }
+        }
+    },
+    {
+        "translations": {
+            "en": {
+                "name": "Elbow Tendinopathy Recovery",
+                "description": "Focus on gentle antagonist and core exercises to resume climbing safely after elbow tendinopathy.",
+                "realistic_if": [
+                    "Recovering from elbow tendinitis",
+                    "Needs low-stress climbing preparation"
+                ],
+                "not_realistic_if": [
+                    "Acute pain persists"
+                ]
+            },
+            "fr": {
+                "name": "Reprise Tendinite Coude",
+                "description": "Travail doux des antagonistes et du gainage pour reprendre l’escalade après tendinite du coude.",
+                "realistic_if": [
+                    "Reprise après tendinite coude",
+                    "Besoin de préparation à faible stress"
+                ],
+                "not_realistic_if": [
+                    "Douleur aiguë persistante"
+                ]
+            },
+            "es": {
+                "name": "Recuperación Tendinitis Codo",
+                "description": "Trabajo suave de antagonistas y core para volver a escalar tras tendinitis de codo.",
+                "realistic_if": [
+                    "Recuperación de tendinitis de codo",
+                    "Necesita preparación de bajo estrés"
+                ],
+                "not_realistic_if": [
+                    "Dolor agudo persistente"
+                ]
+            }
+        },
+        "focus": "climbing_performance",
+        "level": "beginner",
+        "is_public": true,
+        "focus_axes": [
+            "antagonist_training",
+            "mobility",
+            "core_tension"
+        ],
+        "cycle_rhythm": {
+            "total_sessions": 7,
+            "climbing": 1,
+            "strength": 4,
+            "off_or_active": 2
+        },
+        "content": {
+            "version": 1,
+            "sessions": [
+                {
+                    "session": 1,
+                    "focus": "general_fitness",
+                    "sequences": [
+                        [
+                            {
+                                "exercise": "push_up",
+                                "value": 6,
+                                "practice_zone": "everywhere"
+                            },
+                            {
+                                "exercise": "plank",
+                                "value": 25,
+                                "practice_zone": "everywhere"
+                            }
+                        ],
+                        [
+                            {
+                                "exercise": "glute_bridge",
+                                "value": 12,
+                                "practice_zone": "everywhere"
+                            },
+                            {
+                                "exercise": "mobility",
+                                "value": 15,
+                                "practice_zone": "everywhere"
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "session": 2,
+                    "focus": "climbing_performance",
+                    "sequences": [
+                        [
+                            {
+                                "exercise": "easy_traverse",
+                                "value": 10,
+                                "practice_zone": "climbing_gym"
+                            }
+                        ]
+                    ]
+                }
+            ],
+            "repeat": {
+                "cycles": 2
+            }
+        }
+    },
+    {
+        "translations": {
+            "en": {
+                "name": "Knee & Core Deload",
+                "description": "Low-impact leg work and core activation to safely return after knee injury.",
+                "realistic_if": [
+                    "Recovering from knee injury",
+                    "Requires safe gradual return"
+                ],
+                "not_realistic_if": [
+                    "Acute phase of injury"
+                ]
+            },
+            "fr": {
+                "name": "Deload Genou & Core",
+                "description": "Travail jambes faible impact et gainage pour reprendre après blessure au genou.",
+                "realistic_if": [
+                    "Reprise après blessure genou",
+                    "Retour progressif sécurisé"
+                ],
+                "not_realistic_if": [
+                    "Phase aiguë de blessure"
+                ]
+            },
+            "es": {
+                "name": "Deload Rodilla & Core",
+                "description": "Trabajo de piernas bajo impacto y core para volver tras lesión de rodilla.",
+                "realistic_if": [
+                    "Recuperación de lesión rodilla",
+                    "Retorno gradual seguro"
+                ],
+                "not_realistic_if": [
+                    "Fase aguda de lesión"
+                ]
+            }
+        },
+        "focus": "climbing_performance",
+        "level": "beginner",
+        "is_public": true,
+        "focus_axes": [
+            "core_tension",
+            "mobility",
+            "stability"
+        ],
+        "cycle_rhythm": {
+            "total_sessions": 6,
+            "climbing": 1,
+            "strength": 3,
+            "off_or_active": 2
+        },
+        "content": {
+            "version": 1,
+            "sessions": [
+                {
+                    "session": 1,
+                    "focus": "general_fitness",
+                    "sequences": [
+                        [
+                            {
+                                "exercise": "plank",
+                                "value": 30,
+                                "practice_zone": "everywhere"
+                            },
+                            {
+                                "exercise": "glute_bridge",
+                                "value": 12,
+                                "practice_zone": "everywhere"
+                            }
+                        ],
+                        [
+                            {
+                                "exercise": "mobility",
+                                "value": 15,
+                                "practice_zone": "everywhere"
+                            },
+                            {
+                                "exercise": "squat",
+                                "value": 8,
+                                "practice_zone": "everywhere"
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "session": 2,
+                    "focus": "climbing_performance",
+                    "sequences": [
+                        [
+                            {
+                                "exercise": "easy_traverse",
+                                "value": 8,
+                                "practice_zone": "climbing_gym"
+                            }
+                        ]
+                    ]
+                }
+            ],
+            "repeat": {
+                "cycles": 2
+            }
+        }
+    },
+    {
+        "translations": {
+            "en": {
+                "name": "Elbow & Shoulder Safe Return",
+                "description": "Gentle upper-body activation, mobility, and antagonist work to safely return from elbow tendinopathy.",
+                "realistic_if": [
+                    "Recovering from elbow tendinitis",
+                    "Needs progressive return"
+                ],
+                "not_realistic_if": [
+                    "Acute pain persists"
+                ]
+            },
+            "fr": {
+                "name": "Reprise Coude & Épaule Sécurisée",
+                "description": "Activation douce du haut du corps, mobilité et travail antagoniste pour reprise après tendinite coude.",
+                "realistic_if": [
+                    "Reprise après tendinite coude",
+                    "Retour progressif"
+                ],
+                "not_realistic_if": [
+                    "Douleur aiguë persistante"
+                ]
+            },
+            "es": {
+                "name": "Retorno Codo & Hombro Seguro",
+                "description": "Activación suave del tren superior, movilidad y antagonistas para volver tras tendinitis codo.",
+                "realistic_if": [
+                    "Recuperación tendinitis codo",
+                    "Retorno progresivo"
+                ],
+                "not_realistic_if": [
+                    "Dolor agudo persistente"
+                ]
+            }
+        },
+        "focus": "climbing_performance",
+        "level": "beginner",
+        "is_public": true,
+        "focus_axes": [
+            "antagonist_training",
+            "mobility",
+            "core_tension"
+        ],
+        "cycle_rhythm": {
+            "total_sessions": 7,
+            "climbing": 1,
+            "strength": 3,
+            "off_or_active": 3
+        },
+        "content": {
+            "version": 1,
+            "sessions": [
+                {
+                    "session": 1,
+                    "focus": "general_fitness",
+                    "sequences": [
+                        [
+                            {
+                                "exercise": "push_up",
+                                "value": 6,
+                                "practice_zone": "everywhere"
+                            },
+                            {
+                                "exercise": "plank",
+                                "value": 20,
+                                "practice_zone": "everywhere"
+                            }
+                        ],
+                        [
+                            {
+                                "exercise": "mobility",
+                                "value": 15,
+                                "practice_zone": "everywhere"
+                            },
+                            {
+                                "exercise": "glute_bridge",
+                                "value": 10,
+                                "practice_zone": "everywhere"
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "session": 2,
+                    "focus": "climbing_performance",
+                    "sequences": [
+                        [
+                            {
+                                "exercise": "easy_traverse",
+                                "value": 8,
+                                "practice_zone": "climbing_gym"
+                            }
+                        ]
+                    ]
+                }
+            ],
+            "repeat": {
+                "cycles": 2
+            }
+        }
+    },
+    {
+        "translations": {
+            "en": {
+                "name": "Full Lower & Upper Recovery",
+                "description": "Comprehensive low-impact program for recovering from knee and elbow injuries with light climbing and fitness.",
+                "realistic_if": [
+                    "Recovering from common climbing injuries",
+                    "Needs gradual return to full climbing"
+                ],
+                "not_realistic_if": [
+                    "Acute phase of injury"
+                ]
+            },
+            "fr": {
+                "name": "Récupération Globale Bas & Haut",
+                "description": "Programme complet faible impact pour récupérer après blessures genou et coude avec escalade et fitness légers.",
+                "realistic_if": [
+                    "Reprise après blessures courantes",
+                    "Retour progressif à l’escalade complète"
+                ],
+                "not_realistic_if": [
+                    "Phase aiguë de blessure"
+                ]
+            },
+            "es": {
+                "name": "Recuperación Completa Superior & Inferior",
+                "description": "Programa completo de bajo impacto para recuperarse de lesiones de rodilla y codo con escalada y fitness ligeros.",
+                "realistic_if": [
+                    "Recuperación lesiones comunes escalada",
+                    "Retorno gradual a escalada completa"
+                ],
+                "not_realistic_if": [
+                    "Fase aguda de lesión"
+                ]
+            }
+        },
+        "focus": "climbing_performance",
+        "level": "beginner",
+        "is_public": true,
+        "focus_axes": [
+            "mobility",
+            "core_tension",
+            "stability",
+            "antagonist_training"
+        ],
+        "cycle_rhythm": {
+            "total_sessions": 8,
+            "climbing": 2,
+            "strength": 3,
+            "off_or_active": 3
+        },
+        "content": {
+            "version": 1,
+            "sessions": [
+                {
+                    "session": 1,
+                    "focus": "general_fitness",
+                    "sequences": [
+                        [
+                            {
+                                "exercise": "plank",
+                                "value": 25,
+                                "practice_zone": "everywhere"
+                            },
+                            {
+                                "exercise": "glute_bridge",
+                                "value": 12,
+                                "practice_zone": "everywhere"
+                            }
+                        ],
+                        [
+                            {
+                                "exercise": "push_up",
+                                "value": 6,
+                                "practice_zone": "everywhere"
+                            },
+                            {
+                                "exercise": "mobility",
+                                "value": 15,
+                                "practice_zone": "everywhere"
+                            }
+                        ]
+                    ]
+                },
+                {
+                    "session": 2,
+                    "focus": "climbing_performance",
+                    "sequences": [
+                        [
+                            {
+                                "exercise": "easy_traverse",
+                                "value": 10,
+                                "practice_zone": "climbing_gym"
+                            },
+                            {
+                                "exercise": "basic_boulder",
+                                "value": 5,
+                                "practice_zone": "climbing_gym"
+                            }
+                        ]
+                    ]
+                }
+            ],
+            "repeat": {
+                "cycles": 2
+            }
+        }
+    }
+]

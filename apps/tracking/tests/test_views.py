@@ -39,7 +39,11 @@ class TrackingAPITests(APITestCase):
 
         # UserPrograms
         self.up1 = UserProgramFactory(user=self.user1)
-        self.up1_s1 = UserProgramSessionFactory(user_program=self.up1)
+        self.up1_s1 = UserProgramSessionFactory(
+            user_program=self.up1,
+            session_in_cycle=1,  # differ from payload that send 2
+            cycle_count=1,
+        )
         self.up1_fb = UserProgramFeedbackFactory(user_program=self.up1)
 
         self.up2 = UserProgramFactory(user=self.user2)
@@ -50,7 +54,7 @@ class TrackingAPITests(APITestCase):
     # UserProgram
     # --------------------------------------------------
     def test_user_can_list_only_own_user_programs(self):
-        url = reverse("user-program-list")  # router basename
+        url = reverse("user-program-list")
         res = self.client1.get(url)
 
         self.assertEqual(res.status_code, 200)
@@ -96,11 +100,12 @@ class TrackingAPITests(APITestCase):
             "cycle_count": 1,
             "session_snapshot": {"dummy": "data"},
         }
+        
         url = reverse("user-program-sessions", kwargs={"user_program_id": self.up1.id})
+        self.assertEqual(UserProgramSession.objects.filter(user_program=self.up1).count(), 1)
         res = self.client1.post(url, payload, format="json")
-
         self.assertEqual(res.status_code, 201)
-        self.assertEqual(UserProgramSession.objects.count(), 2)
+        self.assertEqual(UserProgramSession.objects.filter(user_program=self.up1).count(), 2)
 
     # --------------------------------------------------
     # Feedback

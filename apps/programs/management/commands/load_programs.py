@@ -23,8 +23,9 @@ class Command(BaseCommand):
             if not en_name:
                 raise ValueError(f"ITEM #{idx} has no EN name (required for slug)")
 
-            slug = slugify(en_name)
+            slug = slugify(en_name).replace("-", "_")
 
+            # TODO:    "cycle_rhythm" which is in json fixture should not exits in json fixture but might be computed in database on save.
             program = Program.objects.create(
                 slug=slug,
                 focus=item.get("focus"),

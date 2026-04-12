@@ -36,10 +36,6 @@ class ProgramFactory(factory.django.DjangoModelFactory):
     focus = factory.Iterator([Focus.GENERAL_FITNESS, Focus.CLIMBING_PERFORMANCE])
     level = factory.Iterator([Level.BEGINNER, Level.INTERMEDIATE, Level.ADVANCED])
     is_public = True
-    name = factory.LazyFunction(
-        lambda: f"{fake.word().capitalize()}_{uuid.uuid4().hex[:6]}"
-    )
-    slug = factory.LazyAttribute(lambda x: slugify(x.name).replace("-", "_"))
 
     @factory.lazy_attribute
     def content(self):
@@ -49,6 +45,8 @@ class ProgramFactory(factory.django.DjangoModelFactory):
             "version": 1,
             "sessions": [
                 {
+                    "session": 1,
+                    "focus": Focus.CLIMBING_PERFORMANCE,
                     "sequences": [
                         [
                             {
@@ -62,7 +60,7 @@ class ProgramFactory(factory.django.DjangoModelFactory):
                                 "practice_zone": PracticeZone.CLIMBING_GYM,
                             },
                         ]
-                    ]
+                    ],
                 }
             ],
             "repeat": {"cycles": fake.random_int(1, 3)},
@@ -72,5 +70,7 @@ class ProgramFactory(factory.django.DjangoModelFactory):
     def _create(cls, model_class, *args, **kwargs):
         obj = super()._create(model_class, *args, **kwargs)
         obj.set_current_language("en")
+        obj.name = f"{fake.word().capitalize()}_{uuid.uuid4().hex[:6]}"
+        obj.slug = slugify(obj.name).replace("-", "_")
         obj.save()
         return obj

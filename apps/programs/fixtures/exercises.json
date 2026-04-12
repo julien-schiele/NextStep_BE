@@ -262,7 +262,7 @@
                 "description": "Bloques sencillos centrados en movimientos básicos, equilibrio y confianza en el muro."
             }
         },
-        "resolution": "repetitions",
+        "resolution": "repetition",
         "image": "exercises/images/basic_boulder.png"
     },
     {
@@ -281,7 +281,7 @@
                 "description": "Bloques enfocados en la precisión de pies, colocación del cuerpo y eficiencia del movimiento."
             }
         },
-        "resolution": "repetitions",
+        "resolution": "repetition",
         "image": "exercises/images/technical_boulder.png"
     },
     {
@@ -300,7 +300,7 @@
                 "description": "Ejercicio de fuerza del tren superior que trabaja espalda, brazos y agarre, clave para la escalada."
             }
         },
-        "resolution": "repetitions",
+        "resolution": "repetition",
         "image": "exercises/images/pull_up.png"
     },
     {
@@ -319,7 +319,7 @@
                 "description": "Trabajo repetido en un bloque exigente para mejorar la lectura, la confianza y el rendimiento máximo."
             }
         },
-        "resolution": "attempts",
+        "resolution": "repetition",
         "image": "exercises/images/project_boulder.png"
     },
     {

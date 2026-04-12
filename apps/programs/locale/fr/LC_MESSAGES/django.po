@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROGRAMS 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-30 19:31+0000\n"
+"POT-Creation-Date: 2026-03-10 23:39+0000\n"
 "PO-Revision-Date: 2026-01-30 19:31+0000\n"
 "Last-Translator: Your Name <you@example.com>\n"
 "Language-Team: French <fr@li.org>\n"
@@ -24,7 +24,7 @@ msgstr "Répétition"
 
 #: apps/programs/choices.py:7
 msgid "Duration"
-msgstr "Durée"
+msgstr "Secondes"
 
 #: apps/programs/choices.py:11
 msgid "Everywhere"
@@ -162,14 +162,54 @@ msgstr "Décharge / récupération"
 msgid "Movement efficiency"
 msgstr "Efficacité du mouvement"
 
-#: apps/programs/models.py:17
+#: apps/programs/models.py:18
 msgid "Does this exercise count by repetitions or seconds?"
 msgstr "Cet exercice se compte-t-il en répétitions ou en secondes ?"
 
-#: apps/programs/models.py:29 apps/programs/models.py:86
+#: apps/programs/models.py:30 apps/programs/models.py:85
 msgid "Name"
 msgstr "Nom"
 
-#: apps/programs/models.py:30 apps/programs/models.py:87
+#: apps/programs/models.py:31 apps/programs/models.py:86
 msgid "Description"
 msgstr "Description"
+
+#: apps/programs/services/program_validator.py:83
+#, python-format
+msgid "Session '%(i)s': climbing_gym series must be grouped together."
+msgstr "Session '%(i)s' : les séries climbing_gym doivent être regroupées."
+
+#: apps/programs/services/program_validator.py:106
+#, python-format
+msgid "Unknown exercise slugs in program content: '%(missing)s'"
+msgstr ""
+"Slugs d'exercices inconnus dans le contenu du programme : '%(missing)s'"
+
+#: apps/programs/services/program_validator.py:114
+#, fuzzy
+#| msgid "Program content must define a 'version'."
+msgid "Program content not parsed"
+msgstr "Le contenu du programme doit définir une 'version'."
+
+#: apps/programs/services/program_validator.py:129
+#, python-format
+msgid "Invalid focus_axes: '%(invalid)s'"
+msgstr "focus_axes invalide : '%(invalid)s'"
+
+#: apps/programs/signals.py:36
+#, python-format
+msgid "Cannot delete exercise '%(slug)s': used in program(s): %(used_in)s"
+msgstr ""
+"Impossible de supprimer l'exercice '%(slug)s' : utilisé dans le(s) "
+"programme(s) : %(used_in)s"
+
+#~ msgid "Program content must contain a non-empty list of sessions."
+#~ msgstr ""
+#~ "Le contenu du programme doit contenir une liste de sessions non vide."
+
+#~ msgid "Each exercise item must define an 'exercise' slug."
+#~ msgstr "Chaque exercice doit définir un slug 'exercise'."
+
+#, python-format
+#~ msgid "Exercise '%(slug)s'must define a numeric 'value'."
+#~ msgstr "L'exercice '%(slug)s' doit définir une 'value' numérique."

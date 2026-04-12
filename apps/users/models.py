@@ -1,6 +1,14 @@
+from apps.users.choices import ActionChoices
 from apps.utils.models import AbstractBaseUUID, AbstractTimeStamped
-from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager
+from django.contrib.auth.models import (
+    AbstractBaseUser,
+    PermissionsMixin,
+    BaseUserManager,
+)
 from django.db import models
+import uuid
+from django.utils import timezone
+
 
 class UserManager(BaseUserManager):
     def create_user(self, email, password=None, **extra_fields):
@@ -21,6 +29,7 @@ class UserManager(BaseUserManager):
             raise ValueError("Superuser doit avoir is_superuser=True")
         return self.create_user(email, password, **extra_fields)
 
+
 class User(AbstractBaseUUID, AbstractTimeStamped, AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(unique=True)
     first_name = models.CharField(max_length=50, blank=True)
@@ -28,6 +37,8 @@ class User(AbstractBaseUUID, AbstractTimeStamped, AbstractBaseUser, PermissionsM
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
     date_joined = models.DateTimeField(auto_now_add=True)
+    gdpr_consent = models.BooleanField(default=False)
+    gdpr_consent_date = models.DateTimeField(null=True, blank=True)
 
     objects = UserManager()
 
@@ -36,3 +47,34 @@ class User(AbstractBaseUUID, AbstractTimeStamped, AbstractBaseUser, PermissionsM
 
     def __str__(self):
         return self.email
+
+
+class UserActionToken(AbstractBaseUUID, AbstractTimeStamped, models.Model):
+    user = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        related_name="action_tokens",
+    )
+    token = models.UUIDField(
+        default=uuid.uuid4,
+        editable=False,
+        unique=True,
+    )
+    expires_at = models.DateTimeField()
+    action = models.CharField(
+        max_length=32,
+        choices=ActionChoices.choices,
+        default=ActionChoices.RESET_PASSWORD,
+    )
+
+    class Meta:
+        indexes = [
+            models.Index(fields=["token"]),
+            models.Index(fields=["user", "action"]),
+        ]
+
+    def is_expired(self):
+        return timezone.now() >= self.expires_at
+
+    def __str__(self):
+        return f"{self.user} - {self.action}"

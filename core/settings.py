@@ -21,13 +21,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-50d$42+k_!c2euv$wk3nzj*f6%5eu(_q)o86)7i@%(vr&z#92r"
+DEBUG = os.environ.get('DJANGO_DEBUG', 'False') == 'True'
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
+ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS', '').split(',')
+POSTGRES_USER = os.environ.get('POSTGRES_USER')
+POSTGRES_PASSWORD = os.environ.get('POSTGRES_PASSWORD')
+DB_HOST = os.environ.get('DB_HOST', 'database')
+DB_PORT = os.environ.get('DB_PORT', '5432')
+POSTGRES_DB = os.environ.get('POSTGRES_DB')
+DATABASE_URL = f"postgresql://{POSTGRES_USER}:{POSTGRES_PASSWORD}@{DB_HOST}:{DB_PORT}/{POSTGRES_DB}"
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = ["localhost", "0.0.0.0"]
 
 
 # Application definition
@@ -40,16 +43,20 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "rest_framework",
-    "drf_yasg",
+    "drf_spectacular",
     "parler",
     "django_filters",
+    "corsheaders",
     "apps.users",
     "apps.programs.apps.ProgramsConfig",  # ot laod app AND signals
     "apps.tracking",
+    "apps.utils",
 ]
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "apps.utils.middleware.AcceptLanguageHeaderMiddleware",
     "django.middleware.locale.LocaleMiddleware",  # for fallback (optional)
@@ -62,14 +69,15 @@ MIDDLEWARE = [
 
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (
-        "rest_framework_simplejwt.authentication.JWTAuthentication",
+        "apps.utils.authentication.JWTAuthenticationExcludeOptions",
     ),
     "DEFAULT_PERMISSION_CLASSES": (
-        "rest_framework.permissions.IsAuthenticated",
+        "apps.utils.permissions.IsAuthenticatedExcludeOptions",
     ),
     "DEFAULT_FILTER_BACKENDS": [
         "django_filters.rest_framework.DjangoFilterBackend",
     ],
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
 }
 
 ROOT_URLCONF = "core.urls"
@@ -98,9 +106,9 @@ WSGI_APPLICATION = "core.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": os.getenv("DB_ENGINE"),
-        "NAME": os.getenv("DB_NAME"),
-        "USER": os.getenv("DB_USER"),
-        "PASSWORD": os.getenv("DB_PASSWORD"),
+        "NAME": os.getenv("POSTGRES_DB"),
+        "USER": os.getenv("POSTGRES_USER"),
+        "PASSWORD": os.getenv("POSTGRES_PASSWORD"),
         "HOST": os.getenv("DB_HOST"),
         "PORT": os.getenv("DB_PORT"),
     }
@@ -143,6 +151,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = "static/"
+# STATIC_URL = "/static/"
+STATIC_ROOT = BASE_DIR / "staticfiles"
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
@@ -181,7 +192,79 @@ PARLER_LANGUAGES = {
 
 
 SIMPLE_JWT = {
-    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=60),     # token valid for 1h
-    "REFRESH_TOKEN_LIFETIME": timedelta(days=7),        # refresh token valid for 7 days
+    "UPDATE_LAST_LOGIN": True,
+    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=10),
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=2),
     "ROTATE_REFRESH_TOKENS": True,                      # if True, refresh token is updated after use
+    "AUTH_COOKIE_SECURE": not DEBUG,                     # have to be true in prod (HTTPS)
+    "AUTH_COOKIE_SAMESITE": "Lax" if DEBUG else "None",
+}
+
+SPECTACULAR_SETTINGS = {
+    "ENUM_NAME_OVERRIDES": {
+        "ResolutionEnum": "apps.programs.choices.Resolution",
+        "PracticeZoneEnum": "apps.programs.choices.PracticeZone",
+        "FocusEnum": "apps.programs.choices.Focus",
+        "LevelEnum": "apps.programs.choices.Level",
+        "FocusAxisEnum": "apps.programs.choices.FocusAxis",
+        "StatusEnum": "apps.tracking.choices.Status",
+        "RatingEnum": "apps.tracking.choices.Rating",
+        "UsefulnessEnum": "apps.tracking.choices.Usefunlness",
+        "ActionChoicesEnum": "apps.users.choices.ActionChoices",
+    },
+    "ENUM_GENERATE_CHOICE_DESCRIPTION": True,
+}
+
+CORS_ALLOWED_ORIGINS = os.environ.get('CORS_ALLOWED_ORIGINS', '').split(',')
+CSRF_TRUSTED_ORIGINS = os.environ.get('CSRF_TRUSTED_ORIGINS', '').split(',')
+
+if not DEBUG:
+    USE_X_FORWARDED_HOST = True
+    SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+
+CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_METHODS = [
+    "DELETE",
+    "GET",
+    "OPTIONS",
+    "PATCH",
+    "POST",
+    "PUT",
+]
+
+# Allow les preflight without authentication
+CORS_URLS_REGEX = r"^/api/.*$"
+
+EMAIL_HOST=os.getenv("EMAIL_HOST")
+EMAIL_PORT=os.getenv("EMAIL_PORT")
+if not DEBUG:
+    EMAIL_USE_TLS = os.getenv("EMAIL_USE_TLS", 'False') == 'True'
+    EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")
+    EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
+    DEFAULT_FROM_EMAIL = os.getenv("DEFAULT_FROM_EMAIL")
+
+ADMIN_EMAIL=os.getenv("ADMIN_EMAIL")
+
+FE_HOST_URL=os.getenv("FE_HOST_URL")
+BE_HOST_URL=os.getenv("BE_HOST_URL")
+
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
+        },
+    },
+    "root": {
+        "handlers": ["console"],
+        "level": "ERROR",
+    },
+    "loggers": {
+        "django": {
+            "handlers": ["console"],
+            "level": "ERROR",
+            "propagate": False,
+        },
+    },
 }

@@ -4,12 +4,15 @@ from apps.tracking.views import (
     UserProgramViewSet,
     UserProgramSessionViewSet,
     UserProgramFeedbackViewSet,
+    UserStatsView,
 )
 
 router = DefaultRouter()
 router.register(r"user-programs", UserProgramViewSet, basename="user-program")
 
 urlpatterns = [
+    # Stats
+    path("user-stats/", UserStatsView.as_view(), name="user-stats"),
     # Sessions
     path(
         "user-programs/<uuid:user_program_id>/sessions/",
