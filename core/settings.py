@@ -192,6 +192,7 @@ PARLER_LANGUAGES = {
 
 
 SIMPLE_JWT = {
+    "UPDATE_LAST_LOGIN": True,
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=10),
     "REFRESH_TOKEN_LIFETIME": timedelta(days=2),
     "ROTATE_REFRESH_TOKENS": True,                      # if True, refresh token is updated after use
